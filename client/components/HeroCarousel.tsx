@@ -203,17 +203,17 @@ export default function HeroCarousel() {
                   </div>
                   <span className="text-sm text-white/80">per person</span>
                 </div>
-                <div className="flex gap-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                <div className="flex gap-4 opacity-70 group-hover:opacity-100 transition-opacity duration-500">
                   <Button
                     size="lg"
-                    className="bg-travel-blue hover:bg-travel-blue/90 text-white px-8 py-3 text-lg font-semibold transform hover:scale-105 transition-all duration-300"
+                    className="bg-travel-blue/80 hover:bg-travel-blue text-white px-8 py-3 text-lg font-semibold transform hover:scale-105 transition-all duration-300 shadow-lg"
                   >
                     Book Now
                   </Button>
                   <Button
                     size="lg"
                     variant="outline"
-                    className="border-white text-white hover:bg-white hover:text-travel-navy px-8 py-3 text-lg font-semibold transform hover:scale-105 transition-all duration-300"
+                    className="border-white/80 bg-white/10 backdrop-blur-sm text-white hover:bg-white hover:text-travel-navy px-8 py-3 text-lg font-semibold transform hover:scale-105 transition-all duration-300 shadow-lg"
                   >
                     View Details
                   </Button>
