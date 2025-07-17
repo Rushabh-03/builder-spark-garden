@@ -113,7 +113,7 @@ export default function Navigation() {
                 className={`border-2 transition-all duration-200 ${
                   isScrolled
                     ? "border-travel-blue text-travel-blue hover:bg-travel-blue hover:text-white"
-                    : "border-white text-white hover:bg-white hover:text-travel-navy"
+                    : "border-white text-white bg-white/10 backdrop-blur-sm hover:bg-white hover:text-travel-navy shadow-lg"
                 }`}
               >
                 Get Quote
