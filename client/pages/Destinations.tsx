@@ -349,14 +349,14 @@ export default function Destinations() {
               <div className="flex flex-wrap gap-4">
                 <Button
                   size="lg"
-                  className="bg-travel-orange hover:bg-travel-orange/90 text-white px-8 py-3"
+                  className="bg-travel-orange/90 hover:bg-travel-orange text-white px-8 py-3 shadow-lg"
                 >
                   Explore All Tours
                 </Button>
                 <Button
                   size="lg"
                   variant="outline"
-                  className="border-white text-white hover:bg-white hover:text-travel-navy px-8 py-3"
+                  className="border-white/80 bg-white/10 backdrop-blur-sm text-white hover:bg-white hover:text-travel-navy px-8 py-3 shadow-lg"
                 >
                   Plan My Trip
                 </Button>
