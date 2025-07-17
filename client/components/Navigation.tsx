@@ -107,11 +107,25 @@ export default function Navigation() {
                 <Link
                   key={item.name}
                   to={item.href}
-                  className={`font-medium transition-colors duration-200 hover:text-travel-orange ${
+                  onClick={handleNavClick}
+                  className={`font-medium transition-colors duration-200 hover:text-travel-orange relative ${
                     isScrolled ? "text-travel-navy" : "text-white"
+                  } ${
+                    isActivePage(item.href)
+                      ? isScrolled
+                        ? "text-travel-blue font-semibold"
+                        : "text-travel-orange font-semibold"
+                      : ""
                   }`}
                 >
                   {item.name}
+                  {isActivePage(item.href) && (
+                    <div
+                      className={`absolute -bottom-1 left-0 right-0 h-0.5 ${
+                        isScrolled ? "bg-travel-blue" : "bg-travel-orange"
+                      }`}
+                    />
+                  )}
                 </Link>
               ))}
             </div>
