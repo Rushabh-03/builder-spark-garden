@@ -119,7 +119,7 @@ export default function HeroCarousel() {
   const currentPackage = tourPackages[currentSlide];
 
   return (
-    <div className="relative h-screen overflow-hidden">
+    <div className="relative h-screen overflow-hidden group">
       {/* Background Images */}
       <div className="absolute inset-0">
         {tourPackages.map((pkg, index) => (
