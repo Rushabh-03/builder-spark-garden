@@ -203,7 +203,7 @@ export default function HeroCarousel() {
                   </div>
                   <span className="text-sm text-white/80">per person</span>
                 </div>
-                <div className="flex gap-4">
+                <div className="flex gap-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
                   <Button
                     size="lg"
                     className="bg-travel-blue hover:bg-travel-blue/90 text-white px-8 py-3 text-lg font-semibold transform hover:scale-105 transition-all duration-300"
