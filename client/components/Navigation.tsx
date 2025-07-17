@@ -177,10 +177,17 @@ export default function Navigation() {
                 <Link
                   key={item.name}
                   to={item.href}
-                  className="text-travel-navy font-medium py-2 hover:text-travel-orange transition-colors"
-                  onClick={() => setIsMobileMenuOpen(false)}
+                  className={`font-medium py-2 hover:text-travel-orange transition-colors relative ${
+                    isActivePage(item.href)
+                      ? "text-travel-blue font-semibold"
+                      : "text-travel-navy"
+                  }`}
+                  onClick={handleNavClick}
                 >
                   {item.name}
+                  {isActivePage(item.href) && (
+                    <div className="absolute left-0 top-0 bottom-0 w-1 bg-travel-blue rounded-r" />
+                  )}
                 </Link>
               ))}
               <div className="flex flex-col gap-3 pt-4 border-t">
