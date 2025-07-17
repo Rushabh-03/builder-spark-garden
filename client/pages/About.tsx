@@ -54,7 +54,7 @@ const teamMembers: TeamMember[] = [
     role: "Head of Operations",
     experience: "12+ Years",
     image:
-      "https://images.unsplash.com/photo-1494790108755-2616b612b19c?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80",
+      "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80",
     description:
       "Expert in logistics and operations, Priya ensures every journey runs smoothly from planning to execution.",
     specialities: [
