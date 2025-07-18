@@ -333,7 +333,7 @@ export default function Tours() {
               {filteredTours.map((tour) => (
                 <div
                   key={tour.id}
-                  className="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden"
+                  className="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden flex flex-col"
                 >
                   {/* Image Container */}
                   <div
