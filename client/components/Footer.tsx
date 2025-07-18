@@ -92,7 +92,7 @@ export default function Footer() {
             <div className="flex flex-col gap-3 mb-6">
               <Button
                 onClick={handleWhatsAppClick}
-                className="bg-green-600 hover:bg-green-700 text-white flex items-center gap-2 justify-center"
+                className="bg-travel-blue hover:bg-travel-blue/90 text-white flex items-center gap-2 justify-center"
               >
                 <MessageCircle size={18} />
                 Start Planning
