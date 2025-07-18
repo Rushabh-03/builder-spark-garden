@@ -213,7 +213,7 @@ export default function Visas() {
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
               <div className="text-center p-6 bg-white rounded-lg shadow-lg">
-                <div className="w-16 h-16 bg-gradient-to-r from-travel-blue to-travel-green rounded-full flex items-center justify-center mx-auto mb-4">
+                <div className="w-16 h-16 bg-travel-blue rounded-full flex items-center justify-center mx-auto mb-4">
                   <CheckCircle className="w-8 h-8 text-white" />
                 </div>
                 <h3 className="text-xl font-bold text-travel-navy mb-2">
@@ -225,7 +225,7 @@ export default function Visas() {
               </div>
 
               <div className="text-center p-6 bg-white rounded-lg shadow-lg">
-                <div className="w-16 h-16 bg-gradient-to-r from-travel-blue to-travel-green rounded-full flex items-center justify-center mx-auto mb-4">
+                <div className="w-16 h-16 bg-travel-blue rounded-full flex items-center justify-center mx-auto mb-4">
                   <Clock className="w-8 h-8 text-white" />
                 </div>
                 <h3 className="text-xl font-bold text-travel-navy mb-2">
@@ -237,7 +237,7 @@ export default function Visas() {
               </div>
 
               <div className="text-center p-6 bg-white rounded-lg shadow-lg">
-                <div className="w-16 h-16 bg-gradient-to-r from-travel-blue to-travel-green rounded-full flex items-center justify-center mx-auto mb-4">
+                <div className="w-16 h-16 bg-travel-blue rounded-full flex items-center justify-center mx-auto mb-4">
                   <Users className="w-8 h-8 text-white" />
                 </div>
                 <h3 className="text-xl font-bold text-travel-navy mb-2">
