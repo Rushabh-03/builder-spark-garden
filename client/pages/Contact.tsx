@@ -44,22 +44,30 @@ const contactInfo: ContactInfo[] = [
   {
     icon: <Phone className="w-6 h-6" />,
     title: "Phone Numbers",
-    details: ["+91 98765 43210", "+91 98765 43211"],
+    details: [
+      "+91 98258 91999 (Mr. Alpesh Patel)",
+      "+91 99985 45994 (Mr. Rinkesh Patel)",
+    ],
     highlight: "24/7 Emergency Support",
   },
   {
     icon: <Mail className="w-6 h-6" />,
     title: "Email Addresses",
-    details: ["info@rinkutravels.com", "support@rinkutravels.com"],
+    details: [
+      "rinkutravels2005@gmail.com",
+      "visa.rinkutravels2005@gmail.com",
+      "packages.rinkutravels2005@gmail.com",
+    ],
     highlight: "Response within 2 hours",
   },
   {
     icon: <MapPin className="w-6 h-6" />,
     title: "Head Office",
     details: [
-      "123 Travel Street",
-      "Connaught Place",
-      "New Delhi - 110001, India",
+      "B-102, Nirman complex",
+      "Opp.Hocco Eatery Nr.Stadium Cross Roads",
+      "Navrangpura, Ahmedabad - 380009",
+      "Gujarat, India",
     ],
   },
   {
@@ -75,10 +83,11 @@ const contactInfo: ContactInfo[] = [
 
 const offices: Office[] = [
   {
-    name: "Delhi Head Office",
-    address: "123 Travel Street, Connaught Place, New Delhi - 110001",
-    phone: "+91 98765 43210",
-    email: "delhi@rinkutravels.com",
+    name: "Ahmedabad Head Office",
+    address:
+      "B-102, Nirman complex, Opp.Hocco Eatery Nr.Stadium Cross Roads, Navrangpura, Ahmedabad - 380009, Gujarat, India",
+    phone: "+91 98258 91999",
+    email: "rinkutravels2005@gmail.com",
     hours: "Mon-Sat: 9AM-8PM, Sun: 10AM-6PM",
     image:
       "https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
