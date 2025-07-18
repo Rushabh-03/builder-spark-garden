@@ -1,0 +1,330 @@
+import { useEffect, useRef, useState } from "react";
+import { Button } from "./ui/button";
+import {
+  MapPin,
+  Calendar,
+  Users,
+  Star,
+  Clock,
+  Camera,
+  ArrowRight,
+} from "lucide-react";
+
+interface Tour {
+  id: number;
+  title: string;
+  location: string;
+  duration: string;
+  groupSize: string;
+  rating: number;
+  reviews: number;
+  price: string;
+  originalPrice?: string;
+  image: string;
+  highlights: string[];
+  difficulty: "Easy" | "Moderate" | "Challenging";
+  category: string;
+}
+
+const featuredTours: Tour[] = [
+  {
+    id: 1,
+    title: "Himalayan Base Camp Trek",
+    location: "Nepal & India",
+    duration: "14 Days",
+    groupSize: "8-12 people",
+    rating: 4.9,
+    reviews: 342,
+    price: "₹65,999",
+    originalPrice: "₹75,999",
+    difficulty: "Challenging",
+    category: "Adventure",
+    image:
+      "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    highlights: ["Everest Base Camp", "Sherpa Culture", "Mountain Views"],
+  },
+  {
+    id: 2,
+    title: "Kerala Backwater Paradise",
+    location: "Kerala, India",
+    duration: "6 Days",
+    groupSize: "4-8 people",
+    rating: 4.8,
+    reviews: 256,
+    price: "₹32,999",
+    difficulty: "Easy",
+    category: "Nature",
+    image:
+      "https://images.unsplash.com/photo-1582510003544-4d00b7f74220?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    highlights: ["Houseboat Stay", "Spice Gardens", "Ayurveda Spa"],
+  },
+  {
+    id: 3,
+    title: "Royal Rajasthan Heritage",
+    location: "Rajasthan, India",
+    duration: "8 Days",
+    groupSize: "10-15 people",
+    rating: 4.7,
+    reviews: 189,
+    price: "₹45,999",
+    originalPrice: "₹52,999",
+    difficulty: "Moderate",
+    category: "Culture",
+    image:
+      "https://images.unsplash.com/photo-1570168007204-dfb528c6958f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    highlights: ["Palace Hotels", "Camel Safari", "Folk Performances"],
+  },
+  {
+    id: 4,
+    title: "Goa Beach & Nightlife",
+    location: "Goa, India",
+    duration: "5 Days",
+    groupSize: "6-10 people",
+    rating: 4.6,
+    reviews: 428,
+    price: "₹25,999",
+    difficulty: "Easy",
+    category: "Beach",
+    image:
+      "https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    highlights: ["Beach Clubs", "Water Sports", "Portuguese Heritage"],
+  },
+  {
+    id: 5,
+    title: "Ladakh Adventure Circuit",
+    location: "Ladakh, India",
+    duration: "10 Days",
+    groupSize: "6-12 people",
+    rating: 4.9,
+    reviews: 167,
+    price: "₹58,999",
+    difficulty: "Challenging",
+    category: "Adventure",
+    image:
+      "https://images.unsplash.com/photo-1605711285791-0219e80e43a3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    highlights: ["Magnetic Hill", "Pangong Lake", "Buddhist Monasteries"],
+  },
+  {
+    id: 6,
+    title: "Golden Triangle Classic",
+    location: "Delhi, Agra, Jaipur",
+    duration: "7 Days",
+    groupSize: "8-15 people",
+    rating: 4.5,
+    reviews: 634,
+    price: "₹35,999",
+    originalPrice: "₹42,999",
+    difficulty: "Easy",
+    category: "Heritage",
+    image:
+      "https://images.unsplash.com/photo-1564507592333-c60657eea523?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    highlights: ["Taj Mahal", "Red Fort", "Amber Palace"],
+  },
+];
+
+export default function FeaturedTours() {
+  const [visibleCards, setVisibleCards] = useState<number[]>([]);
+  const sectionRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const index = parseInt(
+              entry.target.getAttribute("data-index") || "0",
+            );
+            setVisibleCards((prev) => {
+              if (!prev.includes(index)) {
+                return [...prev, index].sort((a, b) => a - b);
+              }
+              return prev;
+            });
+          }
+        });
+      },
+      { threshold: 0.2 },
+    );
+
+    const cardElements = sectionRef.current?.querySelectorAll(".tour-card");
+    cardElements?.forEach((el) => observer.observe(el));
+
+    return () => observer.disconnect();
+  }, []);
+
+  const getDifficultyColor = (difficulty: string) => {
+    switch (difficulty) {
+      case "Easy":
+        return "bg-green-500";
+      case "Moderate":
+        return "bg-yellow-500";
+      case "Challenging":
+        return "bg-red-500";
+      default:
+        return "bg-gray-500";
+    }
+  };
+
+  return (
+    <section className="py-20 bg-white" ref={sectionRef}>
+      <div className="container mx-auto px-6">
+        {/* Section Header */}
+        <div className="text-center mb-16">
+          <h2 className="text-4xl md:text-5xl font-bold text-travel-navy mb-6">
+            Featured Tours & Packages
+          </h2>
+          <p className="text-xl text-travel-navy/70 max-w-3xl mx-auto leading-relaxed">
+            Discover our most popular destinations and experiences, carefully
+            curated for unforgettable adventures.
+          </p>
+        </div>
+
+        {/* Tours Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+          {featuredTours.map((tour, index) => (
+            <div
+              key={tour.id}
+              data-index={index}
+              className={`tour-card group relative bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden transform ${
+                visibleCards.includes(index)
+                  ? "opacity-100 translate-y-0"
+                  : "opacity-0 translate-y-8"
+              }`}
+              style={{
+                transitionDelay: visibleCards.includes(index)
+                  ? `${index * 150}ms`
+                  : "0ms",
+              }}
+            >
+              {/* Image Container */}
+              <div className="relative h-64 overflow-hidden">
+                <img
+                  src={tour.image}
+                  alt={tour.title}
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+
+                {/* Category Badge */}
+                <div className="absolute top-4 left-4 px-3 py-1 bg-travel-orange text-white rounded-full text-sm font-medium">
+                  {tour.category}
+                </div>
+
+                {/* Difficulty Badge */}
+                <div className="absolute top-4 right-4 flex items-center gap-2">
+                  <div
+                    className={`w-3 h-3 rounded-full ${getDifficultyColor(tour.difficulty)}`}
+                  />
+                  <span className="text-white text-sm font-medium bg-black/30 backdrop-blur-sm px-2 py-1 rounded">
+                    {tour.difficulty}
+                  </span>
+                </div>
+
+                {/* Price Tag */}
+                <div className="absolute bottom-4 right-4 text-right">
+                  <div className="text-2xl font-bold text-white">
+                    {tour.price}
+                  </div>
+                  {tour.originalPrice && (
+                    <div className="text-sm text-gray-300 line-through">
+                      {tour.originalPrice}
+                    </div>
+                  )}
+                </div>
+
+                {/* Photo Count */}
+                <div className="absolute bottom-4 left-4 flex items-center gap-1 text-white text-sm bg-black/30 backdrop-blur-sm px-2 py-1 rounded">
+                  <Camera className="w-4 h-4" />
+                  <span>{Math.floor(Math.random() * 50) + 20}+</span>
+                </div>
+              </div>
+
+              {/* Content */}
+              <div className="p-6">
+                {/* Title and Location */}
+                <h3 className="text-xl font-bold text-travel-navy mb-2 group-hover:text-travel-blue transition-colors">
+                  {tour.title}
+                </h3>
+                <div className="flex items-center text-travel-navy/70 mb-4">
+                  <MapPin className="w-4 h-4 mr-1" />
+                  <span className="text-sm">{tour.location}</span>
+                </div>
+
+                {/* Tour Details */}
+                <div className="grid grid-cols-2 gap-4 mb-4 text-sm">
+                  <div className="flex items-center text-travel-navy/70">
+                    <Calendar className="w-4 h-4 mr-2 text-travel-orange" />
+                    <span>{tour.duration}</span>
+                  </div>
+                  <div className="flex items-center text-travel-navy/70">
+                    <Users className="w-4 h-4 mr-2 text-travel-orange" />
+                    <span>{tour.groupSize}</span>
+                  </div>
+                </div>
+
+                {/* Rating */}
+                <div className="flex items-center justify-between mb-4">
+                  <div className="flex items-center gap-2">
+                    <div className="flex items-center">
+                      <Star className="w-4 h-4 text-yellow-400 fill-current" />
+                      <span className="ml-1 font-medium">{tour.rating}</span>
+                    </div>
+                    <span className="text-sm text-travel-navy/70">
+                      ({tour.reviews} reviews)
+                    </span>
+                  </div>
+                </div>
+
+                {/* Highlights */}
+                <div className="mb-6">
+                  <div className="flex flex-wrap gap-2">
+                    {tour.highlights.map((highlight, idx) => (
+                      <span
+                        key={idx}
+                        className="text-xs bg-travel-light-blue text-travel-blue px-2 py-1 rounded-full"
+                      >
+                        {highlight}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+
+                {/* CTA Buttons */}
+                <div className="flex gap-3">
+                  <Button
+                    size="sm"
+                    className="flex-1 bg-travel-blue hover:bg-travel-blue/90 text-white"
+                  >
+                    Book Now
+                  </Button>
+                  <Button
+                    size="sm"
+                    variant="outline"
+                    className="border-travel-orange text-travel-orange hover:bg-travel-orange hover:text-white"
+                  >
+                    Details
+                    <ArrowRight className="w-4 h-4 ml-1" />
+                  </Button>
+                </div>
+              </div>
+
+              {/* Hover Effect Border */}
+              <div className="absolute bottom-0 left-1/2 w-0 h-1 bg-gradient-to-r from-travel-blue to-travel-orange group-hover:w-full group-hover:left-0 transition-all duration-500" />
+            </div>
+          ))}
+        </div>
+
+        {/* View All Tours CTA */}
+        <div className="text-center">
+          <Button
+            size="lg"
+            className="bg-gradient-to-r from-travel-blue to-travel-green hover:from-travel-blue/90 hover:to-travel-green/90 text-white px-12 py-4 text-lg font-semibold transform hover:scale-105 transition-all duration-300"
+          >
+            View All Tours
+            <ArrowRight className="w-5 h-5 ml-2" />
+          </Button>
+        </div>
+      </div>
+    </section>
+  );
+}
