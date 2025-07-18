@@ -11,6 +11,7 @@ import Index from "./pages/Index";
 import Tours from "./pages/Tours";
 import TourDetail from "./pages/TourDetail";
 import Destinations from "./pages/Destinations";
+import Visas from "./pages/Visas";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
