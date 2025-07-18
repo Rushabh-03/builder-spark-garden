@@ -212,7 +212,7 @@ export default function FeaturedTours() {
               </div>
 
               {/* Hover Effect Border */}
-              <div className="absolute bottom-0 left-1/2 w-0 h-1 bg-gradient-to-r from-travel-blue to-travel-orange group-hover:w-full group-hover:left-0 transition-all duration-500" />
+              <div className="absolute bottom-0 left-1/2 w-0 h-1 bg-travel-blue group-hover:w-full group-hover:left-0 transition-all duration-500" />
             </div>
           ))}
         </div>
@@ -222,7 +222,7 @@ export default function FeaturedTours() {
           <Button
             size="lg"
             onClick={() => navigate("/tours")}
-            className="bg-gradient-to-r from-travel-blue to-travel-green hover:from-travel-blue/90 hover:to-travel-green/90 text-white px-12 py-4 text-lg font-semibold transform hover:scale-105 transition-all duration-300"
+            className="bg-travel-blue hover:bg-travel-blue/90 text-white px-12 py-4 text-lg font-semibold transform hover:scale-105 transition-all duration-300"
           >
             View All Tours
             <ArrowRight className="w-5 h-5 ml-2" />
