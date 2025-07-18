@@ -206,7 +206,10 @@ export default function FeaturedTours() {
               }}
             >
               {/* Image Container */}
-              <div className="relative h-64 overflow-hidden">
+              <div
+                className="relative h-64 overflow-hidden cursor-pointer"
+                onClick={() => navigate(`/tour/${tour.id}`)}
+              >
                 <img
                   src={tour.image}
                   alt={tour.title}
