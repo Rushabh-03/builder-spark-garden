@@ -293,7 +293,7 @@ export default function Visas() {
                   className="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden"
                 >
                   {/* Header */}
-                  <div className="relative p-6 bg-gradient-to-r from-travel-blue to-travel-green text-white">
+                  <div className="relative p-6 bg-travel-blue text-white">
                     <div className="flex items-center justify-between">
                       <div>
                         <div className="text-3xl mb-2">{visa.flag}</div>
