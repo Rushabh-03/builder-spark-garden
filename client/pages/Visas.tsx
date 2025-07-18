@@ -190,8 +190,7 @@ export default function Visas() {
                 </Button>
                 <Button
                   onClick={handleCallClick}
-                  variant="outline"
-                  className="border-white text-white hover:bg-white hover:text-travel-navy px-8 py-3 flex items-center gap-2"
+                  className="bg-white/20 backdrop-blur-sm border border-white/30 text-white hover:bg-white hover:text-travel-navy px-8 py-3 flex items-center gap-2 font-medium"
                 >
                   <Phone className="w-5 h-5" />
                   Call for Details
