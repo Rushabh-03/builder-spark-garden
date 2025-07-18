@@ -373,8 +373,8 @@ export default function Tours() {
                         onClick={() => toggleFavorite(tour.id)}
                         className={`w-8 h-8 rounded-full flex items-center justify-center transition-colors ${
                           favorites.includes(tour.id)
-                            ? "bg-red-500 text-white"
-                            : "bg-white/30 text-white hover:bg-red-500"
+                            ? "bg-travel-blue text-white"
+                            : "bg-white/30 text-white hover:bg-travel-blue"
                         }`}
                       >
                         <Heart
