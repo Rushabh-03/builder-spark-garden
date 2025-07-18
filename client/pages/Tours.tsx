@@ -160,11 +160,11 @@ export default function Tours() {
   const getAvailabilityColor = (availability: string) => {
     switch (availability) {
       case "Available":
-        return "text-green-600 bg-green-100";
+        return "text-travel-blue bg-travel-blue/10";
       case "Limited":
-        return "text-orange-600 bg-orange-100";
+        return "text-travel-blue bg-travel-blue/20";
       case "Sold Out":
-        return "text-red-600 bg-red-100";
+        return "text-travel-blue bg-travel-blue/30";
       default:
         return "text-gray-600 bg-gray-100";
     }
