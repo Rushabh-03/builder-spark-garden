@@ -573,7 +573,10 @@ export default function Destinations() {
                       </Link>
                       <Button
                         size="sm"
-                        onClick={() => navigate(`/tour/${dest.id}`)}
+                        onClick={() => {
+                          console.log("Navigating to tour:", dest.id);
+                          navigate(`/tour/${dest.id}`);
+                        }}
                         variant="outline"
                         className="border-travel-orange text-travel-orange hover:bg-travel-orange hover:text-white"
                       >
