@@ -287,7 +287,7 @@ export default function About() {
                   alt="Our Story"
                   className="rounded-2xl shadow-2xl"
                 />
-                <div className="absolute -bottom-6 -right-6 w-24 h-24 bg-travel-orange rounded-full flex items-center justify-center text-white">
+                <div className="absolute -bottom-6 -right-6 w-24 h-24 bg-travel-blue rounded-full flex items-center justify-center text-white">
                   <Plane className="w-12 h-12" />
                 </div>
               </div>
@@ -308,7 +308,7 @@ export default function About() {
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
               <div className="text-center">
-                <div className="w-20 h-20 bg-gradient-to-r from-travel-blue to-travel-green rounded-full flex items-center justify-center mx-auto mb-6">
+                <div className="w-20 h-20 bg-travel-blue rounded-full flex items-center justify-center mx-auto mb-6">
                   <Target className="w-10 h-10 text-white" />
                 </div>
                 <h3 className="text-2xl font-bold text-travel-navy mb-4">
@@ -322,7 +322,7 @@ export default function About() {
                 </p>
               </div>
               <div className="text-center">
-                <div className="w-20 h-20 bg-gradient-to-r from-travel-orange to-travel-blue rounded-full flex items-center justify-center mx-auto mb-6">
+                <div className="w-20 h-20 bg-travel-blue rounded-full flex items-center justify-center mx-auto mb-6">
                   <Eye className="w-10 h-10 text-white" />
                 </div>
                 <h3 className="text-2xl font-bold text-travel-navy mb-4">
