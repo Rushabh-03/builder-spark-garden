@@ -368,7 +368,7 @@ export default function About() {
                       : "0ms",
                   }}
                 >
-                  <div className="w-16 h-16 bg-gradient-to-r from-travel-blue to-travel-orange rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300 text-white">
+                  <div className="w-16 h-16 bg-travel-blue rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300 text-white">
                     {value.icon}
                   </div>
                   <h3 className="text-xl font-bold text-travel-navy mb-4">
@@ -515,7 +515,7 @@ export default function About() {
             </div>
             <div className="max-w-4xl mx-auto">
               <div className="bg-white rounded-2xl p-8 md:p-12 shadow-2xl text-center">
-                <div className="w-16 h-16 bg-gradient-to-r from-travel-blue to-travel-orange rounded-full flex items-center justify-center mx-auto mb-6">
+                <div className="w-16 h-16 bg-travel-blue rounded-full flex items-center justify-center mx-auto mb-6">
                   <Quote className="w-8 h-8 text-white" />
                 </div>
                 <p className="text-xl md:text-2xl text-travel-navy/80 leading-relaxed mb-8 italic">
@@ -563,7 +563,7 @@ export default function About() {
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               <div className="text-center">
-                <div className="w-20 h-20 bg-gradient-to-r from-travel-blue to-travel-green rounded-full flex items-center justify-center mx-auto mb-4">
+                <div className="w-20 h-20 bg-travel-blue rounded-full flex items-center justify-center mx-auto mb-4">
                   <Award className="w-10 h-10 text-white" />
                 </div>
                 <h3 className="text-lg font-bold text-travel-navy mb-2">
@@ -575,7 +575,7 @@ export default function About() {
                 </p>
               </div>
               <div className="text-center">
-                <div className="w-20 h-20 bg-gradient-to-r from-travel-orange to-travel-blue rounded-full flex items-center justify-center mx-auto mb-4">
+                <div className="w-20 h-20 bg-travel-blue rounded-full flex items-center justify-center mx-auto mb-4">
                   <Shield className="w-10 h-10 text-white" />
                 </div>
                 <h3 className="text-lg font-bold text-travel-navy mb-2">
@@ -586,7 +586,7 @@ export default function About() {
                 </p>
               </div>
               <div className="text-center">
-                <div className="w-20 h-20 bg-gradient-to-r from-travel-green to-travel-orange rounded-full flex items-center justify-center mx-auto mb-4">
+                <div className="w-20 h-20 bg-travel-blue rounded-full flex items-center justify-center mx-auto mb-4">
                   <Globe className="w-10 h-10 text-white" />
                 </div>
                 <h3 className="text-lg font-bold text-travel-navy mb-2">
