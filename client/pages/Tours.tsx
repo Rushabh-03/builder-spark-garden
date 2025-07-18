@@ -95,7 +95,7 @@ export default function Tours() {
     // Price filter
     if (selectedPriceRange !== "All") {
       filtered = filtered.filter((tour) => {
-        const price = parseInt(tour.price.replace(/[���,]/g, ""));
+        const price = parseInt(tour.price.replace(/[₹,]/g, ""));
         switch (selectedPriceRange) {
           case "Under ₹30k":
             return price < 30000;
@@ -147,13 +147,13 @@ export default function Tours() {
   const getDifficultyColor = (difficulty: string) => {
     switch (difficulty) {
       case "Easy":
-        return "bg-green-500";
+        return "bg-travel-blue/70";
       case "Moderate":
-        return "bg-yellow-500";
+        return "bg-travel-blue";
       case "Challenging":
-        return "bg-red-500";
+        return "bg-travel-blue/90";
       default:
-        return "bg-gray-500";
+        return "bg-travel-blue/50";
     }
   };
 
