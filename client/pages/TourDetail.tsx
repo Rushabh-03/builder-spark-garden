@@ -297,7 +297,7 @@ export default function TourDetail() {
                 <h3 className="text-xl font-bold text-travel-navy mb-4">
                   Requirements & Recommendations
                 </h3>
-                <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4">
+                <div className="bg-travel-blue/5 border border-travel-blue/20 rounded-lg p-4">
                   <div className="space-y-2">
                     {tour.requirements.map((req, index) => (
                       <div key={index} className="flex items-start gap-2">
@@ -377,10 +377,10 @@ export default function TourDetail() {
                     <div
                       className={`inline-block px-3 py-1 rounded-full text-sm font-medium mt-2 ${
                         tour.availability === "Available"
-                          ? "bg-green-100 text-green-800"
+                          ? "bg-travel-blue/10 text-travel-blue"
                           : tour.availability === "Limited"
-                            ? "bg-yellow-100 text-yellow-800"
-                            : "bg-red-100 text-red-800"
+                            ? "bg-travel-blue/20 text-travel-blue"
+                            : "bg-travel-blue/30 text-travel-blue"
                       }`}
                     >
                       {tour.availability}
