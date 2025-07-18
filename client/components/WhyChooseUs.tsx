@@ -152,7 +152,7 @@ export default function WhyChooseUs() {
               }}
             >
               {/* Background Gradient */}
-              <div className="absolute inset-0 bg-gradient-to-br from-travel-blue/5 to-travel-orange/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              <div className="absolute inset-0 bg-travel-blue/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
               {/* Icon */}
               <div className="relative z-10 w-16 h-16 bg-travel-blue rounded-xl flex items-center justify-center text-white mb-6 group-hover:scale-110 transition-transform duration-300">
@@ -167,13 +167,13 @@ export default function WhyChooseUs() {
                 <p className="text-travel-navy/70 mb-4 leading-relaxed">
                   {feature.description}
                 </p>
-                <div className="inline-block px-4 py-2 bg-gradient-to-r from-travel-orange to-travel-green text-white font-bold rounded-full text-sm">
+                <div className="inline-block px-4 py-2 bg-travel-blue text-white font-bold rounded-full text-sm">
                   {feature.stat}
                 </div>
               </div>
 
               {/* Hover Effect */}
-              <div className="absolute bottom-0 left-1/2 w-0 h-1 bg-gradient-to-r from-travel-blue to-travel-orange group-hover:w-full group-hover:left-0 transition-all duration-500 rounded-full" />
+              <div className="absolute bottom-0 left-1/2 w-0 h-1 bg-travel-blue group-hover:w-full group-hover:left-0 transition-all duration-500 rounded-full" />
             </div>
           ))}
         </div>
