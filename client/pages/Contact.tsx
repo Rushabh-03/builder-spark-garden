@@ -373,16 +373,16 @@ Can you help me plan this trip?`;
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
                   {contactInfo.map((info, index) => {
                     const cardColors = [
-                      "hover:bg-blue-50 border-blue-200",
-                      "hover:bg-green-50 border-green-200",
-                      "hover:bg-orange-50 border-orange-200",
-                      "hover:bg-purple-50 border-purple-200",
+                      "hover:bg-travel-blue/10 border-travel-blue/20",
+                      "hover:bg-travel-blue/10 border-travel-blue/20",
+                      "hover:bg-travel-blue/10 border-travel-blue/20",
+                      "hover:bg-travel-blue/10 border-travel-blue/20",
                     ];
                     const iconColors = [
-                      "bg-gradient-to-r from-blue-500 to-blue-600",
-                      "bg-gradient-to-r from-green-500 to-green-600",
-                      "bg-gradient-to-r from-orange-500 to-orange-600",
-                      "bg-gradient-to-r from-purple-500 to-purple-600",
+                      "bg-travel-blue",
+                      "bg-travel-blue",
+                      "bg-travel-blue",
+                      "bg-travel-blue",
                     ];
                     return (
                       <div
@@ -421,7 +421,7 @@ Can you help me plan this trip?`;
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                   <a
                     href="tel:+919825891999"
-                    className="flex items-center gap-4 p-4 bg-gradient-to-r from-green-500 to-green-600 text-white rounded-xl hover:from-green-600 hover:to-green-700 transition-all duration-300 transform hover:scale-105"
+                    className="flex items-center gap-4 p-4 bg-travel-blue text-white rounded-xl hover:bg-travel-blue/90 transition-all duration-300 transform hover:scale-105"
                   >
                     <Phone className="w-6 h-6" />
                     <div>
@@ -431,7 +431,7 @@ Can you help me plan this trip?`;
                   </a>
                   <a
                     href="mailto:rinkutravels2005@gmail.com"
-                    className="flex items-center gap-4 p-4 bg-gradient-to-r from-blue-500 to-blue-600 text-white rounded-xl hover:from-blue-600 hover:to-blue-700 transition-all duration-300 transform hover:scale-105"
+                    className="flex items-center gap-4 p-4 bg-travel-blue text-white rounded-xl hover:bg-travel-blue/90 transition-all duration-300 transform hover:scale-105"
                   >
                     <Mail className="w-6 h-6" />
                     <div>
@@ -447,7 +447,7 @@ Can you help me plan this trip?`;
                       const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
                       window.open(whatsappUrl, "_blank");
                     }}
-                    className="flex items-center gap-4 p-4 bg-gradient-to-r from-purple-500 to-purple-600 text-white rounded-xl hover:from-purple-600 hover:to-purple-700 transition-all duration-300 transform hover:scale-105"
+                    className="flex items-center gap-4 p-4 bg-travel-blue text-white rounded-xl hover:bg-travel-blue/90 transition-all duration-300 transform hover:scale-105"
                   >
                     <MessageCircle className="w-6 h-6" />
                     <div>
