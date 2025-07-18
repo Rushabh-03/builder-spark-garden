@@ -11,6 +11,7 @@ import {
   Users,
   Phone,
   Mail,
+  MessageCircle,
 } from "lucide-react";
 import Footer from "../components/Footer";
 
@@ -182,15 +183,17 @@ export default function Visas() {
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button
                   onClick={handleWhatsAppClick}
-                  className="bg-travel-blue hover:bg-travel-blue/90 text-white px-8 py-3"
+                  className="bg-travel-blue hover:bg-travel-blue/90 text-white px-8 py-3 flex items-center gap-2"
                 >
+                  <MessageCircle className="w-5 h-5" />
                   WhatsApp Consultation
                 </Button>
                 <Button
                   onClick={handleCallClick}
                   variant="outline"
-                  className="border-white text-white hover:bg-white hover:text-travel-navy px-8 py-3"
+                  className="border-white text-white hover:bg-white hover:text-travel-navy px-8 py-3 flex items-center gap-2"
                 >
+                  <Phone className="w-5 h-5" />
                   Call for Details
                 </Button>
               </div>
