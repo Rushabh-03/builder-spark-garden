@@ -305,12 +305,14 @@ export default function FeaturedTours() {
                 <div className="flex gap-3">
                   <Button
                     size="sm"
+                    onClick={handleWhatsAppClick}
                     className="flex-1 bg-travel-blue hover:bg-travel-blue/90 text-white"
                   >
                     Book Now
                   </Button>
                   <Button
                     size="sm"
+                    onClick={() => navigate(`/tour/${tour.id}`)}
                     variant="outline"
                     className="border-travel-orange text-travel-orange hover:bg-travel-orange hover:text-white"
                   >
