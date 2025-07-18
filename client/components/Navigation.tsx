@@ -39,6 +39,7 @@ export default function Navigation() {
     { name: "Home", href: "/" },
     { name: "Tours", href: "/tours" },
     { name: "Destinations", href: "/destinations" },
+    { name: "Visas", href: "/visas" },
     { name: "About", href: "/about" },
     { name: "Contact", href: "/contact" },
   ];
@@ -50,18 +51,26 @@ export default function Navigation() {
         <div className="container mx-auto px-6">
           <div className="flex justify-between items-center text-sm">
             <div className="flex items-center gap-6">
-              <div className="flex items-center gap-2">
+              <button
+                onClick={() => (window.location.href = "tel:+919825891999")}
+                className="flex items-center gap-2 hover:text-travel-orange transition-colors"
+              >
                 <Phone className="w-4 h-4" />
-                <span>+91 98765 43210</span>
-              </div>
-              <div className="flex items-center gap-2">
+                <span>+91 98258 91999</span>
+              </button>
+              <button
+                onClick={() =>
+                  (window.location.href = "mailto:rinkutravels2005@gmail.com")
+                }
+                className="flex items-center gap-2 hover:text-travel-orange transition-colors"
+              >
                 <Mail className="w-4 h-4" />
-                <span>info@rinkutravels.com</span>
-              </div>
+                <span>rinkutravels2005@gmail.com</span>
+              </button>
             </div>
             <div className="flex items-center gap-2">
               <MapPin className="w-4 h-4" />
-              <span>New Delhi, India</span>
+              <span>Ahmedabad, Gujarat</span>
             </div>
           </div>
         </div>
@@ -96,7 +105,7 @@ export default function Navigation() {
                     isScrolled ? "text-travel-navy/70" : "text-white/80"
                   }`}
                 >
-                  Explore. Dream. Discover.
+                  Enjoy The Travel Freedom
                 </p>
               </div>
             </Link>
