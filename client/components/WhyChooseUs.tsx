@@ -155,7 +155,7 @@ export default function WhyChooseUs() {
               <div className="absolute inset-0 bg-gradient-to-br from-travel-blue/5 to-travel-orange/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
               {/* Icon */}
-              <div className="relative z-10 w-16 h-16 bg-gradient-to-r from-travel-blue to-travel-green rounded-xl flex items-center justify-center text-white mb-6 group-hover:scale-110 transition-transform duration-300">
+              <div className="relative z-10 w-16 h-16 bg-travel-blue rounded-xl flex items-center justify-center text-white mb-6 group-hover:scale-110 transition-transform duration-300">
                 {feature.icon}
               </div>
 
