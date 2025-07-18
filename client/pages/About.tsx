@@ -39,7 +39,7 @@ interface Achievement {
 const teamMembers: TeamMember[] = [
   {
     id: 1,
-    name: "Rinku Sharma",
+    name: "Rinkesh Patel",
     role: "Founder & CEO",
     experience: "15+ Years",
     image:
@@ -65,8 +65,8 @@ const teamMembers: TeamMember[] = [
   },
   {
     id: 3,
-    name: "Arjun Patel",
-    role: "Adventure Specialist",
+    name: "Alpesh Patel",
+    role: "Proprietor",
     experience: "10+ Years",
     image:
       "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80",
