@@ -18,22 +18,22 @@ const tourCategories = [
   {
     id: "adventure",
     name: "Adventure",
-    color: "bg-red-100 text-red-800 hover:bg-red-200",
+    color: "bg-travel-blue/10 text-travel-blue hover:bg-travel-blue/20",
   },
   {
     id: "cultural",
     name: "Cultural",
-    color: "bg-blue-100 text-blue-800 hover:bg-blue-200",
+    color: "bg-travel-blue/10 text-travel-blue hover:bg-travel-blue/20",
   },
   {
     id: "beach",
     name: "Beach",
-    color: "bg-cyan-100 text-cyan-800 hover:bg-cyan-200",
+    color: "bg-travel-blue/10 text-travel-blue hover:bg-travel-blue/20",
   },
   {
     id: "wildlife",
     name: "Wildlife",
-    color: "bg-green-100 text-green-800 hover:bg-green-200",
+    color: "bg-travel-blue/10 text-travel-blue hover:bg-travel-blue/20",
   },
 ];
 
@@ -72,8 +72,12 @@ export default function Footer() {
           {/* Company Info */}
           <div className="lg:col-span-1">
             <div className="flex items-center gap-3 mb-6">
-              <div className="w-10 h-10 bg-gradient-to-r from-travel-blue to-travel-green rounded-lg flex items-center justify-center">
-                <Plane className="w-6 h-6 text-white" />
+              <div className="w-12 h-12 flex-shrink-0">
+                <img
+                  src="https://cdn.builder.io/api/v1/image/assets%2F83d3a31e4d4646768cdedd809fafd132%2F32b519e4083a46ec9e2fc63848b7f9ae?format=webp&width=800"
+                  alt="Rinku Tours & Travels"
+                  className="w-full h-full object-contain"
+                />
               </div>
               <div>
                 <h3 className="text-2xl font-bold">Rinku Travels</h3>
