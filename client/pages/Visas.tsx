@@ -449,7 +449,7 @@ export default function Visas() {
               </div>
 
               <div className="text-center">
-                <div className="w-16 h-16 bg-green-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                <div className="w-16 h-16 bg-travel-blue rounded-full flex items-center justify-center mx-auto mb-4">
                   <Globe className="w-8 h-8 text-white" />
                 </div>
                 <h3 className="text-xl font-bold mb-2">WhatsApp</h3>
@@ -458,7 +458,7 @@ export default function Visas() {
                 </p>
                 <Button
                   onClick={handleWhatsAppClick}
-                  className="bg-green-600 hover:bg-green-700"
+                  className="bg-travel-blue hover:bg-travel-blue/90"
                 >
                   Chat on WhatsApp
                 </Button>
