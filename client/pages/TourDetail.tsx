@@ -21,155 +21,7 @@ import {
   Globe,
 } from "lucide-react";
 import Footer from "../components/Footer";
-
-interface TourDetails {
-  id: number;
-  title: string;
-  location: string;
-  duration: string;
-  groupSize: string;
-  rating: number;
-  reviews: number;
-  price: string;
-  originalPrice?: string;
-  images: string[];
-  highlights: string[];
-  difficulty: "Easy" | "Moderate" | "Challenging";
-  category: string;
-  description: string;
-  availability: "Available" | "Limited" | "Sold Out";
-  itinerary: Array<{
-    day: number;
-    title: string;
-    description: string;
-    activities: string[];
-  }>;
-  included: string[];
-  excluded: string[];
-  requirements: string[];
-  testimonials: Array<{
-    name: string;
-    avatar: string;
-    rating: number;
-    comment: string;
-    date: string;
-  }>;
-}
-
-// Mock data - in real app this would come from API
-const tourData: TourDetails = {
-  id: 1,
-  title: "Himalayan Base Camp Trek",
-  location: "Nepal & India",
-  duration: "14 Days",
-  groupSize: "8-12 people",
-  rating: 4.9,
-  reviews: 342,
-  price: "₹65,999",
-  originalPrice: "₹75,999",
-  difficulty: "Challenging",
-  category: "Adventure",
-  availability: "Available",
-  description:
-    "Embark on the adventure of a lifetime with our comprehensive Himalayan Base Camp Trek. This carefully planned 14-day journey takes you through some of the most spectacular mountain scenery on Earth, offering breathtaking views of the world's highest peaks, unique Sherpa culture, and an unforgettable high-altitude adventure.",
-  images: [
-    "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
-    "https://images.unsplash.com/photo-1544735716-392fe2489ffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
-    "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
-    "https://images.unsplash.com/photo-1544735716-392fe2489ffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
-  ],
-  highlights: [
-    "Everest Base Camp",
-    "Sherpa Culture",
-    "Mountain Views",
-    "High Altitude Trek",
-    "Buddhist Monasteries",
-    "Suspension Bridges",
-  ],
-  itinerary: [
-    {
-      day: 1,
-      title: "Arrival in Kathmandu",
-      description:
-        "Welcome to Nepal! Transfer to hotel and trek briefing session.",
-      activities: [
-        "Airport pickup",
-        "Hotel check-in",
-        "Welcome dinner",
-        "Trek briefing",
-      ],
-    },
-    {
-      day: 2,
-      title: "Fly to Lukla, Trek to Phakding",
-      description:
-        "Scenic mountain flight to Lukla and begin trek to Phakding.",
-      activities: [
-        "Mountain flight",
-        "Meet trekking crew",
-        "Trek to Phakding",
-        "Overnight in teahouse",
-      ],
-    },
-    {
-      day: 3,
-      title: "Trek to Namche Bazaar",
-      description: "Cross suspension bridges and ascend to the Sherpa capital.",
-      activities: [
-        "Cross Dudh Koshi River",
-        "Enter Sagarmatha National Park",
-        "First views of Everest",
-        "Reach Namche Bazaar",
-      ],
-    },
-    // Add more days as needed
-  ],
-  included: [
-    "All accommodation (teahouses/lodges)",
-    "All meals during trek",
-    "Domestic flights (Kathmandu-Lukla-Kathmandu)",
-    "Experienced trekking guide",
-    "Porter service",
-    "All permits and fees",
-    "Medical kit and oxygen meter",
-    "Airport transfers",
-  ],
-  excluded: [
-    "International flights",
-    "Nepal visa fees",
-    "Travel insurance",
-    "Personal equipment",
-    "Tips for guides and porters",
-    "Extra meals in Kathmandu",
-    "Personal expenses",
-  ],
-  requirements: [
-    "Good physical fitness required",
-    "Previous trekking experience recommended",
-    "Travel insurance mandatory",
-    "Medical clearance for high altitude",
-    "Proper trekking gear",
-  ],
-  testimonials: [
-    {
-      name: "Sarah Johnson",
-      avatar:
-        "https://images.unsplash.com/photo-1494790108755-2616b612b19c?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80",
-      rating: 5,
-      comment:
-        "Absolutely incredible experience! The guides were professional and the views were breathtaking.",
-      date: "October 2024",
-    },
-    {
-      name: "Mike Chen",
-      avatar:
-        "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80",
-      rating: 5,
-      comment: "Best adventure of my life! Everything was perfectly organized.",
-      date: "September 2024",
-    },
-  ],
-};
+import { TourDetails, toursData } from "@shared/tours";
 
 export default function TourDetail() {
   const { id } = useParams();
@@ -179,8 +31,11 @@ export default function TourDetail() {
   const [isFavorite, setIsFavorite] = useState(false);
 
   useEffect(() => {
-    // In real app, fetch tour details by ID
-    setTour(tourData);
+    if (id) {
+      const tourId = parseInt(id);
+      const foundTour = toursData.find((tour) => tour.id === tourId);
+      setTour(foundTour || null);
+    }
   }, [id]);
 
   if (!tour) {
