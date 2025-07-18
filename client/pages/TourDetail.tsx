@@ -562,20 +562,28 @@ export default function TourDetail() {
                     </h4>
                     <div className="space-y-3">
                       <a
-                        href="tel:+919876543210"
+                        href="tel:+919825891999"
                         className="flex items-center gap-3 text-sm text-travel-navy/70 hover:text-travel-blue"
                       >
                         <Phone className="w-4 h-4" />
-                        <span>+91 98765 43210</span>
+                        <span>+91 98258 91999</span>
                       </a>
                       <a
-                        href="mailto:info@rinkutravels.com"
+                        href="mailto:rinkutravels2005@gmail.com"
                         className="flex items-center gap-3 text-sm text-travel-navy/70 hover:text-travel-blue"
                       >
                         <Mail className="w-4 h-4" />
-                        <span>info@rinkutravels.com</span>
+                        <span>rinkutravels2005@gmail.com</span>
                       </a>
-                      <button className="flex items-center gap-3 text-sm text-travel-navy/70 hover:text-travel-blue">
+                      <button
+                        onClick={() => {
+                          const phoneNumber = "919825891999";
+                          const message = `Hi! I have questions about the ${tour.title} tour. Can you help me?`;
+                          const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+                          window.open(whatsappUrl, "_blank");
+                        }}
+                        className="flex items-center gap-3 text-sm text-travel-navy/70 hover:text-travel-blue"
+                      >
                         <MessageCircle className="w-4 h-4" />
                         <span>Chat with us</span>
                       </button>
