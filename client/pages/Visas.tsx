@@ -418,7 +418,7 @@ export default function Visas() {
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               <div className="text-center">
-                <div className="w-16 h-16 bg-travel-orange rounded-full flex items-center justify-center mx-auto mb-4">
+                <div className="w-16 h-16 bg-travel-blue rounded-full flex items-center justify-center mx-auto mb-4">
                   <Phone className="w-8 h-8 text-white" />
                 </div>
                 <h3 className="text-xl font-bold mb-2">Call Us</h3>
@@ -427,15 +427,14 @@ export default function Visas() {
                 </p>
                 <Button
                   onClick={handleCallClick}
-                  variant="outline"
-                  className="border-white text-white hover:bg-white hover:text-travel-navy"
+                  className="bg-travel-blue hover:bg-travel-blue/90 text-white font-medium"
                 >
                   +91 98258 91999
                 </Button>
               </div>
 
               <div className="text-center">
-                <div className="w-16 h-16 bg-travel-orange rounded-full flex items-center justify-center mx-auto mb-4">
+                <div className="w-16 h-16 bg-travel-blue rounded-full flex items-center justify-center mx-auto mb-4">
                   <Mail className="w-8 h-8 text-white" />
                 </div>
                 <h3 className="text-xl font-bold mb-2">Email Us</h3>
@@ -444,8 +443,7 @@ export default function Visas() {
                 </p>
                 <Button
                   onClick={handleEmailClick}
-                  variant="outline"
-                  className="border-white text-white hover:bg-white hover:text-travel-navy"
+                  className="bg-travel-blue hover:bg-travel-blue/90 text-white font-medium"
                 >
                   Send Email
                 </Button>
