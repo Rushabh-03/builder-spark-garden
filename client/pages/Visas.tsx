@@ -11,6 +11,7 @@ import {
   Users,
   Phone,
   Mail,
+  MessageCircle,
 } from "lucide-react";
 import Footer from "../components/Footer";
 
@@ -182,15 +183,16 @@ export default function Visas() {
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button
                   onClick={handleWhatsAppClick}
-                  className="bg-green-600 hover:bg-green-700 text-white px-8 py-3"
+                  className="bg-travel-blue hover:bg-travel-blue/90 text-white px-8 py-3 flex items-center gap-2"
                 >
+                  <MessageCircle className="w-5 h-5" />
                   WhatsApp Consultation
                 </Button>
                 <Button
                   onClick={handleCallClick}
-                  variant="outline"
-                  className="border-white text-white hover:bg-white hover:text-travel-navy px-8 py-3"
+                  className="bg-white/20 backdrop-blur-sm border border-white/30 text-white hover:bg-white hover:text-travel-navy px-8 py-3 flex items-center gap-2 font-medium"
                 >
+                  <Phone className="w-5 h-5" />
                   Call for Details
                 </Button>
               </div>
@@ -213,7 +215,7 @@ export default function Visas() {
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
               <div className="text-center p-6 bg-white rounded-lg shadow-lg">
-                <div className="w-16 h-16 bg-gradient-to-r from-travel-blue to-travel-green rounded-full flex items-center justify-center mx-auto mb-4">
+                <div className="w-16 h-16 bg-travel-blue rounded-full flex items-center justify-center mx-auto mb-4">
                   <CheckCircle className="w-8 h-8 text-white" />
                 </div>
                 <h3 className="text-xl font-bold text-travel-navy mb-2">
@@ -225,7 +227,7 @@ export default function Visas() {
               </div>
 
               <div className="text-center p-6 bg-white rounded-lg shadow-lg">
-                <div className="w-16 h-16 bg-gradient-to-r from-travel-blue to-travel-green rounded-full flex items-center justify-center mx-auto mb-4">
+                <div className="w-16 h-16 bg-travel-blue rounded-full flex items-center justify-center mx-auto mb-4">
                   <Clock className="w-8 h-8 text-white" />
                 </div>
                 <h3 className="text-xl font-bold text-travel-navy mb-2">
@@ -237,7 +239,7 @@ export default function Visas() {
               </div>
 
               <div className="text-center p-6 bg-white rounded-lg shadow-lg">
-                <div className="w-16 h-16 bg-gradient-to-r from-travel-blue to-travel-green rounded-full flex items-center justify-center mx-auto mb-4">
+                <div className="w-16 h-16 bg-travel-blue rounded-full flex items-center justify-center mx-auto mb-4">
                   <Users className="w-8 h-8 text-white" />
                 </div>
                 <h3 className="text-xl font-bold text-travel-navy mb-2">
@@ -290,7 +292,7 @@ export default function Visas() {
                   className="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden"
                 >
                   {/* Header */}
-                  <div className="relative p-6 bg-gradient-to-r from-travel-blue to-travel-green text-white">
+                  <div className="relative p-6 bg-travel-blue text-white">
                     <div className="flex items-center justify-between">
                       <div>
                         <div className="text-3xl mb-2">{visa.flag}</div>
@@ -415,7 +417,7 @@ export default function Visas() {
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               <div className="text-center">
-                <div className="w-16 h-16 bg-travel-orange rounded-full flex items-center justify-center mx-auto mb-4">
+                <div className="w-16 h-16 bg-travel-blue rounded-full flex items-center justify-center mx-auto mb-4">
                   <Phone className="w-8 h-8 text-white" />
                 </div>
                 <h3 className="text-xl font-bold mb-2">Call Us</h3>
@@ -424,15 +426,14 @@ export default function Visas() {
                 </p>
                 <Button
                   onClick={handleCallClick}
-                  variant="outline"
-                  className="border-white text-white hover:bg-white hover:text-travel-navy"
+                  className="bg-travel-blue hover:bg-travel-blue/90 text-white font-medium"
                 >
                   +91 98258 91999
                 </Button>
               </div>
 
               <div className="text-center">
-                <div className="w-16 h-16 bg-travel-orange rounded-full flex items-center justify-center mx-auto mb-4">
+                <div className="w-16 h-16 bg-travel-blue rounded-full flex items-center justify-center mx-auto mb-4">
                   <Mail className="w-8 h-8 text-white" />
                 </div>
                 <h3 className="text-xl font-bold mb-2">Email Us</h3>
@@ -441,15 +442,14 @@ export default function Visas() {
                 </p>
                 <Button
                   onClick={handleEmailClick}
-                  variant="outline"
-                  className="border-white text-white hover:bg-white hover:text-travel-navy"
+                  className="bg-travel-blue hover:bg-travel-blue/90 text-white font-medium"
                 >
                   Send Email
                 </Button>
               </div>
 
               <div className="text-center">
-                <div className="w-16 h-16 bg-green-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                <div className="w-16 h-16 bg-travel-blue rounded-full flex items-center justify-center mx-auto mb-4">
                   <Globe className="w-8 h-8 text-white" />
                 </div>
                 <h3 className="text-xl font-bold mb-2">WhatsApp</h3>
@@ -458,7 +458,7 @@ export default function Visas() {
                 </p>
                 <Button
                   onClick={handleWhatsAppClick}
-                  className="bg-green-600 hover:bg-green-700"
+                  className="bg-travel-blue hover:bg-travel-blue/90"
                 >
                   Chat on WhatsApp
                 </Button>

@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useSearchParams, Link } from "react-router-dom";
+import { useSearchParams, useNavigate } from "react-router-dom";
 import { Button } from "../components/ui/button";
 import {
   MapPin,
@@ -15,189 +15,18 @@ import {
   Heart,
 } from "lucide-react";
 import Footer from "../components/Footer";
+import { featuredTours } from "@shared/tours";
 
-interface Tour {
-  id: number;
-  title: string;
-  location: string;
-  duration: string;
-  groupSize: string;
-  rating: number;
-  reviews: number;
-  price: string;
-  originalPrice?: string;
-  image: string;
-  highlights: string[];
-  difficulty: "Easy" | "Moderate" | "Challenging";
-  category: string;
-  description: string;
-  availability: "Available" | "Limited" | "Sold Out";
-}
+const allTours = featuredTours;
 
-const allTours: Tour[] = [
-  {
-    id: 1,
-    title: "Himalayan Base Camp Trek",
-    location: "Nepal & India",
-    duration: "14 Days",
-    groupSize: "8-12 people",
-    rating: 4.9,
-    reviews: 342,
-    price: "₹65,999",
-    originalPrice: "₹75,999",
-    difficulty: "Challenging",
-    category: "adventure",
-    availability: "Available",
-    description:
-      "An epic journey to the base camp of the world's highest peak.",
-    image:
-      "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    highlights: ["Everest Base Camp", "Sherpa Culture", "Mountain Views"],
-  },
-  {
-    id: 2,
-    title: "Kerala Backwater Paradise",
-    location: "Kerala, India",
-    duration: "6 Days",
-    groupSize: "4-8 people",
-    rating: 4.8,
-    reviews: 256,
-    price: "₹32,999",
-    difficulty: "Easy",
-    category: "cultural",
-    availability: "Available",
-    description:
-      "Serene houseboat experience through Kerala's beautiful backwaters.",
-    image:
-      "https://images.unsplash.com/photo-1582510003544-4d00b7f74220?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    highlights: ["Houseboat Stay", "Spice Gardens", "Ayurveda Spa"],
-  },
-  {
-    id: 3,
-    title: "Royal Rajasthan Heritage",
-    location: "Rajasthan, India",
-    duration: "8 Days",
-    groupSize: "10-15 people",
-    rating: 4.7,
-    reviews: 189,
-    price: "₹45,999",
-    originalPrice: "₹52,999",
-    difficulty: "Moderate",
-    category: "cultural",
-    availability: "Limited",
-    description:
-      "Experience the royal heritage and magnificent palaces of Rajasthan.",
-    image:
-      "https://images.unsplash.com/photo-1570168007204-dfb528c6958f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    highlights: ["Palace Hotels", "Camel Safari", "Folk Performances"],
-  },
-  {
-    id: 4,
-    title: "Goa Beach & Nightlife",
-    location: "Goa, India",
-    duration: "5 Days",
-    groupSize: "6-10 people",
-    rating: 4.6,
-    reviews: 428,
-    price: "₹25,999",
-    difficulty: "Easy",
-    category: "beach",
-    availability: "Available",
-    description: "Perfect blend of beach relaxation and vibrant nightlife.",
-    image:
-      "https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    highlights: ["Beach Clubs", "Water Sports", "Portuguese Heritage"],
-  },
-  {
-    id: 5,
-    title: "Ladakh Adventure Circuit",
-    location: "Ladakh, India",
-    duration: "10 Days",
-    groupSize: "6-12 people",
-    rating: 4.9,
-    reviews: 167,
-    price: "₹58,999",
-    difficulty: "Challenging",
-    category: "adventure",
-    availability: "Available",
-    description: "High-altitude adventure through the land of high passes.",
-    image:
-      "https://images.unsplash.com/photo-1605711285791-0219e80e43a3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    highlights: ["Magnetic Hill", "Pangong Lake", "Buddhist Monasteries"],
-  },
-  {
-    id: 6,
-    title: "Golden Triangle Classic",
-    location: "Delhi, Agra, Jaipur",
-    duration: "7 Days",
-    groupSize: "8-15 people",
-    rating: 4.5,
-    reviews: 634,
-    price: "₹35,999",
-    originalPrice: "₹42,999",
-    difficulty: "Easy",
-    category: "cultural",
-    availability: "Available",
-    description:
-      "Classic tour covering India's most iconic historical monuments.",
-    image:
-      "https://images.unsplash.com/photo-1564507592333-c60657eea523?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    highlights: ["Taj Mahal", "Red Fort", "Amber Palace"],
-  },
-  {
-    id: 7,
-    title: "Andaman Island Escape",
-    location: "Andaman Islands",
-    duration: "9 Days",
-    groupSize: "4-10 people",
-    rating: 4.7,
-    reviews: 234,
-    price: "₹48,999",
-    difficulty: "Easy",
-    category: "beach",
-    availability: "Limited",
-    description: "Pristine beaches and crystal-clear waters of Andaman.",
-    image:
-      "https://images.unsplash.com/photo-1559827260-dc66d52bef19?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    highlights: ["Scuba Diving", "Pristine Beaches", "Water Sports"],
-  },
-  {
-    id: 8,
-    title: "Kashmir Valley Beauty",
-    location: "Kashmir, India",
-    duration: "8 Days",
-    groupSize: "6-12 people",
-    rating: 4.8,
-    reviews: 198,
-    price: "₹42,999",
-    difficulty: "Moderate",
-    category: "cultural",
-    availability: "Available",
-    description: "Experience the breathtaking beauty of Kashmir valley.",
-    image:
-      "https://images.unsplash.com/photo-1506197603052-3cc9c3a201bd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    highlights: ["Dal Lake", "Mughal Gardens", "Snow Mountains"],
-  },
-  {
-    id: 9,
-    title: "Spiritual Varanasi",
-    location: "Varanasi, India",
-    duration: "4 Days",
-    groupSize: "8-15 people",
-    rating: 4.6,
-    reviews: 312,
-    price: "₹18,999",
-    difficulty: "Easy",
-    category: "wildlife",
-    availability: "Available",
-    description: "Sacred spiritual journey through India's oldest city.",
-    image:
-      "https://images.unsplash.com/photo-1561361513-2d000a50f0dc?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    highlights: ["Ganga Aarti", "Ancient Temples", "Boat Ride"],
-  },
+const categories = [
+  "all",
+  "Adventure",
+  "Culture",
+  "Nature",
+  "Beach",
+  "Heritage",
 ];
-
-const categories = ["all", "adventure", "cultural", "beach", "wildlife"];
 const difficulties = ["All", "Easy", "Moderate", "Challenging"];
 const durations = ["All", "1-5 Days", "6-10 Days", "11+ Days"];
 const priceRanges = ["All", "Under ₹30k", "₹30k-₹50k", "₹50k+"];
@@ -212,6 +41,7 @@ export default function Tours() {
   const [selectedPriceRange, setSelectedPriceRange] = useState("All");
   const [showFilters, setShowFilters] = useState(false);
   const [favorites, setFavorites] = useState<number[]>([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const categoryParam = searchParams.get("category");
@@ -317,24 +147,24 @@ export default function Tours() {
   const getDifficultyColor = (difficulty: string) => {
     switch (difficulty) {
       case "Easy":
-        return "bg-green-500";
+        return "bg-travel-blue/70";
       case "Moderate":
-        return "bg-yellow-500";
+        return "bg-travel-blue";
       case "Challenging":
-        return "bg-red-500";
+        return "bg-travel-blue/90";
       default:
-        return "bg-gray-500";
+        return "bg-travel-blue/50";
     }
   };
 
   const getAvailabilityColor = (availability: string) => {
     switch (availability) {
       case "Available":
-        return "text-green-600 bg-green-100";
+        return "text-travel-blue bg-travel-blue/10";
       case "Limited":
-        return "text-orange-600 bg-orange-100";
+        return "text-travel-blue bg-travel-blue/20";
       case "Sold Out":
-        return "text-red-600 bg-red-100";
+        return "text-travel-blue bg-travel-blue/30";
       default:
         return "text-gray-600 bg-gray-100";
     }
@@ -503,10 +333,13 @@ export default function Tours() {
               {filteredTours.map((tour) => (
                 <div
                   key={tour.id}
-                  className="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden"
+                  className="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden flex flex-col"
                 >
                   {/* Image Container */}
-                  <div className="relative h-64 overflow-hidden">
+                  <div
+                    className="relative h-64 overflow-hidden cursor-pointer"
+                    onClick={() => navigate(`/tour/${tour.id}`)}
+                  >
                     <img
                       src={tour.image}
                       alt={tour.title}
@@ -517,8 +350,7 @@ export default function Tours() {
                     {/* Badges */}
                     <div className="absolute top-4 left-4 flex flex-col gap-2">
                       <div className="px-3 py-1 bg-travel-orange text-white rounded-full text-sm font-medium">
-                        {tour.category.charAt(0).toUpperCase() +
-                          tour.category.slice(1)}
+                        {tour.category}
                       </div>
                       <div
                         className={`px-3 py-1 rounded-full text-sm font-medium ${getAvailabilityColor(tour.availability)}`}
@@ -541,8 +373,8 @@ export default function Tours() {
                         onClick={() => toggleFavorite(tour.id)}
                         className={`w-8 h-8 rounded-full flex items-center justify-center transition-colors ${
                           favorites.includes(tour.id)
-                            ? "bg-red-500 text-white"
-                            : "bg-white/30 text-white hover:bg-red-500"
+                            ? "bg-travel-blue text-white"
+                            : "bg-white/30 text-white hover:bg-travel-blue"
                         }`}
                       >
                         <Heart
@@ -576,7 +408,7 @@ export default function Tours() {
                   </div>
 
                   {/* Content */}
-                  <div className="p-6">
+                  <div className="p-6 flex flex-col h-full">
                     <h3 className="text-xl font-bold text-travel-navy mb-2 group-hover:text-travel-blue transition-colors">
                       {tour.title}
                     </h3>
@@ -631,23 +463,28 @@ export default function Tours() {
                     </div>
 
                     {/* CTA Buttons */}
-                    <div className="flex gap-3">
+                    <div className="flex gap-3 mt-auto">
                       <Button
                         size="sm"
+                        onClick={() => {
+                          const phoneNumber = "919825891999";
+                          const message = `Hi! I'm interested in booking the ${tour.title} tour. Can you help me?`;
+                          const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+                          window.open(whatsappUrl, "_blank");
+                        }}
                         className="flex-1 bg-travel-blue hover:bg-travel-blue/90 text-white"
                       >
                         Book Now
                       </Button>
-                      <Link to={`/tour/${tour.id}`} className="flex-1">
-                        <Button
-                          size="sm"
-                          variant="outline"
-                          className="w-full border-travel-orange text-travel-orange hover:bg-travel-orange hover:text-white"
-                        >
-                          Details
-                          <ArrowRight className="w-4 h-4 ml-1" />
-                        </Button>
-                      </Link>
+                      <Button
+                        size="sm"
+                        onClick={() => navigate(`/tour/${tour.id}`)}
+                        variant="outline"
+                        className="border-travel-orange text-travel-orange hover:bg-travel-orange hover:text-white"
+                      >
+                        View Tour
+                        <ArrowRight className="w-4 h-4 ml-1" />
+                      </Button>
                     </div>
                   </div>
                 </div>
