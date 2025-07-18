@@ -258,28 +258,6 @@ export default function Testimonials() {
               </button>
             ))}
           </div>
-
-          {/* Arrow Navigation */}
-          <div className="flex gap-4">
-            <button
-              onClick={handlePrev}
-              className="p-3 rounded-full bg-white/20 hover:bg-white/30 transition-all duration-300 group"
-            >
-              <ArrowLeft className="w-6 h-6 text-white group-hover:scale-110 transition-transform" />
-            </button>
-            <button
-              onClick={handleNext}
-              className="p-3 rounded-full bg-white/20 hover:bg-white/30 transition-all duration-300 group"
-            >
-              <ArrowRight className="w-6 h-6 text-white group-hover:scale-110 transition-transform" />
-            </button>
-          </div>
-
-          {/* Auto-play Indicator */}
-          <div className="text-white/60 text-sm">
-            {isAutoPlaying ? "Auto-playing" : "Paused"} • {testimonials.length}{" "}
-            reviews
-          </div>
         </div>
       </div>
     </section>
