@@ -242,7 +242,21 @@ export default function TourDetail() {
                 fill={isFavorite ? "currentColor" : "none"}
               />
             </button>
-            <button className="p-3 bg-white/20 backdrop-blur-sm rounded-full hover:bg-white/30 transition-all">
+            <button
+              onClick={() => {
+                if (navigator.share) {
+                  navigator.share({
+                    title: tour?.title,
+                    text: `Check out this amazing tour: ${tour?.title}`,
+                    url: window.location.href,
+                  });
+                } else {
+                  navigator.clipboard.writeText(window.location.href);
+                  alert("Link copied to clipboard!");
+                }
+              }}
+              className="p-3 bg-white/20 backdrop-blur-sm rounded-full hover:bg-white/30 transition-all"
+            >
               <Share2 className="w-6 h-6 text-white" />
             </button>
           </div>
