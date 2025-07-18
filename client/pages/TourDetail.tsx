@@ -52,13 +52,13 @@ export default function TourDetail() {
   const getDifficultyColor = (difficulty: string) => {
     switch (difficulty) {
       case "Easy":
-        return "bg-green-500";
+        return "bg-travel-blue/70";
       case "Moderate":
-        return "bg-yellow-500";
+        return "bg-travel-blue";
       case "Challenging":
-        return "bg-red-500";
+        return "bg-travel-blue/90";
       default:
-        return "bg-gray-500";
+        return "bg-travel-blue/50";
     }
   };
 
