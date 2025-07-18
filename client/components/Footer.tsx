@@ -41,21 +41,19 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   const handleWhatsAppClick = () => {
-    // Replace with your actual WhatsApp business number
-    const phoneNumber = "919876543210";
+    const phoneNumber = "919825891999";
     const message = "Hi! I'm interested in planning a tour. Can you help me?";
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, "_blank");
   };
 
   const handleCallClick = () => {
-    // Replace with your actual phone number
-    window.location.href = "tel:+919876543210";
+    window.location.href = "tel:+919825891999";
   };
 
   const handleEmailClick = () => {
-    // Replace with your actual email
-    window.location.href = "mailto:info@rinkutravels.com?subject=Tour Inquiry";
+    window.location.href =
+      "mailto:rinkutravels2005@gmail.com?subject=Tour Inquiry";
   };
 
   const quickLinks = [
@@ -196,11 +194,13 @@ export default function Footer() {
                 <MapPin className="w-5 h-5 text-travel-orange mt-1 flex-shrink-0" />
                 <div>
                   <p className="text-white/80">
-                    123 Travel Street,
+                    B-102, Nirman complex,
                     <br />
-                    Connaught Place,
+                    Opp.Hocco Eatery Nr.Stadium Cross Roads,
                     <br />
-                    New Delhi - 110001
+                    Navrangpura, Ahmedabad - 380009
+                    <br />
+                    Gujarat, India
                   </p>
                 </div>
               </div>
@@ -210,8 +210,8 @@ export default function Footer() {
               >
                 <Phone className="w-5 h-5 text-travel-orange group-hover:scale-110 transition-transform" />
                 <div>
-                  <p>+91 98765 43210</p>
-                  <p>+91 98765 43211</p>
+                  <p>+91 98258 91999 (Mr. Alpesh Patel)</p>
+                  <p>+91 99985 45994 (Mr. Rinkesh Patel)</p>
                 </div>
               </button>
               <button
@@ -219,7 +219,11 @@ export default function Footer() {
                 className="flex items-center gap-3 text-white/80 hover:text-white transition-colors group"
               >
                 <Mail className="w-5 h-5 text-travel-orange group-hover:scale-110 transition-transform" />
-                <p>info@rinkutravels.com</p>
+                <div>
+                  <p>rinkutravels2005@gmail.com</p>
+                  <p className="text-sm">visa.rinkutravels2005@gmail.com</p>
+                  <p className="text-sm">packages.rinkutravels2005@gmail.com</p>
+                </div>
               </button>
             </div>
 
