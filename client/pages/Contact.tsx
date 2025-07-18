@@ -44,26 +44,19 @@ const contactInfo: ContactInfo[] = [
   {
     icon: <Phone className="w-6 h-6" />,
     title: "Phone Numbers",
-    details: [
-      "+91 98258 91999 (Mr. Alpesh Patel)",
-      "+91 99985 45994 (Mr. Rinkesh Patel)",
-    ],
+        details: ["+91 98258 91999 (Mr. Alpesh Patel)", "+91 99985 45994 (Mr. Rinkesh Patel)"],
     highlight: "24/7 Emergency Support",
   },
   {
     icon: <Mail className="w-6 h-6" />,
     title: "Email Addresses",
-    details: [
-      "rinkutravels2005@gmail.com",
-      "visa.rinkutravels2005@gmail.com",
-      "packages.rinkutravels2005@gmail.com",
-    ],
+        details: ["rinkutravels2005@gmail.com", "visa.rinkutravels2005@gmail.com", "packages.rinkutravels2005@gmail.com"],
     highlight: "Response within 2 hours",
   },
   {
     icon: <MapPin className="w-6 h-6" />,
     title: "Head Office",
-    details: [
+        details: [
       "B-102, Nirman complex",
       "Opp.Hocco Eatery Nr.Stadium Cross Roads",
       "Navrangpura, Ahmedabad - 380009",
@@ -82,10 +75,9 @@ const contactInfo: ContactInfo[] = [
 ];
 
 const offices: Office[] = [
-  {
+    {
     name: "Ahmedabad Head Office",
-    address:
-      "B-102, Nirman complex, Opp.Hocco Eatery Nr.Stadium Cross Roads, Navrangpura, Ahmedabad - 380009, Gujarat, India",
+    address: "B-102, Nirman complex, Opp.Hocco Eatery Nr.Stadium Cross Roads, Navrangpura, Ahmedabad - 380009, Gujarat, India",
     phone: "+91 98258 91999",
     email: "rinkutravels2005@gmail.com",
     hours: "Mon-Sat: 9AM-8PM, Sun: 10AM-6PM",
@@ -248,13 +240,26 @@ export default function Contact() {
                 Multiple ways to reach us - choose what works best for you
               </p>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
-              {contactInfo.map((info, index) => (
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+              {contactInfo.map((info, index) => {
+                const cardColors = [
+                  "hover:bg-blue-50",
+                  "hover:bg-green-50",
+                  "hover:bg-orange-50",
+                  "hover:bg-purple-50"
+                ];
+                const iconColors = [
+                  "bg-gradient-to-r from-blue-500 to-blue-600",
+                  "bg-gradient-to-r from-green-500 to-green-600",
+                  "bg-gradient-to-r from-orange-500 to-orange-600",
+                  "bg-gradient-to-r from-purple-500 to-purple-600"
+                ];
+                return (
                 <div
                   key={index}
-                  className="text-center group hover:bg-travel-light-blue rounded-2xl p-6 transition-all duration-300"
+                  className={`text-center group ${cardColors[index]} rounded-2xl p-6 transition-all duration-300`}
                 >
-                  <div className="w-16 h-16 bg-gradient-to-r from-travel-blue to-travel-orange rounded-full flex items-center justify-center mx-auto mb-4 text-white group-hover:scale-110 transition-transform duration-300">
+                  <div className={`w-16 h-16 ${iconColors[index]} rounded-full flex items-center justify-center mx-auto mb-4 text-white group-hover:scale-110 transition-transform duration-300`}>
                     {info.icon}
                   </div>
                   <h3 className="text-xl font-bold text-travel-navy mb-3">
