@@ -543,6 +543,12 @@ export default function TourDetail() {
                         : "Book This Tour"}
                     </Button>
                     <Button
+                      onClick={() => {
+                        const phoneNumber = "919825891999";
+                        const message = `Hi! I'm interested in getting a quote for the ${tour.title} tour. Can you help me?`;
+                        const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+                        window.open(whatsappUrl, "_blank");
+                      }}
                       variant="outline"
                       className="w-full border-travel-orange text-travel-orange hover:bg-travel-orange hover:text-white"
                     >
