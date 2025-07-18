@@ -213,7 +213,7 @@ export default function Footer() {
                 className="flex items-center gap-3 text-white/80 hover:text-white transition-colors group"
               >
                 <Phone className="w-5 h-5 text-travel-orange group-hover:scale-110 transition-transform" />
-                <div>
+                <div className="text-left">
                   <p>+91 98258 91999 (Mr. Alpesh Patel)</p>
                   <p>+91 99985 45994 (Mr. Rinkesh Patel)</p>
                 </div>
@@ -223,7 +223,7 @@ export default function Footer() {
                 className="flex items-center gap-3 text-white/80 hover:text-white transition-colors group"
               >
                 <Mail className="w-5 h-5 text-travel-orange group-hover:scale-110 transition-transform" />
-                <div>
+                <div className="text-left">
                   <p>rinkutravels2005@gmail.com</p>
                   <p className="text-sm">visa.rinkutravels2005@gmail.com</p>
                   <p className="text-sm">packages.rinkutravels2005@gmail.com</p>
