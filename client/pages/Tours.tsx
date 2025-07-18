@@ -1,85 +1,5 @@
-<<<<<<< HEAD
-import { useEffect, useState } from "react";
-import { useSearchParams } from "react-router-dom";
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-
-interface Tour {
-  id: string;
-  title: string;
-  description: string;
-  category: string;
-  price: number;
-  duration: string;
-  image: string;
-}
-
-const mockTours: Tour[] = [
-  {
-    id: "1",
-    title: "Adventure Mountain Trek",
-    description:
-      "Experience the thrill of mountain trekking with professional guides.",
-    category: "adventure",
-    price: 299,
-    duration: "3 days",
-    image: "/placeholder.svg",
-  },
-  {
-    id: "2",
-    title: "Cultural Heritage Walk",
-    description: "Discover the rich history and culture of our beautiful city.",
-    category: "cultural",
-    price: 89,
-    duration: "1 day",
-    image: "/placeholder.svg",
-  },
-  {
-    id: "3",
-    title: "Beach Paradise Getaway",
-    description: "Relax on pristine beaches with crystal clear waters.",
-    category: "beach",
-    price: 199,
-    duration: "2 days",
-    image: "/placeholder.svg",
-  },
-  {
-    id: "4",
-    title: "Wildlife Safari",
-    description: "Observe exotic wildlife in their natural habitat.",
-    category: "wildlife",
-    price: 449,
-    duration: "4 days",
-    image: "/placeholder.svg",
-  },
-  {
-    id: "5",
-    title: "Extreme Sports Package",
-    description: "Adrenaline-packed activities for thrill seekers.",
-    category: "adventure",
-    price: 399,
-    duration: "2 days",
-    image: "/placeholder.svg",
-  },
-  {
-    id: "6",
-    title: "Historic City Tour",
-    description: "Explore ancient monuments and historical sites.",
-    category: "cultural",
-    price: 129,
-    duration: "1 day",
-    image: "/placeholder.svg",
-=======
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { useSearchParams, Link } from "react-router-dom";
 import { Button } from "../components/ui/button";
 import {
   MapPin,
@@ -126,7 +46,7 @@ const allTours: Tour[] = [
     price: "₹65,999",
     originalPrice: "₹75,999",
     difficulty: "Challenging",
-    category: "Adventure",
+    category: "adventure",
     availability: "Available",
     description:
       "An epic journey to the base camp of the world's highest peak.",
@@ -144,7 +64,7 @@ const allTours: Tour[] = [
     reviews: 256,
     price: "₹32,999",
     difficulty: "Easy",
-    category: "Nature",
+    category: "cultural",
     availability: "Available",
     description:
       "Serene houseboat experience through Kerala's beautiful backwaters.",
@@ -163,7 +83,7 @@ const allTours: Tour[] = [
     price: "₹45,999",
     originalPrice: "₹52,999",
     difficulty: "Moderate",
-    category: "Culture",
+    category: "cultural",
     availability: "Limited",
     description:
       "Experience the royal heritage and magnificent palaces of Rajasthan.",
@@ -181,7 +101,7 @@ const allTours: Tour[] = [
     reviews: 428,
     price: "₹25,999",
     difficulty: "Easy",
-    category: "Beach",
+    category: "beach",
     availability: "Available",
     description: "Perfect blend of beach relaxation and vibrant nightlife.",
     image:
@@ -198,7 +118,7 @@ const allTours: Tour[] = [
     reviews: 167,
     price: "₹58,999",
     difficulty: "Challenging",
-    category: "Adventure",
+    category: "adventure",
     availability: "Available",
     description: "High-altitude adventure through the land of high passes.",
     image:
@@ -216,7 +136,7 @@ const allTours: Tour[] = [
     price: "₹35,999",
     originalPrice: "₹42,999",
     difficulty: "Easy",
-    category: "Heritage",
+    category: "cultural",
     availability: "Available",
     description:
       "Classic tour covering India's most iconic historical monuments.",
@@ -234,7 +154,7 @@ const allTours: Tour[] = [
     reviews: 234,
     price: "₹48,999",
     difficulty: "Easy",
-    category: "Beach",
+    category: "beach",
     availability: "Limited",
     description: "Pristine beaches and crystal-clear waters of Andaman.",
     image:
@@ -251,7 +171,7 @@ const allTours: Tour[] = [
     reviews: 198,
     price: "₹42,999",
     difficulty: "Moderate",
-    category: "Nature",
+    category: "cultural",
     availability: "Available",
     description: "Experience the breathtaking beauty of Kashmir valley.",
     image:
@@ -268,75 +188,37 @@ const allTours: Tour[] = [
     reviews: 312,
     price: "₹18,999",
     difficulty: "Easy",
-    category: "Spiritual",
+    category: "wildlife",
     availability: "Available",
     description: "Sacred spiritual journey through India's oldest city.",
     image:
       "https://images.unsplash.com/photo-1561361513-2d000a50f0dc?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     highlights: ["Ganga Aarti", "Ancient Temples", "Boat Ride"],
->>>>>>> origin/main
   },
 ];
 
-const categories = [
-<<<<<<< HEAD
-  { id: "all", name: "All Tours", color: "bg-gray-100 text-gray-800" },
-  { id: "adventure", name: "Adventure", color: "bg-red-100 text-red-800" },
-  { id: "cultural", name: "Cultural", color: "bg-blue-100 text-blue-800" },
-  { id: "beach", name: "Beach", color: "bg-cyan-100 text-cyan-800" },
-  { id: "wildlife", name: "Wildlife", color: "bg-green-100 text-green-800" },
-];
-
-export default function Tours() {
-  const [searchParams, setSearchParams] = useSearchParams();
-  const [selectedCategory, setSelectedCategory] = useState<string>("all");
-  const [filteredTours, setFilteredTours] = useState<Tour[]>(mockTours);
-
-  useEffect(() => {
-    const categoryParam = searchParams.get("category");
-    if (categoryParam) {
-      setSelectedCategory(categoryParam);
-    }
-  }, [searchParams]);
-
-  useEffect(() => {
-    if (selectedCategory === "all") {
-      setFilteredTours(mockTours);
-    } else {
-      setFilteredTours(
-        mockTours.filter((tour) => tour.category === selectedCategory),
-      );
-    }
-  }, [selectedCategory]);
-
-  const handleCategoryChange = (category: string) => {
-    setSelectedCategory(category);
-    if (category === "all") {
-      setSearchParams({});
-    } else {
-      setSearchParams({ category });
-=======
-  "All",
-  "Adventure",
-  "Nature",
-  "Culture",
-  "Beach",
-  "Heritage",
-  "Spiritual",
-];
+const categories = ["all", "adventure", "cultural", "beach", "wildlife"];
 const difficulties = ["All", "Easy", "Moderate", "Challenging"];
 const durations = ["All", "1-5 Days", "6-10 Days", "11+ Days"];
 const priceRanges = ["All", "Under ₹30k", "₹30k-₹50k", "₹50k+"];
 
 export default function Tours() {
+  const [searchParams, setSearchParams] = useSearchParams();
   const [filteredTours, setFilteredTours] = useState(allTours);
   const [searchTerm, setSearchTerm] = useState("");
-  const [selectedCategory, setSelectedCategory] = useState("All");
+  const [selectedCategory, setSelectedCategory] = useState("all");
   const [selectedDifficulty, setSelectedDifficulty] = useState("All");
   const [selectedDuration, setSelectedDuration] = useState("All");
   const [selectedPriceRange, setSelectedPriceRange] = useState("All");
   const [showFilters, setShowFilters] = useState(false);
   const [favorites, setFavorites] = useState<number[]>([]);
+
+  useEffect(() => {
+    const categoryParam = searchParams.get("category");
+    if (categoryParam && categories.includes(categoryParam)) {
+      setSelectedCategory(categoryParam);
+    }
+  }, [searchParams]);
 
   useEffect(() => {
     let filtered = allTours;
@@ -352,7 +234,7 @@ export default function Tours() {
     }
 
     // Category filter
-    if (selectedCategory !== "All") {
+    if (selectedCategory !== "all") {
       filtered = filtered.filter((tour) => tour.category === selectedCategory);
     }
 
@@ -365,7 +247,6 @@ export default function Tours() {
 
     // Duration filter
     if (selectedDuration !== "All") {
-      const days = parseInt(tour.duration);
       filtered = filtered.filter((tour) => {
         const tourDays = parseInt(tour.duration);
         switch (selectedDuration) {
@@ -417,10 +298,20 @@ export default function Tours() {
 
   const clearFilters = () => {
     setSearchTerm("");
-    setSelectedCategory("All");
+    setSelectedCategory("all");
     setSelectedDifficulty("All");
     setSelectedDuration("All");
     setSelectedPriceRange("All");
+    setSearchParams({});
+  };
+
+  const handleCategoryChange = (category: string) => {
+    setSelectedCategory(category);
+    if (category === "all") {
+      setSearchParams({});
+    } else {
+      setSearchParams({ category });
+    }
   };
 
   const getDifficultyColor = (difficulty: string) => {
@@ -446,95 +337,10 @@ export default function Tours() {
         return "text-red-600 bg-red-100";
       default:
         return "text-gray-600 bg-gray-100";
->>>>>>> origin/main
     }
   };
 
   return (
-<<<<<<< HEAD
-    <div className="min-h-screen bg-gray-50">
-      <div className="container mx-auto px-4 py-8">
-        <div className="text-center mb-8">
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">
-            Explore Our Tours
-          </h1>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Discover amazing destinations and unforgettable experiences with our
-            curated tour packages.
-          </p>
-        </div>
-
-        {/* Category Filters */}
-        <div className="flex flex-wrap justify-center gap-3 mb-8">
-          {categories.map((category) => (
-            <Button
-              key={category.id}
-              variant={selectedCategory === category.id ? "default" : "outline"}
-              onClick={() => handleCategoryChange(category.id)}
-              className="rounded-full"
-            >
-              {category.name}
-            </Button>
-          ))}
-        </div>
-
-        {/* Tours Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filteredTours.map((tour) => (
-            <Card
-              key={tour.id}
-              className="overflow-hidden hover:shadow-lg transition-shadow"
-            >
-              <div className="aspect-video bg-gray-200 relative">
-                <img
-                  src={tour.image}
-                  alt={tour.title}
-                  className="w-full h-full object-cover"
-                />
-                <div className="absolute top-3 right-3">
-                  <Badge
-                    className={
-                      categories.find((c) => c.id === tour.category)?.color
-                    }
-                  >
-                    {categories.find((c) => c.id === tour.category)?.name}
-                  </Badge>
-                </div>
-              </div>
-              <CardHeader>
-                <CardTitle className="text-xl">{tour.title}</CardTitle>
-                <CardDescription>{tour.description}</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <div className="flex justify-between items-center">
-                  <div className="text-2xl font-bold text-primary">
-                    ${tour.price}
-                  </div>
-                  <div className="text-sm text-gray-500">
-                    Duration: {tour.duration}
-                  </div>
-                </div>
-              </CardContent>
-              <CardFooter>
-                <Button className="w-full">Book Now</Button>
-              </CardFooter>
-            </Card>
-          ))}
-        </div>
-
-        {filteredTours.length === 0 && (
-          <div className="text-center py-12">
-            <div className="text-6xl mb-4">🔍</div>
-            <h3 className="text-xl font-semibold text-gray-900 mb-2">
-              No tours found
-            </h3>
-            <p className="text-gray-600">
-              Try selecting a different category or check back later.
-            </p>
-          </div>
-        )}
-      </div>
-=======
     <div className="min-h-screen flex flex-col">
       <div className="flex-1">
         {/* Header */}
@@ -576,7 +382,7 @@ export default function Tours() {
                   <SlidersHorizontal className="w-5 h-5 mr-2" />
                   Filters
                 </Button>
-                {(selectedCategory !== "All" ||
+                {(selectedCategory !== "all" ||
                   selectedDifficulty !== "All" ||
                   selectedDuration !== "All" ||
                   selectedPriceRange !== "All" ||
@@ -593,25 +399,27 @@ export default function Tours() {
               </div>
             </div>
 
-            {/* Filter Controls */}
+            {/* Quick Category Filters */}
+            <div className="flex flex-wrap justify-center gap-3 mb-6">
+              {categories.map((category) => (
+                <Button
+                  key={category}
+                  variant={
+                    selectedCategory === category ? "default" : "outline"
+                  }
+                  onClick={() => handleCategoryChange(category)}
+                  className="rounded-full"
+                >
+                  {category === "all"
+                    ? "All Tours"
+                    : category.charAt(0).toUpperCase() + category.slice(1)}
+                </Button>
+              ))}
+            </div>
+
+            {/* Advanced Filter Controls */}
             {showFilters && (
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 p-4 bg-gray-50 rounded-lg">
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Category
-                  </label>
-                  <select
-                    value={selectedCategory}
-                    onChange={(e) => setSelectedCategory(e.target.value)}
-                    className="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:border-travel-blue"
-                  >
-                    {categories.map((category) => (
-                      <option key={category} value={category}>
-                        {category}
-                      </option>
-                    ))}
-                  </select>
-                </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 p-4 bg-gray-50 rounded-lg">
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
                     Difficulty
@@ -668,16 +476,6 @@ export default function Tours() {
               <span>
                 Showing {filteredTours.length} of {allTours.length} tours
               </span>
-              <div className="flex gap-4">
-                <span>Sort by:</span>
-                <select className="border border-gray-300 rounded px-2 py-1 focus:outline-none focus:border-travel-blue">
-                  <option>Popularity</option>
-                  <option>Price: Low to High</option>
-                  <option>Price: High to Low</option>
-                  <option>Rating</option>
-                  <option>Duration</option>
-                </select>
-              </div>
             </div>
           </div>
         </div>
@@ -719,7 +517,8 @@ export default function Tours() {
                     {/* Badges */}
                     <div className="absolute top-4 left-4 flex flex-col gap-2">
                       <div className="px-3 py-1 bg-travel-orange text-white rounded-full text-sm font-medium">
-                        {tour.category}
+                        {tour.category.charAt(0).toUpperCase() +
+                          tour.category.slice(1)}
                       </div>
                       <div
                         className={`px-3 py-1 rounded-full text-sm font-medium ${getAvailabilityColor(tour.availability)}`}
@@ -858,7 +657,6 @@ export default function Tours() {
         </div>
       </div>
       <Footer />
->>>>>>> origin/main
     </div>
   );
 }
