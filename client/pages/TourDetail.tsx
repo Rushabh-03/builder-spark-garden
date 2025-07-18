@@ -88,8 +88,8 @@ export default function TourDetail() {
               onClick={() => setIsFavorite(!isFavorite)}
               className={`p-3 rounded-full backdrop-blur-sm transition-all ${
                 isFavorite
-                  ? "bg-red-500 text-white"
-                  : "bg-white/20 text-white hover:bg-red-500"
+                  ? "bg-travel-blue text-white"
+                  : "bg-white/20 text-white hover:bg-travel-blue"
               }`}
             >
               <Heart
