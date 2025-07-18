@@ -216,12 +216,14 @@ export default function HeroCarousel() {
                 <div className="flex gap-4 opacity-70 group-hover:opacity-100 transition-opacity duration-500">
                   <Button
                     size="lg"
+                    onClick={handleWhatsAppClick}
                     className="bg-travel-blue/80 hover:bg-travel-blue text-white px-8 py-3 text-lg font-semibold transform hover:scale-105 transition-all duration-300 shadow-lg"
                   >
                     Book Now
                   </Button>
                   <Button
                     size="lg"
+                    onClick={() => navigate(`/tour/${currentPackage.id}`)}
                     variant="outline"
                     className="border-white/80 bg-white/10 backdrop-blur-sm text-white hover:bg-white hover:text-travel-navy px-8 py-3 text-lg font-semibold transform hover:scale-105 transition-all duration-300 shadow-lg"
                   >
