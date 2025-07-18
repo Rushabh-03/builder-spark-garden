@@ -98,7 +98,7 @@ export default function Navigation() {
                     isScrolled ? "text-travel-navy" : "text-white"
                   }`}
                 >
-                  Rinku Travels
+                  Rinku Tours & Travels
                 </h1>
                 <p
                   className={`text-xs ${
