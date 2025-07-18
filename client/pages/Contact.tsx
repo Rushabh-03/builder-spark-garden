@@ -539,7 +539,7 @@ Can you help me plan this trip?`;
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
               <div className="text-center group">
-                <div className="w-16 h-16 bg-gradient-to-r from-travel-blue to-travel-orange rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+                <div className="w-16 h-16 bg-travel-blue rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
                   <Shield className="w-8 h-8 text-white" />
                 </div>
                 <h3 className="text-xl font-bold text-travel-navy mb-3">
@@ -551,7 +551,7 @@ Can you help me plan this trip?`;
               </div>
 
               <div className="text-center group">
-                <div className="w-16 h-16 bg-gradient-to-r from-travel-green to-travel-blue rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+                <div className="w-16 h-16 bg-travel-blue rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
                   <Star className="w-8 h-8 text-white" />
                 </div>
                 <h3 className="text-xl font-bold text-travel-navy mb-3">
@@ -563,7 +563,7 @@ Can you help me plan this trip?`;
               </div>
 
               <div className="text-center group">
-                <div className="w-16 h-16 bg-gradient-to-r from-travel-orange to-travel-green rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+                <div className="w-16 h-16 bg-travel-blue rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
                   <Heart className="w-8 h-8 text-white" />
                 </div>
                 <h3 className="text-xl font-bold text-travel-navy mb-3">
