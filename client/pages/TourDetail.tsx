@@ -222,13 +222,13 @@ export default function TourDetail() {
           {/* Back Button */}
           <Link
             to="/tours"
-            className="absolute top-6 left-6 z-20 p-3 bg-white/20 backdrop-blur-sm rounded-full hover:bg-white/30 transition-all"
+            className="absolute top-24 left-6 z-20 p-3 bg-white/20 backdrop-blur-sm rounded-full hover:bg-white/30 transition-all"
           >
             <ArrowLeft className="w-6 h-6 text-white" />
           </Link>
 
           {/* Action Buttons */}
-          <div className="absolute top-6 right-6 z-20 flex gap-3">
+          <div className="absolute top-24 right-6 z-20 flex gap-3">
             <button
               onClick={() => setIsFavorite(!isFavorite)}
               className={`p-3 rounded-full backdrop-blur-sm transition-all ${
