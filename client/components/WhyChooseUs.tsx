@@ -188,10 +188,16 @@ export default function WhyChooseUs() {
               Join thousands of happy travelers who chose Rinku Travels
             </p>
             <div className="flex flex-wrap justify-center gap-4">
-              <button className="bg-travel-blue hover:bg-travel-blue/90 text-white px-8 py-3 rounded-full font-semibold transform hover:scale-105 transition-all duration-300">
+              <button
+                onClick={handleWhatsAppClick}
+                className="bg-travel-blue hover:bg-travel-blue/90 text-white px-8 py-3 rounded-full font-semibold transform hover:scale-105 transition-all duration-300"
+              >
                 Plan My Trip
               </button>
-              <button className="border-2 border-travel-orange text-travel-orange hover:bg-travel-orange hover:text-white px-8 py-3 rounded-full font-semibold transform hover:scale-105 transition-all duration-300">
+              <button
+                onClick={() => navigate("/tours")}
+                className="border-2 border-travel-orange text-travel-orange hover:bg-travel-orange hover:text-white px-8 py-3 rounded-full font-semibold transform hover:scale-105 transition-all duration-300"
+              >
                 View Packages
               </button>
             </div>
