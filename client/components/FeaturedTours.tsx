@@ -126,6 +126,14 @@ const featuredTours: Tour[] = [
 export default function FeaturedTours() {
   const [visibleCards, setVisibleCards] = useState<number[]>([]);
   const sectionRef = useRef<HTMLDivElement>(null);
+  const navigate = useNavigate();
+
+  const handleWhatsAppClick = () => {
+    const phoneNumber = "919825891999";
+    const message = "Hi! I'm interested in booking a tour. Can you help me?";
+    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+    window.open(whatsappUrl, "_blank");
+  };
 
   useEffect(() => {
     const observer = new IntersectionObserver(
