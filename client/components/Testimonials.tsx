@@ -178,7 +178,7 @@ export default function Testimonials() {
           >
             {/* Quote Icon */}
             <div className="flex justify-center mb-8">
-              <div className="w-16 h-16 bg-gradient-to-r from-travel-blue to-travel-orange rounded-full flex items-center justify-center">
+              <div className="w-16 h-16 bg-travel-blue rounded-full flex items-center justify-center">
                 <Quote className="w-8 h-8 text-white" />
               </div>
             </div>
