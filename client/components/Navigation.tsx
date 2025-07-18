@@ -17,6 +17,17 @@ export default function Navigation() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
 
+  const getEmailForPage = () => {
+    switch (location.pathname) {
+      case "/visas":
+        return "visa.rinkutravels2005@gmail.com";
+      case "/tours":
+        return "packages.rinkutravels2005@gmail.com";
+      default:
+        return "rinkutravels2005@gmail.com";
+    }
+  };
+
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
@@ -60,12 +71,12 @@ export default function Navigation() {
               </button>
               <button
                 onClick={() =>
-                  (window.location.href = "mailto:rinkutravels2005@gmail.com")
+                  (window.location.href = `mailto:${getEmailForPage()}`)
                 }
                 className="flex items-center gap-2 hover:text-travel-orange transition-colors"
               >
                 <Mail className="w-4 h-4" />
-                <span>rinkutravels2005@gmail.com</span>
+                <span>{getEmailForPage()}</span>
               </button>
             </div>
             <div className="flex items-center gap-2">
@@ -89,12 +100,16 @@ export default function Navigation() {
           <div className="flex justify-between items-center py-4">
             {/* Logo */}
             <Link to="/" className="flex items-center gap-3">
-              <div className="w-10 h-10 bg-gradient-to-r from-travel-blue to-travel-green rounded-lg flex items-center justify-center">
-                <Plane className="w-6 h-6 text-white" />
+              <div className="w-12 h-12 flex-shrink-0">
+                <img
+                  src="https://cdn.builder.io/api/v1/image/assets%2F83d3a31e4d4646768cdedd809fafd132%2F32b519e4083a46ec9e2fc63848b7f9ae?format=webp&width=800"
+                  alt="Rinku Tours & Travels"
+                  className="w-full h-full object-contain"
+                />
               </div>
               <div>
                 <h1
-                  className={`text-2xl font-bold ${
+                  className={`text-xl font-bold ${
                     isScrolled ? "text-travel-navy" : "text-white"
                   }`}
                 >
@@ -143,6 +158,13 @@ export default function Navigation() {
             <div className="hidden md:flex items-center gap-4">
               <Button
                 variant="outline"
+                onClick={() => {
+                  const phoneNumber = "919825891999";
+                  const message =
+                    "Hi! I'm interested in getting a quote for a tour. Can you help me?";
+                  const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+                  window.open(whatsappUrl, "_blank");
+                }}
                 className={`border-2 transition-all duration-200 ${
                   isScrolled
                     ? "border-travel-blue text-travel-blue hover:bg-travel-blue hover:text-white"
@@ -151,7 +173,16 @@ export default function Navigation() {
               >
                 Get Quote
               </Button>
-              <Button className="bg-travel-orange hover:bg-travel-orange/90 text-white">
+              <Button
+                onClick={() => {
+                  const phoneNumber = "919825891999";
+                  const message =
+                    "Hi! I'm interested in booking a tour. Can you help me?";
+                  const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+                  window.open(whatsappUrl, "_blank");
+                }}
+                className="bg-travel-blue hover:bg-travel-blue/90 text-white"
+              >
                 Book Now
               </Button>
             </div>
@@ -202,11 +233,27 @@ export default function Navigation() {
               <div className="flex flex-col gap-3 pt-4 border-t">
                 <Button
                   variant="outline"
+                  onClick={() => {
+                    const phoneNumber = "919825891999";
+                    const message =
+                      "Hi! I'm interested in getting a quote for a tour. Can you help me?";
+                    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+                    window.open(whatsappUrl, "_blank");
+                  }}
                   className="border-travel-blue text-travel-blue hover:bg-travel-blue hover:text-white"
                 >
                   Get Quote
                 </Button>
-                <Button className="bg-travel-orange hover:bg-travel-orange/90 text-white">
+                <Button
+                  onClick={() => {
+                    const phoneNumber = "919825891999";
+                    const message =
+                      "Hi! I'm interested in booking a tour. Can you help me?";
+                    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+                    window.open(whatsappUrl, "_blank");
+                  }}
+                  className="bg-travel-blue hover:bg-travel-blue/90 text-white"
+                >
                   Book Now
                 </Button>
               </div>
