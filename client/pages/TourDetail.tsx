@@ -505,7 +505,7 @@ export default function TourDetail() {
 
             {/* Right Column - Booking Card */}
             <div className="lg:col-span-1">
-              <div className="sticky top-6">
+              <div className="sticky top-24">
                 <div className="bg-white border border-gray-200 rounded-2xl p-6 shadow-lg">
                   <div className="text-center mb-6">
                     <div className="text-3xl font-bold text-travel-navy">
