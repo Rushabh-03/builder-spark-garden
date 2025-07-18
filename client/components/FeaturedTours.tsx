@@ -332,6 +332,7 @@ export default function FeaturedTours() {
         <div className="text-center">
           <Button
             size="lg"
+            onClick={() => navigate("/tours")}
             className="bg-gradient-to-r from-travel-blue to-travel-green hover:from-travel-blue/90 hover:to-travel-green/90 text-white px-12 py-4 text-lg font-semibold transform hover:scale-105 transition-all duration-300"
           >
             View All Tours
