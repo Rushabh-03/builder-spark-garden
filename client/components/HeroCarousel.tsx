@@ -79,6 +79,15 @@ const tourPackages: TourPackage[] = [
 export default function HeroCarousel() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isTransitioning, setIsTransitioning] = useState(false);
+  const navigate = useNavigate();
+
+  const handleWhatsAppClick = () => {
+    const phoneNumber = "919825891999";
+    const message =
+      "Hi! I'm interested in booking this tour package. Can you help me?";
+    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+    window.open(whatsappUrl, "_blank");
+  };
 
   useEffect(() => {
     const interval = setInterval(() => {
