@@ -314,13 +314,13 @@ export default function Destinations() {
   const getDifficultyColor = (difficulty: string) => {
     switch (difficulty) {
       case "Easy":
-        return "bg-green-500";
+        return "bg-travel-blue/70";
       case "Moderate":
-        return "bg-yellow-500";
+        return "bg-travel-blue";
       case "Challenging":
-        return "bg-red-500";
+        return "bg-travel-blue/90";
       default:
-        return "bg-gray-500";
+        return "bg-travel-blue/50";
     }
   };
 
@@ -462,8 +462,8 @@ export default function Destinations() {
                         onClick={() => toggleFavorite(destination.id)}
                         className={`w-8 h-8 rounded-full flex items-center justify-center transition-colors ${
                           favorites.includes(destination.id)
-                            ? "bg-red-500 text-white"
-                            : "bg-white/30 text-white hover:bg-red-500"
+                            ? "bg-travel-blue text-white"
+                            : "bg-white/30 text-white hover:bg-travel-blue"
                         }`}
                       >
                         <Heart
