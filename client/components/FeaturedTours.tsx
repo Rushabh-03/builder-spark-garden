@@ -83,7 +83,7 @@ export default function FeaturedTours() {
             <div
               key={tour.id}
               data-index={index}
-              className={`tour-card group relative bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden transform ${
+              className={`tour-card group relative bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden transform flex flex-col ${
                 visibleCards.includes(index)
                   ? "opacity-100 translate-y-0"
                   : "opacity-0 translate-y-8"
