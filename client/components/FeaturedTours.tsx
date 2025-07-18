@@ -10,118 +10,7 @@ import {
   Camera,
   ArrowRight,
 } from "lucide-react";
-
-interface Tour {
-  id: number;
-  title: string;
-  location: string;
-  duration: string;
-  groupSize: string;
-  rating: number;
-  reviews: number;
-  price: string;
-  originalPrice?: string;
-  image: string;
-  highlights: string[];
-  difficulty: "Easy" | "Moderate" | "Challenging";
-  category: string;
-}
-
-const featuredTours: Tour[] = [
-  {
-    id: 1,
-    title: "Himalayan Base Camp Trek",
-    location: "Nepal & India",
-    duration: "14 Days",
-    groupSize: "8-12 people",
-    rating: 4.9,
-    reviews: 342,
-    price: "₹65,999",
-    originalPrice: "₹75,999",
-    difficulty: "Challenging",
-    category: "Adventure",
-    image:
-      "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    highlights: ["Everest Base Camp", "Sherpa Culture", "Mountain Views"],
-  },
-  {
-    id: 2,
-    title: "Kerala Backwater Paradise",
-    location: "Kerala, India",
-    duration: "6 Days",
-    groupSize: "4-8 people",
-    rating: 4.8,
-    reviews: 256,
-    price: "₹32,999",
-    difficulty: "Easy",
-    category: "Nature",
-    image:
-      "https://images.unsplash.com/photo-1582510003544-4d00b7f74220?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    highlights: ["Houseboat Stay", "Spice Gardens", "Ayurveda Spa"],
-  },
-  {
-    id: 3,
-    title: "Royal Rajasthan Heritage",
-    location: "Rajasthan, India",
-    duration: "8 Days",
-    groupSize: "10-15 people",
-    rating: 4.7,
-    reviews: 189,
-    price: "₹45,999",
-    originalPrice: "₹52,999",
-    difficulty: "Moderate",
-    category: "Culture",
-    image:
-      "https://images.unsplash.com/photo-1570168007204-dfb528c6958f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    highlights: ["Palace Hotels", "Camel Safari", "Folk Performances"],
-  },
-  {
-    id: 4,
-    title: "Goa Beach & Nightlife",
-    location: "Goa, India",
-    duration: "5 Days",
-    groupSize: "6-10 people",
-    rating: 4.6,
-    reviews: 428,
-    price: "₹25,999",
-    difficulty: "Easy",
-    category: "Beach",
-    image:
-      "https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    highlights: ["Beach Clubs", "Water Sports", "Portuguese Heritage"],
-  },
-  {
-    id: 5,
-    title: "Ladakh Adventure Circuit",
-    location: "Ladakh, India",
-    duration: "10 Days",
-    groupSize: "6-12 people",
-    rating: 4.9,
-    reviews: 167,
-    price: "₹58,999",
-    difficulty: "Challenging",
-    category: "Adventure",
-    image:
-      "https://images.unsplash.com/photo-1605711285791-0219e80e43a3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    highlights: ["Magnetic Hill", "Pangong Lake", "Buddhist Monasteries"],
-  },
-  {
-    id: 6,
-    title: "Golden Triangle Classic",
-    location: "Delhi, Agra, Jaipur",
-    duration: "7 Days",
-    groupSize: "8-15 people",
-    rating: 4.5,
-    reviews: 634,
-    price: "₹35,999",
-    originalPrice: "₹42,999",
-    difficulty: "Easy",
-    category: "Heritage",
-    image:
-      "https://images.unsplash.com/photo-1564507592333-c60657eea523?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    highlights: ["Taj Mahal", "Red Fort", "Amber Palace"],
-  },
-];
+import { featuredTours } from "@shared/tours";
 
 export default function FeaturedTours() {
   const [visibleCards, setVisibleCards] = useState<number[]>([]);
@@ -252,7 +141,7 @@ export default function FeaturedTours() {
               </div>
 
               {/* Content */}
-              <div className="p-6">
+              <div className="p-6 flex flex-col h-full">
                 {/* Title and Location */}
                 <h3 className="text-xl font-bold text-travel-navy mb-2 group-hover:text-travel-blue transition-colors">
                   {tour.title}
@@ -302,7 +191,7 @@ export default function FeaturedTours() {
                 </div>
 
                 {/* CTA Buttons */}
-                <div className="flex gap-3">
+                <div className="flex gap-3 mt-auto">
                   <Button
                     size="sm"
                     onClick={handleWhatsAppClick}
@@ -316,7 +205,7 @@ export default function FeaturedTours() {
                     variant="outline"
                     className="border-travel-orange text-travel-orange hover:bg-travel-orange hover:text-white"
                   >
-                    Details
+                    View Tour
                     <ArrowRight className="w-4 h-4 ml-1" />
                   </Button>
                 </div>
