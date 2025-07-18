@@ -261,23 +261,6 @@ export default function TourDetail() {
             </button>
           </div>
 
-          {/* Image Navigation */}
-          {tour.images.length > 1 && (
-            <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2">
-              {tour.images.map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => setCurrentImageIndex(index)}
-                  className={`w-3 h-3 rounded-full transition-all ${
-                    index === currentImageIndex
-                      ? "bg-white scale-125"
-                      : "bg-white/50 hover:bg-white/80"
-                  }`}
-                />
-              ))}
-            </div>
-          )}
-
           {/* Tour Info Overlay */}
           <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black to-transparent">
             <div className="container mx-auto">
