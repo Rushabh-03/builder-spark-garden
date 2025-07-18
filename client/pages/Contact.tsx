@@ -44,19 +44,26 @@ const contactInfo: ContactInfo[] = [
   {
     icon: <Phone className="w-6 h-6" />,
     title: "Phone Numbers",
-        details: ["+91 98258 91999 (Mr. Alpesh Patel)", "+91 99985 45994 (Mr. Rinkesh Patel)"],
+    details: [
+      "+91 98258 91999 (Mr. Alpesh Patel)",
+      "+91 99985 45994 (Mr. Rinkesh Patel)",
+    ],
     highlight: "24/7 Emergency Support",
   },
   {
     icon: <Mail className="w-6 h-6" />,
     title: "Email Addresses",
-        details: ["rinkutravels2005@gmail.com", "visa.rinkutravels2005@gmail.com", "packages.rinkutravels2005@gmail.com"],
+    details: [
+      "rinkutravels2005@gmail.com",
+      "visa.rinkutravels2005@gmail.com",
+      "packages.rinkutravels2005@gmail.com",
+    ],
     highlight: "Response within 2 hours",
   },
   {
     icon: <MapPin className="w-6 h-6" />,
     title: "Head Office",
-        details: [
+    details: [
       "B-102, Nirman complex",
       "Opp.Hocco Eatery Nr.Stadium Cross Roads",
       "Navrangpura, Ahmedabad - 380009",
@@ -75,9 +82,10 @@ const contactInfo: ContactInfo[] = [
 ];
 
 const offices: Office[] = [
-    {
+  {
     name: "Ahmedabad Head Office",
-    address: "B-102, Nirman complex, Opp.Hocco Eatery Nr.Stadium Cross Roads, Navrangpura, Ahmedabad - 380009, Gujarat, India",
+    address:
+      "B-102, Nirman complex, Opp.Hocco Eatery Nr.Stadium Cross Roads, Navrangpura, Ahmedabad - 380009, Gujarat, India",
     phone: "+91 98258 91999",
     email: "rinkutravels2005@gmail.com",
     hours: "Mon-Sat: 9AM-8PM, Sun: 10AM-6PM",
@@ -100,35 +108,7 @@ const offices: Office[] = [
     email: "bangalore@rinkutravels.com",
     hours: "Mon-Sat: 9AM-7PM, Sun: 10AM-5PM",
     image:
-      "https://images.unsplash.com/photo-1582735689369-4fe89db7114c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
-  },
-];
-
-const faqs = [
-  {
-    question: "How far in advance should I book my tour?",
-    answer:
-      "We recommend booking at least 2-3 months in advance for domestic tours and 3-6 months for international tours, especially during peak season. However, we can accommodate last-minute bookings based on availability.",
-  },
-  {
-    question: "What is included in the tour package price?",
-    answer:
-      "Our tour packages typically include accommodation, meals as specified, transportation, professional guide services, entrance fees to attractions, and permits. International airfare, visa fees, travel insurance, and personal expenses are usually not included unless specified.",
-  },
-  {
-    question: "Do you provide travel insurance?",
-    answer:
-      "While we strongly recommend travel insurance, we don't provide it directly. We can help you connect with trusted insurance providers and advise on the best coverage for your specific trip.",
-  },
-  {
-    question: "What is your cancellation policy?",
-    answer:
-      "Cancellation policies vary by tour and season. Generally, cancellations 30+ days before departure incur 25% fee, 15-29 days incur 50% fee, and less than 14 days incur 75-100% fee. We provide detailed terms at booking.",
-  },
-  {
-    question: "Are your tours suitable for solo travelers?",
-    answer:
-      "Absolutely! Many of our tours welcome solo travelers, and we can help match you with like-minded travelers. Some tours offer single room supplements, while others include twin-sharing arrangements.",
+      "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
   },
 ];
 
@@ -137,16 +117,41 @@ export default function Contact() {
     name: "",
     email: "",
     phone: "",
-    destination: "",
-    travelDates: "",
-    groupSize: "",
-    budget: "",
+    subject: "",
     message: "",
-    inquiryType: "general",
+    travelDate: "",
+    travelers: "1",
+    destination: "",
+    budget: "",
   });
-  const [isSubmitting, setIsSubmitting] = useState(false);
+
   const [isSubmitted, setIsSubmitted] = useState(false);
-  const [expandedFaq, setExpandedFaq] = useState<number | null>(null);
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    // Handle form submission
+    setIsSubmitted(true);
+    setTimeout(() => setIsSubmitted(false), 3000);
+
+    // Create WhatsApp message
+    const phoneNumber = "919825891999";
+    const message = `Hi! I'm interested in planning a trip.
+    
+Name: ${formData.name}
+Email: ${formData.email}
+Phone: ${formData.phone}
+Subject: ${formData.subject}
+Destination: ${formData.destination}
+Travel Date: ${formData.travelDate}
+Number of Travelers: ${formData.travelers}
+Budget: ${formData.budget}
+Message: ${formData.message}
+
+Can you help me plan this trip?`;
+
+    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+    window.open(whatsappUrl, "_blank");
+  };
 
   const handleInputChange = (
     e: React.ChangeEvent<
@@ -159,454 +164,297 @@ export default function Contact() {
     });
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-
-    // Simulate form submission
-    setTimeout(() => {
-      setIsSubmitting(false);
-      setIsSubmitted(true);
-      // Reset form after successful submission
-      setTimeout(() => {
-        setIsSubmitted(false);
-        setFormData({
-          name: "",
-          email: "",
-          phone: "",
-          destination: "",
-          travelDates: "",
-          groupSize: "",
-          budget: "",
-          message: "",
-          inquiryType: "general",
-        });
-      }, 3000);
-    }, 2000);
-  };
-
   return (
     <div className="min-h-screen flex flex-col">
       <div className="flex-1">
         {/* Hero Section */}
-        <div className="relative h-96 bg-gradient-to-r from-travel-navy to-travel-blue">
-          <div className="absolute inset-0 bg-black/20" />
-          <div
-            className="absolute inset-0 opacity-30"
-            style={{
-              backgroundImage: `url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80')`,
-              backgroundSize: "cover",
-              backgroundPosition: "center",
-            }}
-          />
-          <div className="relative z-10 container mx-auto px-6 h-full flex items-center">
-            <div className="text-white max-w-4xl">
-              <h1 className="text-4xl md:text-6xl font-bold mb-6">
-                Get in Touch
-              </h1>
-              <p className="text-xl md:text-2xl mb-8 text-white/90">
-                Ready to plan your next adventure? We're here to help you create
-                unforgettable memories.
-              </p>
-              <div className="flex flex-wrap gap-4">
-                <Button
-                  size="lg"
-                  className="bg-travel-orange/90 hover:bg-travel-orange text-white px-8 py-3 shadow-lg"
-                >
-                  <MessageCircle className="w-5 h-5 mr-2" />
-                  Start Planning
-                </Button>
-                <Button
-                  size="lg"
-                  variant="outline"
-                  className="border-white/80 bg-white/10 backdrop-blur-sm text-white hover:bg-white hover:text-travel-navy px-8 py-3 shadow-lg"
-                >
-                  <Phone className="w-5 h-5 mr-2" />
-                  Call Now
-                </Button>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Contact Information */}
-        <div className="py-20 bg-white">
+        <div className="bg-gradient-to-r from-travel-navy to-travel-blue text-white py-20">
           <div className="container mx-auto px-6">
-            <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl font-bold text-travel-navy mb-6">
-                Contact Information
-              </h2>
-              <p className="text-xl text-travel-navy/70 max-w-3xl mx-auto">
-                Multiple ways to reach us - choose what works best for you
+            <div className="text-center">
+              <h1 className="text-4xl md:text-5xl font-bold mb-6">
+                Get In Touch
+              </h1>
+              <p className="text-xl text-white/90 max-w-3xl mx-auto">
+                Ready to embark on your next adventure? Our travel experts are
+                here to help you plan the perfect journey. Contact us today!
               </p>
-            </div>
-                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
-              {contactInfo.map((info, index) => {
-                const cardColors = [
-                  "hover:bg-blue-50",
-                  "hover:bg-green-50",
-                  "hover:bg-orange-50",
-                  "hover:bg-purple-50"
-                ];
-                const iconColors = [
-                  "bg-gradient-to-r from-blue-500 to-blue-600",
-                  "bg-gradient-to-r from-green-500 to-green-600",
-                  "bg-gradient-to-r from-orange-500 to-orange-600",
-                  "bg-gradient-to-r from-purple-500 to-purple-600"
-                ];
-                return (
-                <div
-                  key={index}
-                  className={`text-center group ${cardColors[index]} rounded-2xl p-6 transition-all duration-300`}
-                >
-                  <div className={`w-16 h-16 ${iconColors[index]} rounded-full flex items-center justify-center mx-auto mb-4 text-white group-hover:scale-110 transition-transform duration-300`}>
-                    {info.icon}
-                  </div>
-                  <h3 className="text-xl font-bold text-travel-navy mb-3">
-                    {info.title}
-                  </h3>
-                  <div className="space-y-1 mb-3">
-                    {info.details.map((detail, idx) => (
-                      <p key={idx} className="text-travel-navy/70">
-                        {detail}
-                      </p>
-                    ))}
-                  </div>
-                  {info.highlight && (
-                    <p className="text-sm text-travel-orange font-medium">
-                      {info.highlight}
-                    </p>
-                  )}
-                </div>
-              ))}
-            </div>
-
-            {/* Quick Actions */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <a
-                href="tel:+919876543210"
-                className="flex items-center gap-4 p-6 bg-gradient-to-r from-green-500 to-green-600 text-white rounded-xl hover:from-green-600 hover:to-green-700 transition-all duration-300 transform hover:scale-105"
-              >
-                <Phone className="w-8 h-8" />
-                <div>
-                  <div className="font-semibold">Call Now</div>
-                  <div className="text-sm opacity-90">Immediate assistance</div>
-                </div>
-              </a>
-              <a
-                href="mailto:info@rinkutravels.com"
-                className="flex items-center gap-4 p-6 bg-gradient-to-r from-blue-500 to-blue-600 text-white rounded-xl hover:from-blue-600 hover:to-blue-700 transition-all duration-300 transform hover:scale-105"
-              >
-                <Mail className="w-8 h-8" />
-                <div>
-                  <div className="font-semibold">Send Email</div>
-                  <div className="text-sm opacity-90">Detailed inquiries</div>
-                </div>
-              </a>
-              <a
-                href="#"
-                className="flex items-center gap-4 p-6 bg-gradient-to-r from-purple-500 to-purple-600 text-white rounded-xl hover:from-purple-600 hover:to-purple-700 transition-all duration-300 transform hover:scale-105"
-              >
-                <MessageCircle className="w-8 h-8" />
-                <div>
-                  <div className="font-semibold">Live Chat</div>
-                  <div className="text-sm opacity-90">Instant responses</div>
-                </div>
-              </a>
             </div>
           </div>
         </div>
 
-        {/* Contact Form */}
-        <div className="py-20 bg-gradient-to-br from-travel-light-blue to-white">
+        {/* Contact Form & Info */}
+        <div className="py-20">
           <div className="container mx-auto px-6">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-              {/* Form */}
+              {/* Contact Form */}
               <div>
                 <h2 className="text-3xl font-bold text-travel-navy mb-6">
-                  Plan Your Journey
+                  Plan Your Dream Trip
                 </h2>
                 <p className="text-travel-navy/70 mb-8">
                   Fill out the form below and our travel experts will get back
-                  to you within 24 hours with a personalized itinerary.
+                  to you within 24 hours with a customized itinerary.
                 </p>
 
-                {isSubmitted ? (
-                  <div className="bg-green-50 border border-green-200 rounded-xl p-8 text-center">
-                    <CheckCircle className="w-16 h-16 text-green-500 mx-auto mb-4" />
-                    <h3 className="text-2xl font-bold text-green-800 mb-2">
-                      Thank You!
-                    </h3>
-                    <p className="text-green-700">
-                      Your inquiry has been submitted successfully. Our team
-                      will contact you within 24 hours.
-                    </p>
-                  </div>
-                ) : (
-                  <form onSubmit={handleSubmit} className="space-y-6">
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                      <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-2">
-                          Full Name *
-                        </label>
-                        <input
-                          type="text"
-                          name="name"
-                          value={formData.name}
-                          onChange={handleInputChange}
-                          required
-                          className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:border-travel-blue"
-                          placeholder="Your full name"
-                        />
-                      </div>
-                      <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-2">
-                          Email Address *
-                        </label>
-                        <input
-                          type="email"
-                          name="email"
-                          value={formData.email}
-                          onChange={handleInputChange}
-                          required
-                          className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:border-travel-blue"
-                          placeholder="your@email.com"
-                        />
-                      </div>
-                    </div>
-
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                      <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-2">
-                          Phone Number
-                        </label>
-                        <input
-                          type="tel"
-                          name="phone"
-                          value={formData.phone}
-                          onChange={handleInputChange}
-                          className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:border-travel-blue"
-                          placeholder="+91 98765 43210"
-                        />
-                      </div>
-                      <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-2">
-                          Inquiry Type
-                        </label>
-                        <select
-                          name="inquiryType"
-                          value={formData.inquiryType}
-                          onChange={handleInputChange}
-                          className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:border-travel-blue"
-                        >
-                          <option value="general">General Inquiry</option>
-                          <option value="booking">New Booking</option>
-                          <option value="existing">Existing Booking</option>
-                          <option value="custom">Custom Package</option>
-                          <option value="group">Group Travel</option>
-                        </select>
-                      </div>
-                    </div>
-
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                      <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-2">
-                          Preferred Destination
-                        </label>
-                        <input
-                          type="text"
-                          name="destination"
-                          value={formData.destination}
-                          onChange={handleInputChange}
-                          className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:border-travel-blue"
-                          placeholder="e.g., Himalayas, Kerala, Rajasthan"
-                        />
-                      </div>
-                      <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-2">
-                          Travel Dates
-                        </label>
-                        <input
-                          type="text"
-                          name="travelDates"
-                          value={formData.travelDates}
-                          onChange={handleInputChange}
-                          className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:border-travel-blue"
-                          placeholder="e.g., March 2024 or Flexible"
-                        />
-                      </div>
-                    </div>
-
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                      <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-2">
-                          Group Size
-                        </label>
-                        <select
-                          name="groupSize"
-                          value={formData.groupSize}
-                          onChange={handleInputChange}
-                          className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:border-travel-blue"
-                        >
-                          <option value="">Select group size</option>
-                          <option value="1">Solo Traveler</option>
-                          <option value="2">2 People</option>
-                          <option value="3-5">3-5 People</option>
-                          <option value="6-10">6-10 People</option>
-                          <option value="10+">10+ People</option>
-                        </select>
-                      </div>
-                      <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-2">
-                          Budget Range
-                        </label>
-                        <select
-                          name="budget"
-                          value={formData.budget}
-                          onChange={handleInputChange}
-                          className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:border-travel-blue"
-                        >
-                          <option value="">Select budget range</option>
-                          <option value="under-25k">Under ₹25,000</option>
-                          <option value="25k-50k">₹25,000 - ₹50,000</option>
-                          <option value="50k-100k">₹50,000 - ₹1,00,000</option>
-                          <option value="above-100k">Above ₹1,00,000</option>
-                          <option value="flexible">Flexible</option>
-                        </select>
-                      </div>
-                    </div>
-
+                <form onSubmit={handleSubmit} className="space-y-6">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
-                        Message
+                      <label className="block text-sm font-medium text-travel-navy mb-2">
+                        Full Name *
                       </label>
-                      <textarea
-                        name="message"
-                        value={formData.message}
+                      <input
+                        type="text"
+                        name="name"
+                        required
+                        value={formData.name}
                         onChange={handleInputChange}
-                        rows={4}
-                        className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:border-travel-blue"
-                        placeholder="Tell us about your dream trip, special requirements, or any questions you have..."
+                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-travel-blue transition-colors"
+                        placeholder="Enter your full name"
                       />
                     </div>
+                    <div>
+                      <label className="block text-sm font-medium text-travel-navy mb-2">
+                        Email Address *
+                      </label>
+                      <input
+                        type="email"
+                        name="email"
+                        required
+                        value={formData.email}
+                        onChange={handleInputChange}
+                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-travel-blue transition-colors"
+                        placeholder="Enter your email"
+                      />
+                    </div>
+                  </div>
 
-                    <Button
-                      type="submit"
-                      disabled={isSubmitting}
-                      className="w-full bg-travel-blue hover:bg-travel-blue/90 text-white py-3 text-lg font-semibold disabled:opacity-50"
-                    >
-                      {isSubmitting ? (
-                        <>
-                          <div className="animate-spin w-5 h-5 border-2 border-white border-t-transparent rounded-full mr-2" />
-                          Submitting...
-                        </>
-                      ) : (
-                        <>
-                          <Send className="w-5 h-5 mr-2" />
-                          Send Inquiry
-                        </>
-                      )}
-                    </Button>
-                  </form>
-                )}
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                      <label className="block text-sm font-medium text-travel-navy mb-2">
+                        Phone Number
+                      </label>
+                      <input
+                        type="tel"
+                        name="phone"
+                        value={formData.phone}
+                        onChange={handleInputChange}
+                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-travel-blue transition-colors"
+                        placeholder="Enter your phone number"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-sm font-medium text-travel-navy mb-2">
+                        Subject
+                      </label>
+                      <input
+                        type="text"
+                        name="subject"
+                        value={formData.subject}
+                        onChange={handleInputChange}
+                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-travel-blue transition-colors"
+                        placeholder="What can we help you with?"
+                      />
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                      <label className="block text-sm font-medium text-travel-navy mb-2">
+                        Preferred Travel Date
+                      </label>
+                      <input
+                        type="date"
+                        name="travelDate"
+                        value={formData.travelDate}
+                        onChange={handleInputChange}
+                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-travel-blue transition-colors"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-sm font-medium text-travel-navy mb-2">
+                        Number of Travelers
+                      </label>
+                      <select
+                        name="travelers"
+                        value={formData.travelers}
+                        onChange={handleInputChange}
+                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-travel-blue transition-colors"
+                      >
+                        <option value="1">1 Person</option>
+                        <option value="2">2 People</option>
+                        <option value="3">3 People</option>
+                        <option value="4">4 People</option>
+                        <option value="5+">5+ People</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                      <label className="block text-sm font-medium text-travel-navy mb-2">
+                        Destination
+                      </label>
+                      <input
+                        type="text"
+                        name="destination"
+                        value={formData.destination}
+                        onChange={handleInputChange}
+                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-travel-blue transition-colors"
+                        placeholder="Where would you like to go?"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-sm font-medium text-travel-navy mb-2">
+                        Budget Range
+                      </label>
+                      <select
+                        name="budget"
+                        value={formData.budget}
+                        onChange={handleInputChange}
+                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-travel-blue transition-colors"
+                      >
+                        <option value="">Select budget range</option>
+                        <option value="Under ₹50,000">Under ₹50,000</option>
+                        <option value="₹50,000 - ₹1,00,000">
+                          ₹50,000 - ₹1,00,000
+                        </option>
+                        <option value="₹1,00,000 - ₹2,00,000">
+                          ₹1,00,000 - ₹2,00,000
+                        </option>
+                        <option value="Above ₹2,00,000">Above ₹2,00,000</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div>
+                    <label className="block text-sm font-medium text-travel-navy mb-2">
+                      Message
+                    </label>
+                    <textarea
+                      name="message"
+                      rows={4}
+                      value={formData.message}
+                      onChange={handleInputChange}
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-travel-blue transition-colors resize-none"
+                      placeholder="Tell us about your dream trip..."
+                    ></textarea>
+                  </div>
+
+                  <Button
+                    type="submit"
+                    disabled={isSubmitted}
+                    className="w-full bg-travel-blue hover:bg-travel-blue/90 text-white py-3 text-lg font-semibold flex items-center justify-center gap-2"
+                  >
+                    {isSubmitted ? (
+                      <>
+                        <CheckCircle className="w-5 h-5" />
+                        Message Sent!
+                      </>
+                    ) : (
+                      <>
+                        <Send className="w-5 h-5" />
+                        Send Message
+                      </>
+                    )}
+                  </Button>
+                </form>
               </div>
 
-              {/* Why Choose Us */}
-              <div>
-                <h3 className="text-2xl font-bold text-travel-navy mb-6">
-                  Why Choose Rinku Travels?
-                </h3>
-                <div className="space-y-6">
-                  <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 bg-travel-blue rounded-full flex items-center justify-center flex-shrink-0">
-                      <Star className="w-6 h-6 text-white" />
-                    </div>
-                    <div>
-                      <h4 className="font-semibold text-travel-navy mb-2">
-                        Expert Travel Advisors
-                      </h4>
-                      <p className="text-travel-navy/70">
-                        Our team of experienced travel professionals will help
-                        you plan the perfect itinerary based on your interests
-                        and budget.
-                      </p>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 bg-travel-orange rounded-full flex items-center justify-center flex-shrink-0">
-                      <Shield className="w-6 h-6 text-white" />
-                    </div>
-                    <div>
-                      <h4 className="font-semibold text-travel-navy mb-2">
-                        24/7 Support
-                      </h4>
-                      <p className="text-travel-navy/70">
-                        Round-the-clock support before, during, and after your
-                        trip. We're always here when you need us.
-                      </p>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 bg-travel-green rounded-full flex items-center justify-center flex-shrink-0">
-                      <Heart className="w-6 h-6 text-white" />
-                    </div>
-                    <div>
-                      <h4 className="font-semibold text-travel-navy mb-2">
-                        Personalized Experiences
-                      </h4>
-                      <p className="text-travel-navy/70">
-                        Every trip is tailored to your preferences, ensuring a
-                        unique and memorable travel experience.
-                      </p>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 bg-travel-blue rounded-full flex items-center justify-center flex-shrink-0">
-                      <Users className="w-6 h-6 text-white" />
-                    </div>
-                    <div>
-                      <h4 className="font-semibold text-travel-navy mb-2">
-                        Local Expertise
-                      </h4>
-                      <p className="text-travel-navy/70">
-                        Our local guides and partners provide authentic insights
-                        and access to hidden gems you won't find elsewhere.
-                      </p>
-                    </div>
-                  </div>
+              {/* Contact Information */}
+              <div className="lg:pl-8">
+                <h2 className="text-3xl font-bold text-travel-navy mb-6">
+                  Contact Information
+                </h2>
+                <p className="text-travel-navy/70 mb-8">
+                  Get in touch with us through any of these channels. We're here
+                  to help make your travel dreams come true.
+                </p>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                  {contactInfo.map((info, index) => {
+                    const cardColors = [
+                      "hover:bg-blue-50 border-blue-200",
+                      "hover:bg-green-50 border-green-200",
+                      "hover:bg-orange-50 border-orange-200",
+                      "hover:bg-purple-50 border-purple-200",
+                    ];
+                    const iconColors = [
+                      "bg-gradient-to-r from-blue-500 to-blue-600",
+                      "bg-gradient-to-r from-green-500 to-green-600",
+                      "bg-gradient-to-r from-orange-500 to-orange-600",
+                      "bg-gradient-to-r from-purple-500 to-purple-600",
+                    ];
+                    return (
+                      <div
+                        key={index}
+                        className={`text-center group ${cardColors[index]} border-2 rounded-2xl p-6 transition-all duration-300`}
+                      >
+                        <div
+                          className={`w-16 h-16 ${iconColors[index]} rounded-full flex items-center justify-center mx-auto mb-4 text-white group-hover:scale-110 transition-transform duration-300`}
+                        >
+                          {info.icon}
+                        </div>
+                        <h3 className="text-xl font-bold text-travel-navy mb-3">
+                          {info.title}
+                        </h3>
+                        <div className="space-y-1 mb-3">
+                          {info.details.map((detail, idx) => (
+                            <p
+                              key={idx}
+                              className="text-travel-navy/70 text-sm"
+                            >
+                              {detail}
+                            </p>
+                          ))}
+                        </div>
+                        {info.highlight && (
+                          <p className="text-sm text-travel-orange font-medium">
+                            {info.highlight}
+                          </p>
+                        )}
+                      </div>
+                    );
+                  })}
                 </div>
 
-                {/* Social Media */}
-                <div className="mt-8 p-6 bg-white rounded-xl">
-                  <h4 className="font-semibold text-travel-navy mb-4">
-                    Follow Us
-                  </h4>
-                  <div className="flex gap-4">
-                    <a
-                      href="#"
-                      className="w-10 h-10 bg-blue-600 hover:bg-blue-700 rounded-full flex items-center justify-center text-white transition-colors"
-                    >
-                      <Facebook className="w-5 h-5" />
-                    </a>
-                    <a
-                      href="#"
-                      className="w-10 h-10 bg-blue-400 hover:bg-blue-500 rounded-full flex items-center justify-center text-white transition-colors"
-                    >
-                      <Twitter className="w-5 h-5" />
-                    </a>
-                    <a
-                      href="#"
-                      className="w-10 h-10 bg-pink-600 hover:bg-pink-700 rounded-full flex items-center justify-center text-white transition-colors"
-                    >
-                      <Instagram className="w-5 h-5" />
-                    </a>
-                    <a
-                      href="#"
-                      className="w-10 h-10 bg-red-600 hover:bg-red-700 rounded-full flex items-center justify-center text-white transition-colors"
-                    >
-                      <Youtube className="w-5 h-5" />
-                    </a>
-                  </div>
+                {/* Quick Actions */}
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                  <a
+                    href="tel:+919825891999"
+                    className="flex items-center gap-4 p-4 bg-gradient-to-r from-green-500 to-green-600 text-white rounded-xl hover:from-green-600 hover:to-green-700 transition-all duration-300 transform hover:scale-105"
+                  >
+                    <Phone className="w-6 h-6" />
+                    <div>
+                      <p className="font-semibold">Call Us</p>
+                      <p className="text-sm">Instant Support</p>
+                    </div>
+                  </a>
+                  <a
+                    href="mailto:rinkutravels2005@gmail.com"
+                    className="flex items-center gap-4 p-4 bg-gradient-to-r from-blue-500 to-blue-600 text-white rounded-xl hover:from-blue-600 hover:to-blue-700 transition-all duration-300 transform hover:scale-105"
+                  >
+                    <Mail className="w-6 h-6" />
+                    <div>
+                      <p className="font-semibold">Email Us</p>
+                      <p className="text-sm">Get Quote</p>
+                    </div>
+                  </a>
+                  <button
+                    onClick={() => {
+                      const phoneNumber = "919825891999";
+                      const message =
+                        "Hi! I'm interested in planning a trip. Can you help me?";
+                      const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+                      window.open(whatsappUrl, "_blank");
+                    }}
+                    className="flex items-center gap-4 p-4 bg-gradient-to-r from-purple-500 to-purple-600 text-white rounded-xl hover:from-purple-600 hover:to-purple-700 transition-all duration-300 transform hover:scale-105"
+                  >
+                    <MessageCircle className="w-6 h-6" />
+                    <div>
+                      <p className="font-semibold">WhatsApp</p>
+                      <p className="text-sm">Chat Now</p>
+                    </div>
+                  </button>
                 </div>
               </div>
             </div>
@@ -614,21 +462,23 @@ export default function Contact() {
         </div>
 
         {/* Office Locations */}
-        <div className="py-20 bg-white">
+        <div className="py-20 bg-gradient-to-br from-travel-light-blue to-white">
           <div className="container mx-auto px-6">
             <div className="text-center mb-16">
               <h2 className="text-3xl md:text-4xl font-bold text-travel-navy mb-6">
                 Our Office Locations
               </h2>
               <p className="text-xl text-travel-navy/70 max-w-3xl mx-auto">
-                Visit us at any of our convenient locations across India
+                Visit us at any of our conveniently located offices across
+                India.
               </p>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {offices.map((office, index) => (
                 <div
                   key={index}
-                  className="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden"
+                  className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:scale-105"
                 >
                   <img
                     src={office.image}
@@ -636,38 +486,37 @@ export default function Contact() {
                     className="w-full h-48 object-cover"
                   />
                   <div className="p-6">
-                    <h3 className="text-xl font-bold text-travel-navy mb-4">
+                    <h3 className="text-xl font-bold text-travel-navy mb-3">
                       {office.name}
                     </h3>
-                    <div className="space-y-3 text-sm">
+                    <div className="space-y-3 text-sm text-travel-navy/70">
                       <div className="flex items-start gap-2">
-                        <MapPin className="w-4 h-4 text-travel-orange mt-0.5 flex-shrink-0" />
-                        <span className="text-travel-navy/70">
-                          {office.address}
-                        </span>
+                        <MapPin className="w-4 h-4 mt-1 text-travel-orange flex-shrink-0" />
+                        <span>{office.address}</span>
                       </div>
                       <div className="flex items-center gap-2">
                         <Phone className="w-4 h-4 text-travel-orange" />
-                        <span className="text-travel-navy/70">
+                        <a
+                          href={`tel:${office.phone}`}
+                          className="hover:text-travel-blue"
+                        >
                           {office.phone}
-                        </span>
+                        </a>
                       </div>
                       <div className="flex items-center gap-2">
                         <Mail className="w-4 h-4 text-travel-orange" />
-                        <span className="text-travel-navy/70">
+                        <a
+                          href={`mailto:${office.email}`}
+                          className="hover:text-travel-blue"
+                        >
                           {office.email}
-                        </span>
+                        </a>
                       </div>
                       <div className="flex items-center gap-2">
                         <Clock className="w-4 h-4 text-travel-orange" />
-                        <span className="text-travel-navy/70">
-                          {office.hours}
-                        </span>
+                        <span>{office.hours}</span>
                       </div>
                     </div>
-                    <Button className="w-full mt-4 bg-travel-blue hover:bg-travel-blue/90">
-                      Get Directions
-                    </Button>
                   </div>
                 </div>
               ))}
@@ -675,63 +524,67 @@ export default function Contact() {
           </div>
         </div>
 
-        {/* FAQ Section */}
-        <div className="py-20 bg-gradient-to-br from-travel-light-blue to-white">
+        {/* Why Choose Us */}
+        <div className="py-20 bg-white">
           <div className="container mx-auto px-6">
             <div className="text-center mb-16">
               <h2 className="text-3xl md:text-4xl font-bold text-travel-navy mb-6">
-                Frequently Asked Questions
+                Why Choose Rinku Travels?
               </h2>
               <p className="text-xl text-travel-navy/70 max-w-3xl mx-auto">
-                Quick answers to common questions about our services
+                Experience the difference with our personalized service and
+                expert travel planning.
               </p>
             </div>
-            <div className="max-w-4xl mx-auto">
-              {faqs.map((faq, index) => (
-                <div
-                  key={index}
-                  className="mb-4 bg-white rounded-xl shadow-md overflow-hidden"
-                >
-                  <button
-                    onClick={() =>
-                      setExpandedFaq(expandedFaq === index ? null : index)
-                    }
-                    className="w-full text-left p-6 hover:bg-travel-light-blue/30 transition-colors"
-                  >
-                    <div className="flex justify-between items-center">
-                      <h3 className="text-lg font-semibold text-travel-navy">
-                        {faq.question}
-                      </h3>
-                      <div
-                        className={`transform transition-transform ${
-                          expandedFaq === index ? "rotate-180" : ""
-                        }`}
-                      >
-                        <svg
-                          className="w-5 h-5 text-travel-blue"
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={2}
-                            d="M19 9l-7 7-7-7"
-                          />
-                        </svg>
-                      </div>
-                    </div>
-                  </button>
-                  {expandedFaq === index && (
-                    <div className="px-6 pb-6">
-                      <p className="text-travel-navy/70 leading-relaxed">
-                        {faq.answer}
-                      </p>
-                    </div>
-                  )}
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+              <div className="text-center group">
+                <div className="w-16 h-16 bg-gradient-to-r from-travel-blue to-travel-orange rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+                  <Shield className="w-8 h-8 text-white" />
                 </div>
-              ))}
+                <h3 className="text-xl font-bold text-travel-navy mb-3">
+                  Trusted & Secure
+                </h3>
+                <p className="text-travel-navy/70">
+                  Licensed travel agency with comprehensive insurance coverage.
+                </p>
+              </div>
+
+              <div className="text-center group">
+                <div className="w-16 h-16 bg-gradient-to-r from-travel-green to-travel-blue rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+                  <Star className="w-8 h-8 text-white" />
+                </div>
+                <h3 className="text-xl font-bold text-travel-navy mb-3">
+                  Expert Guides
+                </h3>
+                <p className="text-travel-navy/70">
+                  Professional local guides with deep destination knowledge.
+                </p>
+              </div>
+
+              <div className="text-center group">
+                <div className="w-16 h-16 bg-gradient-to-r from-travel-orange to-travel-green rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+                  <Heart className="w-8 h-8 text-white" />
+                </div>
+                <h3 className="text-xl font-bold text-travel-navy mb-3">
+                  Personalized Service
+                </h3>
+                <p className="text-travel-navy/70">
+                  Customized itineraries tailored to your preferences.
+                </p>
+              </div>
+
+              <div className="text-center group">
+                <div className="w-16 h-16 bg-gradient-to-r from-travel-blue to-travel-green rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+                  <Globe className="w-8 h-8 text-white" />
+                </div>
+                <h3 className="text-xl font-bold text-travel-navy mb-3">
+                  Global Network
+                </h3>
+                <p className="text-travel-navy/70">
+                  Worldwide partnerships for seamless travel experiences.
+                </p>
+              </div>
             </div>
           </div>
         </div>
