@@ -39,7 +39,7 @@ interface Achievement {
 const teamMembers: TeamMember[] = [
   {
     id: 1,
-    name: "Rinku Sharma",
+    name: "Rinkesh Patel",
     role: "Founder & CEO",
     experience: "15+ Years",
     image:
@@ -65,8 +65,8 @@ const teamMembers: TeamMember[] = [
   },
   {
     id: 3,
-    name: "Arjun Patel",
-    role: "Adventure Specialist",
+    name: "Alpesh Patel",
+    role: "Proprietor",
     experience: "10+ Years",
     image:
       "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80",
@@ -207,7 +207,7 @@ export default function About() {
     <div className="min-h-screen flex flex-col">
       <div className="flex-1">
         {/* Hero Section */}
-        <div className="relative h-96 md:h-[500px] overflow-hidden">
+        <div className="relative min-h-[500px] md:h-[500px] overflow-hidden pt-20 md:pt-28 pb-8">
           <img
             src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80"
             alt="About Us"
@@ -252,11 +252,11 @@ export default function About() {
                   Born from a Passion for Exploration
                 </h2>
                 <p className="text-lg text-travel-navy/80 mb-6 leading-relaxed">
-                  Founded in 2009 by travel enthusiast Rinku Sharma, our company
-                  began with a simple belief: travel should be transformative,
-                  authentic, and accessible to everyone. What started as a small
-                  local tour operation has grown into a trusted travel partner
-                  for thousands of adventurers worldwide.
+                  Founded in 2009 by travel enthusiast Rinkesh Patel, our
+                  company began with a simple belief: travel should be
+                  transformative, authentic, and accessible to everyone. What
+                  started as a small local tour operation has grown into a
+                  trusted travel partner for thousands of adventurers worldwide.
                 </p>
                 <p className="text-lg text-travel-navy/80 mb-6 leading-relaxed">
                   Over the years, we've maintained our commitment to creating
@@ -271,7 +271,7 @@ export default function About() {
                   </div>
                   <div className="flex items-center gap-2 text-travel-orange">
                     <MapPin className="w-5 h-5" />
-                    <span className="font-semibold">Based in New Delhi</span>
+                    <span className="font-semibold">Based in Ahmedabad</span>
                   </div>
                 </div>
               </div>
@@ -287,7 +287,7 @@ export default function About() {
                   alt="Our Story"
                   className="rounded-2xl shadow-2xl"
                 />
-                <div className="absolute -bottom-6 -right-6 w-24 h-24 bg-travel-orange rounded-full flex items-center justify-center text-white">
+                <div className="absolute -bottom-6 -right-6 w-24 h-24 bg-travel-blue rounded-full flex items-center justify-center text-white">
                   <Plane className="w-12 h-12" />
                 </div>
               </div>
@@ -308,7 +308,7 @@ export default function About() {
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
               <div className="text-center">
-                <div className="w-20 h-20 bg-gradient-to-r from-travel-blue to-travel-green rounded-full flex items-center justify-center mx-auto mb-6">
+                <div className="w-20 h-20 bg-travel-blue rounded-full flex items-center justify-center mx-auto mb-6">
                   <Target className="w-10 h-10 text-white" />
                 </div>
                 <h3 className="text-2xl font-bold text-travel-navy mb-4">
@@ -322,7 +322,7 @@ export default function About() {
                 </p>
               </div>
               <div className="text-center">
-                <div className="w-20 h-20 bg-gradient-to-r from-travel-orange to-travel-blue rounded-full flex items-center justify-center mx-auto mb-6">
+                <div className="w-20 h-20 bg-travel-blue rounded-full flex items-center justify-center mx-auto mb-6">
                   <Eye className="w-10 h-10 text-white" />
                 </div>
                 <h3 className="text-2xl font-bold text-travel-navy mb-4">
@@ -368,7 +368,7 @@ export default function About() {
                       : "0ms",
                   }}
                 >
-                  <div className="w-16 h-16 bg-gradient-to-r from-travel-blue to-travel-orange rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300 text-white">
+                  <div className="w-16 h-16 bg-travel-blue rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300 text-white">
                     {value.icon}
                   </div>
                   <h3 className="text-xl font-bold text-travel-navy mb-4">
@@ -515,7 +515,7 @@ export default function About() {
             </div>
             <div className="max-w-4xl mx-auto">
               <div className="bg-white rounded-2xl p-8 md:p-12 shadow-2xl text-center">
-                <div className="w-16 h-16 bg-gradient-to-r from-travel-blue to-travel-orange rounded-full flex items-center justify-center mx-auto mb-6">
+                <div className="w-16 h-16 bg-travel-blue rounded-full flex items-center justify-center mx-auto mb-6">
                   <Quote className="w-8 h-8 text-white" />
                 </div>
                 <p className="text-xl md:text-2xl text-travel-navy/80 leading-relaxed mb-8 italic">
@@ -563,7 +563,7 @@ export default function About() {
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               <div className="text-center">
-                <div className="w-20 h-20 bg-gradient-to-r from-travel-blue to-travel-green rounded-full flex items-center justify-center mx-auto mb-4">
+                <div className="w-20 h-20 bg-travel-blue rounded-full flex items-center justify-center mx-auto mb-4">
                   <Award className="w-10 h-10 text-white" />
                 </div>
                 <h3 className="text-lg font-bold text-travel-navy mb-2">
@@ -575,7 +575,7 @@ export default function About() {
                 </p>
               </div>
               <div className="text-center">
-                <div className="w-20 h-20 bg-gradient-to-r from-travel-orange to-travel-blue rounded-full flex items-center justify-center mx-auto mb-4">
+                <div className="w-20 h-20 bg-travel-blue rounded-full flex items-center justify-center mx-auto mb-4">
                   <Shield className="w-10 h-10 text-white" />
                 </div>
                 <h3 className="text-lg font-bold text-travel-navy mb-2">
@@ -586,7 +586,7 @@ export default function About() {
                 </p>
               </div>
               <div className="text-center">
-                <div className="w-20 h-20 bg-gradient-to-r from-travel-green to-travel-orange rounded-full flex items-center justify-center mx-auto mb-4">
+                <div className="w-20 h-20 bg-travel-blue rounded-full flex items-center justify-center mx-auto mb-4">
                   <Globe className="w-10 h-10 text-white" />
                 </div>
                 <h3 className="text-lg font-bold text-travel-navy mb-2">
@@ -610,17 +610,17 @@ export default function About() {
               Join thousands of satisfied travelers who have trusted us with
               their dream journeys.
             </p>
-            <div className="flex flex-wrap justify-center gap-4">
+            <div className="flex flex-col sm:flex-row justify-center gap-4">
               <Button
                 size="lg"
-                className="bg-travel-orange hover:bg-travel-orange/90 text-white px-8 py-3 shadow-lg"
+                className="bg-travel-orange hover:bg-travel-orange/90 text-white px-8 py-3 shadow-lg w-full sm:w-auto"
               >
                 Plan Your Trip
               </Button>
               <Button
                 size="lg"
                 variant="outline"
-                className="border-white/80 bg-white/10 backdrop-blur-sm text-white hover:bg-white hover:text-travel-navy px-8 py-3 shadow-lg"
+                className="border-white/80 bg-white/10 backdrop-blur-sm text-white hover:bg-white hover:text-travel-navy px-8 py-3 shadow-lg w-full sm:w-auto"
               >
                 Contact Our Team
               </Button>

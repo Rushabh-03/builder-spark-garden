@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Button } from "../components/ui/button";
 import {
   MapPin,
@@ -239,6 +239,7 @@ export default function Destinations() {
   const [visibleCards, setVisibleCards] = useState<number[]>([]);
   const [favorites, setFavorites] = useState<number[]>([]);
   const sectionRef = useRef<HTMLDivElement>(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     let filtered = destinations;
@@ -313,13 +314,13 @@ export default function Destinations() {
   const getDifficultyColor = (difficulty: string) => {
     switch (difficulty) {
       case "Easy":
-        return "bg-green-500";
+        return "bg-travel-blue/70";
       case "Moderate":
-        return "bg-yellow-500";
+        return "bg-travel-blue";
       case "Challenging":
-        return "bg-red-500";
+        return "bg-travel-blue/90";
       default:
-        return "bg-gray-500";
+        return "bg-travel-blue/50";
     }
   };
 
@@ -327,7 +328,7 @@ export default function Destinations() {
     <div className="min-h-screen flex flex-col">
       <div className="flex-1">
         {/* Hero Section */}
-        <div className="relative h-96 bg-gradient-to-r from-travel-navy to-travel-blue overflow-hidden">
+        <div className="relative min-h-[500px] h-auto bg-gradient-to-r from-travel-navy to-travel-blue overflow-hidden pt-20 md:pt-28 pb-8">
           <div className="absolute inset-0 bg-black/20" />
           <div
             className="absolute inset-0 opacity-30"
@@ -337,7 +338,7 @@ export default function Destinations() {
               backgroundPosition: "center",
             }}
           />
-          <div className="relative z-10 container mx-auto px-6 h-full flex items-center">
+          <div className="relative z-10 container mx-auto px-6 h-full flex items-center py-8">
             <div className="text-white max-w-4xl">
               <h1 className="text-4xl md:text-6xl font-bold mb-6">
                 Discover Amazing Destinations
@@ -346,17 +347,17 @@ export default function Destinations() {
                 From majestic mountains to pristine beaches, explore the world's
                 most breathtaking destinations with expert guidance.
               </p>
-              <div className="flex flex-wrap gap-4">
+              <div className="flex flex-col sm:flex-row gap-4 mb-4">
                 <Button
                   size="lg"
-                  className="bg-travel-orange/90 hover:bg-travel-orange text-white px-8 py-3 shadow-lg"
+                  className="bg-travel-orange/90 hover:bg-travel-orange text-white px-8 py-3 shadow-lg w-full sm:w-auto"
                 >
                   Explore All Tours
                 </Button>
                 <Button
                   size="lg"
                   variant="outline"
-                  className="border-white/80 bg-white/10 backdrop-blur-sm text-white hover:bg-white hover:text-travel-navy px-8 py-3 shadow-lg"
+                  className="border-white/80 bg-white/10 backdrop-blur-sm text-white hover:bg-white hover:text-travel-navy px-8 py-3 shadow-lg w-full sm:w-auto"
                 >
                   Plan My Trip
                 </Button>
@@ -461,8 +462,8 @@ export default function Destinations() {
                         onClick={() => toggleFavorite(destination.id)}
                         className={`w-8 h-8 rounded-full flex items-center justify-center transition-colors ${
                           favorites.includes(destination.id)
-                            ? "bg-red-500 text-white"
-                            : "bg-white/30 text-white hover:bg-red-500"
+                            ? "bg-travel-blue text-white"
+                            : "bg-white/30 text-white hover:bg-travel-blue"
                         }`}
                       >
                         <Heart
@@ -572,10 +573,14 @@ export default function Destinations() {
                       </Link>
                       <Button
                         size="sm"
+                        onClick={() => {
+                          console.log("Navigating to tour:", dest.id);
+                          navigate(`/tour/${dest.id}`);
+                        }}
                         variant="outline"
                         className="border-travel-orange text-travel-orange hover:bg-travel-orange hover:text-white"
                       >
-                        Details
+                        View Tour
                         <ArrowRight className="w-4 h-4 ml-1" />
                       </Button>
                     </div>

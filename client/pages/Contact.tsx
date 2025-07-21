@@ -74,8 +74,9 @@ const contactInfo: ContactInfo[] = [
     icon: <Clock className="w-6 h-6" />,
     title: "Business Hours",
     details: [
-      "Monday - Saturday: 9:00 AM - 8:00 PM",
-      "Sunday: 10:00 AM - 6:00 PM",
+      "Mon to Fri: 10:00 AM - 7:00 PM",
+      "Sat: 10:00 AM - 5:30 PM",
+      "Sunday: Closed",
     ],
     highlight: "Emergency support 24/7",
   },
@@ -88,27 +89,9 @@ const offices: Office[] = [
       "B-102, Nirman complex, Opp.Hocco Eatery Nr.Stadium Cross Roads, Navrangpura, Ahmedabad - 380009, Gujarat, India",
     phone: "+91 98258 91999",
     email: "rinkutravels2005@gmail.com",
-    hours: "Mon-Sat: 9AM-8PM, Sun: 10AM-6PM",
+    hours: "Mon-Fri: 10AM-7PM, Sat: 10AM-5:30PM, Sun: Closed",
     image:
       "https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
-  },
-  {
-    name: "Mumbai Branch",
-    address: "456 Marine Drive, Mumbai - 400001",
-    phone: "+91 98765 43212",
-    email: "mumbai@rinkutravels.com",
-    hours: "Mon-Sat: 9AM-7PM, Sun: 10AM-5PM",
-    image:
-      "https://images.unsplash.com/photo-1570126618953-d437176e8c79?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
-  },
-  {
-    name: "Bangalore Office",
-    address: "789 MG Road, Bangalore - 560001",
-    phone: "+91 98765 43213",
-    email: "bangalore@rinkutravels.com",
-    hours: "Mon-Sat: 9AM-7PM, Sun: 10AM-5PM",
-    image:
-      "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
   },
 ];
 
@@ -373,16 +356,16 @@ Can you help me plan this trip?`;
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
                   {contactInfo.map((info, index) => {
                     const cardColors = [
-                      "hover:bg-blue-50 border-blue-200",
-                      "hover:bg-green-50 border-green-200",
-                      "hover:bg-orange-50 border-orange-200",
-                      "hover:bg-purple-50 border-purple-200",
+                      "hover:bg-travel-blue/10 border-travel-blue/20",
+                      "hover:bg-travel-blue/10 border-travel-blue/20",
+                      "hover:bg-travel-blue/10 border-travel-blue/20",
+                      "hover:bg-travel-blue/10 border-travel-blue/20",
                     ];
                     const iconColors = [
-                      "bg-gradient-to-r from-blue-500 to-blue-600",
-                      "bg-gradient-to-r from-green-500 to-green-600",
-                      "bg-gradient-to-r from-orange-500 to-orange-600",
-                      "bg-gradient-to-r from-purple-500 to-purple-600",
+                      "bg-travel-blue",
+                      "bg-travel-blue",
+                      "bg-travel-blue",
+                      "bg-travel-blue",
                     ];
                     return (
                       <div
@@ -421,7 +404,7 @@ Can you help me plan this trip?`;
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                   <a
                     href="tel:+919825891999"
-                    className="flex items-center gap-4 p-4 bg-gradient-to-r from-green-500 to-green-600 text-white rounded-xl hover:from-green-600 hover:to-green-700 transition-all duration-300 transform hover:scale-105"
+                    className="flex items-center gap-4 p-4 bg-travel-blue text-white rounded-xl hover:bg-travel-blue/90 transition-all duration-300 transform hover:scale-105"
                   >
                     <Phone className="w-6 h-6" />
                     <div>
@@ -431,7 +414,7 @@ Can you help me plan this trip?`;
                   </a>
                   <a
                     href="mailto:rinkutravels2005@gmail.com"
-                    className="flex items-center gap-4 p-4 bg-gradient-to-r from-blue-500 to-blue-600 text-white rounded-xl hover:from-blue-600 hover:to-blue-700 transition-all duration-300 transform hover:scale-105"
+                    className="flex items-center gap-4 p-4 bg-travel-blue text-white rounded-xl hover:bg-travel-blue/90 transition-all duration-300 transform hover:scale-105"
                   >
                     <Mail className="w-6 h-6" />
                     <div>
@@ -447,7 +430,7 @@ Can you help me plan this trip?`;
                       const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
                       window.open(whatsappUrl, "_blank");
                     }}
-                    className="flex items-center gap-4 p-4 bg-gradient-to-r from-purple-500 to-purple-600 text-white rounded-xl hover:from-purple-600 hover:to-purple-700 transition-all duration-300 transform hover:scale-105"
+                    className="flex items-center gap-4 p-4 bg-travel-blue text-white rounded-xl hover:bg-travel-blue/90 transition-all duration-300 transform hover:scale-105"
                   >
                     <MessageCircle className="w-6 h-6" />
                     <div>
@@ -469,12 +452,12 @@ Can you help me plan this trip?`;
                 Our Office Locations
               </h2>
               <p className="text-xl text-travel-navy/70 max-w-3xl mx-auto">
-                Visit us at any of our conveniently located offices across
-                India.
+                Visit us at our office in Ahmedabad for personalized travel
+                consultation.
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 gap-8 max-w-md mx-auto">
               {offices.map((office, index) => (
                 <div
                   key={index}
@@ -539,7 +522,7 @@ Can you help me plan this trip?`;
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
               <div className="text-center group">
-                <div className="w-16 h-16 bg-gradient-to-r from-travel-blue to-travel-orange rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+                <div className="w-16 h-16 bg-travel-blue rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
                   <Shield className="w-8 h-8 text-white" />
                 </div>
                 <h3 className="text-xl font-bold text-travel-navy mb-3">
@@ -551,7 +534,7 @@ Can you help me plan this trip?`;
               </div>
 
               <div className="text-center group">
-                <div className="w-16 h-16 bg-gradient-to-r from-travel-green to-travel-blue rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+                <div className="w-16 h-16 bg-travel-blue rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
                   <Star className="w-8 h-8 text-white" />
                 </div>
                 <h3 className="text-xl font-bold text-travel-navy mb-3">
@@ -563,7 +546,7 @@ Can you help me plan this trip?`;
               </div>
 
               <div className="text-center group">
-                <div className="w-16 h-16 bg-gradient-to-r from-travel-orange to-travel-green rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+                <div className="w-16 h-16 bg-travel-blue rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
                   <Heart className="w-8 h-8 text-white" />
                 </div>
                 <h3 className="text-xl font-bold text-travel-navy mb-3">

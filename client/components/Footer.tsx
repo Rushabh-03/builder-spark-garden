@@ -18,22 +18,22 @@ const tourCategories = [
   {
     id: "adventure",
     name: "Adventure",
-    color: "bg-red-100 text-red-800 hover:bg-red-200",
+    color: "bg-travel-blue/10 text-travel-blue hover:bg-travel-blue/20",
   },
   {
     id: "cultural",
     name: "Cultural",
-    color: "bg-blue-100 text-blue-800 hover:bg-blue-200",
+    color: "bg-travel-blue/10 text-travel-blue hover:bg-travel-blue/20",
   },
   {
     id: "beach",
     name: "Beach",
-    color: "bg-cyan-100 text-cyan-800 hover:bg-cyan-200",
+    color: "bg-travel-blue/10 text-travel-blue hover:bg-travel-blue/20",
   },
   {
     id: "wildlife",
     name: "Wildlife",
-    color: "bg-green-100 text-green-800 hover:bg-green-200",
+    color: "bg-travel-blue/10 text-travel-blue hover:bg-travel-blue/20",
   },
 ];
 
@@ -72,8 +72,12 @@ export default function Footer() {
           {/* Company Info */}
           <div className="lg:col-span-1">
             <div className="flex items-center gap-3 mb-6">
-              <div className="w-10 h-10 bg-gradient-to-r from-travel-blue to-travel-green rounded-lg flex items-center justify-center">
-                <Plane className="w-6 h-6 text-white" />
+              <div className="w-12 h-12 flex-shrink-0">
+                <img
+                  src="https://cdn.builder.io/api/v1/image/assets%2F83d3a31e4d4646768cdedd809fafd132%2F32b519e4083a46ec9e2fc63848b7f9ae?format=webp&width=800"
+                  alt="Rinku Tours & Travels"
+                  className="w-full h-full object-contain rounded"
+                />
               </div>
               <div>
                 <h3 className="text-2xl font-bold">Rinku Travels</h3>
@@ -92,7 +96,7 @@ export default function Footer() {
             <div className="flex flex-col gap-3 mb-6">
               <Button
                 onClick={handleWhatsAppClick}
-                className="bg-green-600 hover:bg-green-700 text-white flex items-center gap-2 justify-center"
+                className="bg-travel-blue hover:bg-travel-blue/90 text-white flex items-center gap-2 justify-center"
               >
                 <MessageCircle size={18} />
                 Start Planning
@@ -209,7 +213,7 @@ export default function Footer() {
                 className="flex items-center gap-3 text-white/80 hover:text-white transition-colors group"
               >
                 <Phone className="w-5 h-5 text-travel-orange group-hover:scale-110 transition-transform" />
-                <div>
+                <div className="text-left">
                   <p>+91 98258 91999 (Mr. Alpesh Patel)</p>
                   <p>+91 99985 45994 (Mr. Rinkesh Patel)</p>
                 </div>
@@ -219,7 +223,7 @@ export default function Footer() {
                 className="flex items-center gap-3 text-white/80 hover:text-white transition-colors group"
               >
                 <Mail className="w-5 h-5 text-travel-orange group-hover:scale-110 transition-transform" />
-                <div>
+                <div className="text-left">
                   <p>rinkutravels2005@gmail.com</p>
                   <p className="text-sm">visa.rinkutravels2005@gmail.com</p>
                   <p className="text-sm">packages.rinkutravels2005@gmail.com</p>
@@ -231,9 +235,11 @@ export default function Footer() {
             <div className="mt-6 p-4 bg-white/5 rounded-lg">
               <h5 className="font-semibold mb-2">Operating Hours</h5>
               <p className="text-sm text-white/80">
-                Mon - Sat: 9:00 AM - 8:00 PM
+                Mon to Fri: 10:00 AM - 7:00 PM
                 <br />
-                Sunday: 10:00 AM - 6:00 PM
+                Sat: 10:00 AM - 5:30 PM
+                <br />
+                Sunday: Closed
               </p>
             </div>
           </div>
