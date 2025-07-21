@@ -231,13 +231,15 @@ export default function Navigation() {
         >
           <div className="container mx-auto px-6 py-6">
             <div className="flex flex-col gap-4">
-              {navItems.map((item) => (
+                            {navItems.map((item) => (
                 <Link
                   key={item.name}
                   to={item.href}
                   className={`font-medium py-2 hover:text-travel-orange transition-colors relative ${
                     isActivePage(item.href)
                       ? "text-travel-blue font-semibold"
+                      : isScrolled
+                      ? "text-travel-navy"
                       : "text-travel-navy"
                   }`}
                   onClick={handleNavClick}
