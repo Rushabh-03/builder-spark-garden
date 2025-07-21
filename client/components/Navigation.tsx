@@ -237,52 +237,29 @@ export default function Navigation() {
           </div>
         </div>
 
-                {/* Mobile Menu Overlay */}
+                        {/* Mobile Menu Overlay */}
         {isMobileMenuOpen && (
           <div
-            className="md:hidden fixed inset-0 z-40 bg-black/50 backdrop-blur-sm"
+            className="md:hidden fixed inset-0 z-40 bg-black/50"
             onClick={() => setIsMobileMenuOpen(false)}
           />
         )}
 
         {/* Mobile Menu */}
         <div
-          className={`md:hidden fixed top-0 left-0 right-0 z-50 bg-white shadow-xl transition-transform duration-300 ease-in-out ${
-            isMobileMenuOpen ? "translate-y-0" : "-translate-y-full"
+          className={`md:hidden fixed left-0 right-0 top-full z-50 bg-white shadow-xl transition-all duration-300 ease-in-out ${
+            isMobileMenuOpen ? "translate-y-0 opacity-100" : "-translate-y-full opacity-0"
           }`}
+          style={{ width: "100vw" }}
         >
-          {/* Mobile Header with Logo */}
-          <div className="flex items-center justify-between px-6 py-4 border-b border-gray-200 bg-white">
-            <Link to="/" className="flex items-center gap-3" onClick={handleNavClick}>
-              <div className="w-10 h-10 bg-gradient-to-r from-travel-blue to-travel-green rounded-lg flex items-center justify-center">
-                <Plane className="w-6 h-6 text-white" />
-              </div>
-              <div>
-                <h1 className="text-xl font-bold text-travel-navy">
-                  Rinku Travels
-                </h1>
-                <p className="text-xs text-travel-navy/70">
-                  Enjoy The Travel Freedom
-                </p>
-              </div>
-            </Link>
-            <button
-              onClick={() => setIsMobileMenuOpen(false)}
-              className="p-2 rounded-lg hover:bg-gray-100 transition-colors"
-              aria-label="Close mobile menu"
-            >
-              <X className="w-6 h-6 text-travel-navy" />
-            </button>
-          </div>
-
           {/* Mobile Menu Content */}
-          <div className="px-6 py-6 bg-white max-h-[calc(100vh-120px)] overflow-y-auto">
-            <div className="flex flex-col gap-2">
+          <div className="w-full">
+            <div className="flex flex-col">
               {navItems.map((item) => (
                 <Link
                   key={item.name}
                   to={item.href}
-                  className={`font-medium py-4 px-4 hover:text-travel-orange hover:bg-travel-light-blue transition-all duration-200 relative rounded-lg text-lg ${
+                  className={`font-medium py-4 px-6 hover:text-travel-orange hover:bg-travel-light-blue transition-all duration-200 relative text-lg border-b border-gray-100 ${
                     isActivePage(item.href)
                       ? "text-travel-blue font-semibold bg-travel-blue/10"
                       : "text-travel-navy"
@@ -291,13 +268,13 @@ export default function Navigation() {
                 >
                   {item.name}
                   {isActivePage(item.href) && (
-                    <div className="absolute left-2 top-0 bottom-0 w-1 bg-travel-blue rounded-r" />
+                    <div className="absolute left-0 top-0 bottom-0 w-1 bg-travel-blue" />
                   )}
                 </Link>
               ))}
 
               {/* Mobile CTA Buttons */}
-              <div className="flex flex-col gap-4 pt-6 border-t border-gray-200 mt-4">
+              <div className="flex flex-col gap-4 p-6 bg-gray-50">
                 <Button
                   variant="outline"
                   size="lg"
@@ -327,31 +304,6 @@ export default function Navigation() {
                 >
                   Book Now
                 </Button>
-              </div>
-
-              {/* Contact Info */}
-              <div className="pt-6 border-t border-gray-200 mt-6">
-                <h3 className="font-semibold text-travel-navy mb-3">Contact Us</h3>
-                <div className="space-y-2 text-sm text-travel-navy/70">
-                  <a
-                    href="tel:+919825891999"
-                    className="flex items-center gap-2 hover:text-travel-blue transition-colors"
-                  >
-                    <Phone className="w-4 h-4" />
-                    +91 98258 91999
-                  </a>
-                  <a
-                    href="mailto:rinkutravels2005@gmail.com"
-                    className="flex items-center gap-2 hover:text-travel-blue transition-colors"
-                  >
-                    <Mail className="w-4 h-4" />
-                    rinkutravels2005@gmail.com
-                  </a>
-                  <div className="flex items-center gap-2">
-                    <MapPin className="w-4 h-4" />
-                    Ahmedabad, Gujarat
-                  </div>
-                </div>
               </div>
             </div>
           </div>
