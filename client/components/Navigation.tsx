@@ -238,7 +238,7 @@ export default function Navigation() {
             backdropFilter: "blur(16px)"
           }}
         >
-                              <div className="container mx-auto px-6 py-6 pb-8">
+                                        <div className="container mx-auto px-6 pt-20 pb-8">
                         <div className="flex flex-col gap-2">
                             {navItems.map((item) => (
                 <Link
