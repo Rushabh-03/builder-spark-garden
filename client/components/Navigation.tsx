@@ -29,13 +29,17 @@ export default function Navigation() {
     }
   };
 
-    useEffect(() => {
+      useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
     };
 
     const handleResize = () => {
       setIsMobile(window.innerWidth < 768);
+      // Close mobile menu on resize to desktop
+      if (window.innerWidth >= 768) {
+        setIsMobileMenuOpen(false);
+      }
     };
 
     // Initial check
@@ -48,6 +52,11 @@ export default function Navigation() {
       window.removeEventListener("resize", handleResize);
     };
   }, []);
+
+  // Close mobile menu on route change
+  useEffect(() => {
+    setIsMobileMenuOpen(false);
+  }, [location.pathname]);
 
     const handleNavClick = () => {
     setIsMobileMenuOpen(false);
