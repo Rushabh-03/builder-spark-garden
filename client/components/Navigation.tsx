@@ -242,21 +242,21 @@ export default function Navigation() {
           </div>
         </div>
 
-                                {/* Mobile Menu */}
+                                        {/* Mobile Menu */}
         <div
-          className={`md:hidden bg-white border-t transition-all duration-300 ${
+          className={`md:hidden bg-white border-t transition-all duration-300 overflow-hidden ${
             isMobileMenuOpen
-              ? "max-h-96 opacity-100"
-              : "max-h-0 opacity-0 overflow-hidden"
+              ? "max-h-screen opacity-100"
+              : "max-h-0 opacity-0"
           }`}
         >
-          <div className="container mx-auto px-6 py-6">
-            <div className="flex flex-col gap-4">
+          <div className="px-6 py-6">
+            <div className="flex flex-col">
               {navItems.map((item) => (
                 <Link
                   key={item.name}
                   to={item.href}
-                  className={`font-medium py-2 hover:text-travel-orange transition-colors relative ${
+                  className={`font-medium py-3 pl-6 pr-4 hover:text-travel-orange transition-colors relative ${
                     isActivePage(item.href)
                       ? "text-travel-blue font-semibold"
                       : "text-travel-navy"
@@ -269,7 +269,7 @@ export default function Navigation() {
                   )}
                 </Link>
               ))}
-              <div className="flex flex-col gap-3 pt-4 border-t">
+              <div className="flex flex-col gap-3 pt-6 mt-4 border-t border-gray-200">
                 <Button
                   variant="outline"
                   onClick={() => {
@@ -280,7 +280,7 @@ export default function Navigation() {
                     window.open(whatsappUrl, "_blank");
                     setIsMobileMenuOpen(false);
                   }}
-                  className="border-travel-blue text-travel-blue hover:bg-travel-blue hover:text-white"
+                  className="border-travel-blue text-travel-blue hover:bg-travel-blue hover:text-white w-full"
                 >
                   Get Quote
                 </Button>
@@ -293,7 +293,7 @@ export default function Navigation() {
                     window.open(whatsappUrl, "_blank");
                     setIsMobileMenuOpen(false);
                   }}
-                  className="bg-travel-orange hover:bg-travel-orange/90 text-white"
+                  className="bg-travel-orange hover:bg-travel-orange/90 text-white w-full"
                 >
                   Book Now
                 </Button>
