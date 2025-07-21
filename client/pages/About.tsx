@@ -206,8 +206,8 @@ export default function About() {
   return (
     <div className="min-h-screen flex flex-col">
       <div className="flex-1">
-        {/* Hero Section */}
-        <div className="relative h-96 md:h-[500px] overflow-hidden">
+                {/* Hero Section */}
+        <div className="relative h-96 md:h-[500px] overflow-hidden pt-20 md:pt-28">
           <img
             src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80"
             alt="About Us"
