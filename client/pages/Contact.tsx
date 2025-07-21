@@ -70,12 +70,13 @@ const contactInfo: ContactInfo[] = [
       "Gujarat, India",
     ],
   },
-  {
+    {
     icon: <Clock className="w-6 h-6" />,
     title: "Business Hours",
     details: [
-      "Monday - Saturday: 9:00 AM - 8:00 PM",
-      "Sunday: 10:00 AM - 6:00 PM",
+      "Mon to Fri: 10:00 AM - 7:00 PM",
+      "Sat: 10:00 AM - 5:30 PM",
+      "Sunday: Closed",
     ],
     highlight: "Emergency support 24/7",
   },
@@ -88,27 +89,9 @@ const offices: Office[] = [
       "B-102, Nirman complex, Opp.Hocco Eatery Nr.Stadium Cross Roads, Navrangpura, Ahmedabad - 380009, Gujarat, India",
     phone: "+91 98258 91999",
     email: "rinkutravels2005@gmail.com",
-    hours: "Mon-Sat: 9AM-8PM, Sun: 10AM-6PM",
+    hours: "Mon-Fri: 10AM-7PM, Sat: 10AM-5:30PM, Sun: Closed",
     image:
       "https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
-  },
-  {
-    name: "Mumbai Branch",
-    address: "456 Marine Drive, Mumbai - 400001",
-    phone: "+91 98765 43212",
-    email: "mumbai@rinkutravels.com",
-    hours: "Mon-Sat: 9AM-7PM, Sun: 10AM-5PM",
-    image:
-      "https://images.unsplash.com/photo-1570126618953-d437176e8c79?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
-  },
-  {
-    name: "Bangalore Office",
-    address: "789 MG Road, Bangalore - 560001",
-    phone: "+91 98765 43213",
-    email: "bangalore@rinkutravels.com",
-    hours: "Mon-Sat: 9AM-7PM, Sun: 10AM-5PM",
-    image:
-      "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
   },
 ];
 
@@ -468,13 +451,13 @@ Can you help me plan this trip?`;
               <h2 className="text-3xl md:text-4xl font-bold text-travel-navy mb-6">
                 Our Office Locations
               </h2>
-              <p className="text-xl text-travel-navy/70 max-w-3xl mx-auto">
-                Visit us at any of our conveniently located offices across
-                India.
+                            <p className="text-xl text-travel-navy/70 max-w-3xl mx-auto">
+                Visit us at our office in Ahmedabad for personalized travel
+                consultation.
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 gap-8 max-w-md mx-auto">
               {offices.map((office, index) => (
                 <div
                   key={index}
