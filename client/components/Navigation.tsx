@@ -237,47 +237,36 @@ export default function Navigation() {
           </div>
         </div>
 
-                        {/* Mobile Menu Overlay */}
-        {isMobileMenuOpen && (
-          <div
-            className="md:hidden fixed inset-0 z-40 bg-black/50"
-            onClick={() => setIsMobileMenuOpen(false)}
-          />
-        )}
-
-        {/* Mobile Menu */}
+                                {/* Mobile Menu */}
         <div
-          className={`md:hidden fixed left-0 right-0 top-full z-50 bg-white shadow-xl transition-all duration-300 ease-in-out ${
-            isMobileMenuOpen ? "translate-y-0 opacity-100" : "-translate-y-full opacity-0"
+          className={`md:hidden bg-white border-t transition-all duration-300 ${
+            isMobileMenuOpen
+              ? "max-h-96 opacity-100"
+              : "max-h-0 opacity-0 overflow-hidden"
           }`}
-          style={{ width: "100vw" }}
         >
-          {/* Mobile Menu Content */}
-          <div className="w-full">
-            <div className="flex flex-col">
+          <div className="container mx-auto px-6 py-6">
+            <div className="flex flex-col gap-4">
               {navItems.map((item) => (
                 <Link
                   key={item.name}
                   to={item.href}
-                  className={`font-medium py-4 px-6 hover:text-travel-orange hover:bg-travel-light-blue transition-all duration-200 relative text-lg border-b border-gray-100 ${
+                  className={`font-medium py-2 hover:text-travel-orange transition-colors relative ${
                     isActivePage(item.href)
-                      ? "text-travel-blue font-semibold bg-travel-blue/10"
+                      ? "text-travel-blue font-semibold"
                       : "text-travel-navy"
                   }`}
                   onClick={handleNavClick}
                 >
                   {item.name}
                   {isActivePage(item.href) && (
-                    <div className="absolute left-0 top-0 bottom-0 w-1 bg-travel-blue" />
+                    <div className="absolute left-0 top-0 bottom-0 w-1 bg-travel-blue rounded-r" />
                   )}
                 </Link>
               ))}
-
-              {/* Mobile CTA Buttons */}
-              <div className="flex flex-col gap-4 p-6 bg-gray-50">
+              <div className="flex flex-col gap-3 pt-4 border-t">
                 <Button
                   variant="outline"
-                  size="lg"
                   onClick={() => {
                     const phoneNumber = "919825891999";
                     const message =
@@ -286,12 +275,11 @@ export default function Navigation() {
                     window.open(whatsappUrl, "_blank");
                     setIsMobileMenuOpen(false);
                   }}
-                  className="border-travel-blue text-travel-blue hover:bg-travel-blue hover:text-white py-3 w-full"
+                  className="border-travel-blue text-travel-blue hover:bg-travel-blue hover:text-white"
                 >
                   Get Quote
                 </Button>
                 <Button
-                  size="lg"
                   onClick={() => {
                     const phoneNumber = "919825891999";
                     const message =
@@ -300,7 +288,7 @@ export default function Navigation() {
                     window.open(whatsappUrl, "_blank");
                     setIsMobileMenuOpen(false);
                   }}
-                  className="bg-travel-blue hover:bg-travel-blue/90 text-white py-3 w-full"
+                  className="bg-travel-orange hover:bg-travel-orange/90 text-white"
                 >
                   Book Now
                 </Button>
