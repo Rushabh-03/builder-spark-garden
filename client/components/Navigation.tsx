@@ -15,6 +15,7 @@ import {
 export default function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
   const location = useLocation();
 
   const getEmailForPage = () => {
@@ -28,13 +29,24 @@ export default function Navigation() {
     }
   };
 
-  useEffect(() => {
+    useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
     };
 
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    // Initial check
+    handleResize();
+
     window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("resize", handleResize);
+    };
   }, []);
 
   const handleNavClick = () => {
@@ -87,7 +99,7 @@ export default function Navigation() {
         </div>
       </div>
 
-            {/* Main Navigation */}
+                  {/* Main Navigation */}
       <nav
         className={`fixed w-full z-50 transition-all duration-300 ${
           isScrolled
@@ -95,7 +107,7 @@ export default function Navigation() {
             : "bg-transparent"
         }`}
         style={{
-          top: isScrolled ? "0" : window.innerWidth >= 768 ? "40px" : "0"
+          top: isScrolled || isMobile ? "0" : "40px"
         }}
       >
         <div className="container mx-auto px-6">
