@@ -233,11 +233,9 @@ export default function Navigation() {
               ? "max-h-96 opacity-100"
               : "max-h-0 opacity-0 overflow-hidden"
           }`}
-                    style={{
-            background: isScrolled
-              ? "rgba(255, 255, 255, 0.98)"
-              : "rgba(255, 255, 255, 1)",
-            backdropFilter: isScrolled ? "blur(16px)" : "none"
+                              style={{
+            background: "rgba(255, 255, 255, 0.98)",
+            backdropFilter: "blur(16px)"
           }}
         >
           <div className="container mx-auto px-6 py-6">
