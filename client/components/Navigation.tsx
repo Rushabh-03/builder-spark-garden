@@ -260,7 +260,7 @@ export default function Navigation() {
                 </Link>
               ))}
               <div className="flex flex-col gap-3 pt-4 border-t">
-                <Button
+                                <Button
                   variant="outline"
                   onClick={() => {
                     const phoneNumber = "919825891999";
@@ -268,8 +268,9 @@ export default function Navigation() {
                       "Hi! I'm interested in getting a quote for a tour. Can you help me?";
                     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
                     window.open(whatsappUrl, "_blank");
+                    setIsMobileMenuOpen(false);
                   }}
-                  className="border-travel-blue text-travel-blue hover:bg-travel-blue hover:text-white"
+                  className="border-travel-blue text-travel-blue hover:bg-travel-blue hover:text-white w-full"
                 >
                   Get Quote
                 </Button>
