@@ -237,30 +237,55 @@ export default function Navigation() {
           </div>
         </div>
 
+                {/* Mobile Menu Overlay */}
+        {isMobileMenuOpen && (
+          <div
+            className="md:hidden fixed inset-0 z-40 bg-black/50 backdrop-blur-sm"
+            onClick={() => setIsMobileMenuOpen(false)}
+          />
+        )}
+
         {/* Mobile Menu */}
         <div
-          className={`md:hidden transition-all duration-300 ${
-            isMobileMenuOpen
-              ? "fixed left-0 right-0 top-20 bottom-0 z-40 opacity-100 overflow-y-auto"
-              : "max-h-0 opacity-0 overflow-hidden"
+          className={`md:hidden fixed top-0 left-0 right-0 z-50 bg-white shadow-xl transition-transform duration-300 ease-in-out ${
+            isMobileMenuOpen ? "translate-y-0" : "-translate-y-full"
           }`}
-          style={{
-            background: "rgba(255, 255, 255, 0.98)",
-            backdropFilter: "blur(16px)",
-          }}
         >
-          <div className="container mx-auto px-6 pt-6 pb-8">
+          {/* Mobile Header with Logo */}
+          <div className="flex items-center justify-between px-6 py-4 border-b border-gray-200 bg-white">
+            <Link to="/" className="flex items-center gap-3" onClick={handleNavClick}>
+              <div className="w-10 h-10 bg-gradient-to-r from-travel-blue to-travel-green rounded-lg flex items-center justify-center">
+                <Plane className="w-6 h-6 text-white" />
+              </div>
+              <div>
+                <h1 className="text-xl font-bold text-travel-navy">
+                  Rinku Travels
+                </h1>
+                <p className="text-xs text-travel-navy/70">
+                  Enjoy The Travel Freedom
+                </p>
+              </div>
+            </Link>
+            <button
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="p-2 rounded-lg hover:bg-gray-100 transition-colors"
+              aria-label="Close mobile menu"
+            >
+              <X className="w-6 h-6 text-travel-navy" />
+            </button>
+          </div>
+
+          {/* Mobile Menu Content */}
+          <div className="px-6 py-6 bg-white max-h-[calc(100vh-120px)] overflow-y-auto">
             <div className="flex flex-col gap-2">
               {navItems.map((item) => (
                 <Link
                   key={item.name}
                   to={item.href}
-                  className={`font-medium py-3 px-4 hover:text-travel-orange transition-colors relative rounded-lg ${
+                  className={`font-medium py-4 px-4 hover:text-travel-orange hover:bg-travel-light-blue transition-all duration-200 relative rounded-lg text-lg ${
                     isActivePage(item.href)
-                      ? "text-travel-blue font-semibold bg-travel-blue/5"
-                      : isScrolled
-                        ? "text-travel-navy"
-                        : "text-travel-navy"
+                      ? "text-travel-blue font-semibold bg-travel-blue/10"
+                      : "text-travel-navy"
                   }`}
                   onClick={handleNavClick}
                 >
@@ -270,9 +295,12 @@ export default function Navigation() {
                   )}
                 </Link>
               ))}
-              <div className="flex flex-col gap-3 pt-6 pb-6 border-t">
+
+              {/* Mobile CTA Buttons */}
+              <div className="flex flex-col gap-4 pt-6 border-t border-gray-200 mt-4">
                 <Button
                   variant="outline"
+                  size="lg"
                   onClick={() => {
                     const phoneNumber = "919825891999";
                     const message =
@@ -281,11 +309,12 @@ export default function Navigation() {
                     window.open(whatsappUrl, "_blank");
                     setIsMobileMenuOpen(false);
                   }}
-                  className="border-travel-blue text-travel-blue hover:bg-travel-blue hover:text-white w-full"
+                  className="border-travel-blue text-travel-blue hover:bg-travel-blue hover:text-white py-3 w-full"
                 >
                   Get Quote
                 </Button>
                 <Button
+                  size="lg"
                   onClick={() => {
                     const phoneNumber = "919825891999";
                     const message =
@@ -294,10 +323,35 @@ export default function Navigation() {
                     window.open(whatsappUrl, "_blank");
                     setIsMobileMenuOpen(false);
                   }}
-                  className="bg-travel-blue hover:bg-travel-blue/90 text-white w-full"
+                  className="bg-travel-blue hover:bg-travel-blue/90 text-white py-3 w-full"
                 >
                   Book Now
                 </Button>
+              </div>
+
+              {/* Contact Info */}
+              <div className="pt-6 border-t border-gray-200 mt-6">
+                <h3 className="font-semibold text-travel-navy mb-3">Contact Us</h3>
+                <div className="space-y-2 text-sm text-travel-navy/70">
+                  <a
+                    href="tel:+919825891999"
+                    className="flex items-center gap-2 hover:text-travel-blue transition-colors"
+                  >
+                    <Phone className="w-4 h-4" />
+                    +91 98258 91999
+                  </a>
+                  <a
+                    href="mailto:rinkutravels2005@gmail.com"
+                    className="flex items-center gap-2 hover:text-travel-blue transition-colors"
+                  >
+                    <Mail className="w-4 h-4" />
+                    rinkutravels2005@gmail.com
+                  </a>
+                  <div className="flex items-center gap-2">
+                    <MapPin className="w-4 h-4" />
+                    Ahmedabad, Gujarat
+                  </div>
+                </div>
               </div>
             </div>
           </div>
