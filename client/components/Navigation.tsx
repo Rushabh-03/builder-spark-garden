@@ -87,14 +87,16 @@ export default function Navigation() {
         </div>
       </div>
 
-      {/* Main Navigation */}
+            {/* Main Navigation */}
       <nav
-        className={`fixed top-0 w-full z-50 transition-all duration-300 ${
+        className={`fixed w-full z-50 transition-all duration-300 ${
           isScrolled
             ? "bg-white/95 backdrop-blur-md shadow-lg"
             : "bg-transparent"
         }`}
-        style={{ top: isScrolled ? "0" : "40px" }}
+        style={{
+          top: isScrolled ? "0" : window.innerWidth >= 768 ? "40px" : "0"
+        }}
       >
         <div className="container mx-auto px-6">
           <div className="flex justify-between items-center py-4">
@@ -203,9 +205,13 @@ export default function Navigation() {
           </div>
         </div>
 
-        {/* Mobile Menu */}
+                {/* Mobile Menu */}
         <div
-          className={`md:hidden bg-white border-t transition-all duration-300 ${
+          className={`md:hidden border-t transition-all duration-300 ${
+            isScrolled
+              ? "bg-white/95 backdrop-blur-md"
+              : "bg-white"
+          } ${
             isMobileMenuOpen
               ? "max-h-96 opacity-100"
               : "max-h-0 opacity-0 overflow-hidden"
