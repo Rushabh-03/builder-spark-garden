@@ -49,9 +49,8 @@ export default function Navigation() {
     };
   }, []);
 
-  const handleNavClick = () => {
+    const handleNavClick = () => {
     setIsMobileMenuOpen(false);
-    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   const isActivePage = (path: string) => {
@@ -99,15 +98,16 @@ export default function Navigation() {
         </div>
       </div>
 
-                        {/* Main Navigation */}
+                              {/* Main Navigation */}
       <nav
-        className={`fixed w-full z-50 transition-all duration-300 ${
-          isScrolled
-            ? "bg-white/95 backdrop-blur-md shadow-lg"
-            : "bg-transparent"
-        }`}
+        className={`fixed w-full z-50 transition-all duration-300`}
         style={{
-          top: isScrolled || isMobile ? "0" : "40px"
+          top: isScrolled || isMobile ? "0" : "40px",
+          background: isScrolled
+            ? "rgba(255, 255, 255, 0.95)"
+            : "transparent",
+          backdropFilter: isScrolled ? "blur(12px)" : "none",
+          boxShadow: isScrolled ? "0 4px 6px -1px rgba(0, 0, 0, 0.1)" : "none"
         }}
       >
         <div className="container mx-auto px-6">
@@ -217,17 +217,19 @@ export default function Navigation() {
           </div>
         </div>
 
-                {/* Mobile Menu */}
+                        {/* Mobile Menu */}
         <div
           className={`md:hidden border-t transition-all duration-300 ${
-            isScrolled
-              ? "bg-white/95 backdrop-blur-md"
-              : "bg-white"
-          } ${
             isMobileMenuOpen
               ? "max-h-96 opacity-100"
               : "max-h-0 opacity-0 overflow-hidden"
           }`}
+          style={{
+            background: isScrolled
+              ? "rgba(255, 255, 255, 0.95)"
+              : "rgba(255, 255, 255, 1)",
+            backdropFilter: isScrolled ? "blur(12px)" : "none"
+          }}
         >
           <div className="container mx-auto px-6 py-6">
             <div className="flex flex-col gap-4">
