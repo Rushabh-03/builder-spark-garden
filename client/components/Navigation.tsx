@@ -279,10 +279,11 @@ export default function Navigation() {
                     const phoneNumber = "919825891999";
                     const message =
                       "Hi! I'm interested in booking a tour. Can you help me?";
-                    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+                                        const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
                     window.open(whatsappUrl, "_blank");
+                    setIsMobileMenuOpen(false);
                   }}
-                  className="bg-travel-blue hover:bg-travel-blue/90 text-white"
+                  className="bg-travel-blue hover:bg-travel-blue/90 text-white w-full"
                 >
                   Book Now
                 </Button>
