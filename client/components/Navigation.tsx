@@ -218,15 +218,20 @@ export default function Navigation() {
               </Button>
             </div>
 
-            {/* Mobile Menu Button */}
+                        {/* Mobile Menu Button */}
             <button
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              onClick={(e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                setIsMobileMenuOpen(!isMobileMenuOpen);
+              }}
               className={`md:hidden p-2 rounded-lg transition-colors relative z-50 ${
                 isScrolled || isMobileMenuOpen
                   ? "text-travel-navy"
                   : "text-white"
               }`}
               aria-label="Toggle mobile menu"
+              type="button"
             >
               {isMobileMenuOpen ? (
                 <X className="w-6 h-6" />
