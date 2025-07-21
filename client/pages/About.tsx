@@ -610,17 +610,17 @@ export default function About() {
               Join thousands of satisfied travelers who have trusted us with
               their dream journeys.
             </p>
-            <div className="flex flex-wrap justify-center gap-4">
+                        <div className="flex flex-col sm:flex-row justify-center gap-4">
               <Button
                 size="lg"
-                className="bg-travel-orange hover:bg-travel-orange/90 text-white px-8 py-3 shadow-lg"
+                className="bg-travel-orange hover:bg-travel-orange/90 text-white px-8 py-3 shadow-lg w-full sm:w-auto"
               >
                 Plan Your Trip
               </Button>
               <Button
                 size="lg"
                 variant="outline"
-                className="border-white/80 bg-white/10 backdrop-blur-sm text-white hover:bg-white hover:text-travel-navy px-8 py-3 shadow-lg"
+                className="border-white/80 bg-white/10 backdrop-blur-sm text-white hover:bg-white hover:text-travel-navy px-8 py-3 shadow-lg w-full sm:w-auto"
               >
                 Contact Our Team
               </Button>
