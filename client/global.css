@@ -176,6 +176,21 @@
     -moz-osx-font-smoothing: grayscale;
     transform: translateZ(0);
   }
+
+  /* Navigation spacing utilities */
+  .pt-nav {
+    padding-top: 80px; /* Standard navbar height */
+  }
+
+  .pt-nav-mobile {
+    padding-top: 72px; /* Mobile navbar height */
+  }
+
+  @media (min-width: 768px) {
+    .pt-nav {
+      padding-top: 120px; /* Desktop with contact bar */
+    }
+  }
 }
 
 @keyframes fadeIn {
