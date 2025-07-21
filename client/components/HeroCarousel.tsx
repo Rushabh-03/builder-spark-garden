@@ -163,7 +163,7 @@ export default function HeroCarousel() {
         <ChevronRight className="w-6 h-6 text-white group-hover:scale-110 transition-transform" />
       </button>
 
-                  {/* Content */}
+      {/* Content */}
       <div className="relative z-10 h-full flex items-center pt-20 md:pt-28 pb-8">
         <div className="container mx-auto px-6">
           <div className="max-w-4xl">

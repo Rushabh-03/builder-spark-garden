@@ -327,8 +327,8 @@ export default function Destinations() {
   return (
     <div className="min-h-screen flex flex-col">
       <div className="flex-1">
-                {/* Hero Section */}
-                <div className="relative min-h-[500px] h-auto bg-gradient-to-r from-travel-navy to-travel-blue overflow-hidden pt-20 md:pt-28 pb-8">
+        {/* Hero Section */}
+        <div className="relative min-h-[500px] h-auto bg-gradient-to-r from-travel-navy to-travel-blue overflow-hidden pt-20 md:pt-28 pb-8">
           <div className="absolute inset-0 bg-black/20" />
           <div
             className="absolute inset-0 opacity-30"
@@ -338,7 +338,7 @@ export default function Destinations() {
               backgroundPosition: "center",
             }}
           />
-                    <div className="relative z-10 container mx-auto px-6 h-full flex items-center py-8">
+          <div className="relative z-10 container mx-auto px-6 h-full flex items-center py-8">
             <div className="text-white max-w-4xl">
               <h1 className="text-4xl md:text-6xl font-bold mb-6">
                 Discover Amazing Destinations
@@ -347,7 +347,7 @@ export default function Destinations() {
                 From majestic mountains to pristine beaches, explore the world's
                 most breathtaking destinations with expert guidance.
               </p>
-                                          <div className="flex flex-col sm:flex-row gap-4 mb-4">
+              <div className="flex flex-col sm:flex-row gap-4 mb-4">
                 <Button
                   size="lg"
                   className="bg-travel-orange/90 hover:bg-travel-orange text-white px-8 py-3 shadow-lg w-full sm:w-auto"

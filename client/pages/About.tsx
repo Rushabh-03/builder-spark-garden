@@ -206,8 +206,8 @@ export default function About() {
   return (
     <div className="min-h-screen flex flex-col">
       <div className="flex-1">
-                {/* Hero Section */}
-                <div className="relative min-h-[500px] md:h-[500px] overflow-hidden pt-20 md:pt-28 pb-8">
+        {/* Hero Section */}
+        <div className="relative min-h-[500px] md:h-[500px] overflow-hidden pt-20 md:pt-28 pb-8">
           <img
             src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80"
             alt="About Us"
@@ -610,7 +610,7 @@ export default function About() {
               Join thousands of satisfied travelers who have trusted us with
               their dream journeys.
             </p>
-                        <div className="flex flex-col sm:flex-row justify-center gap-4">
+            <div className="flex flex-col sm:flex-row justify-center gap-4">
               <Button
                 size="lg"
                 className="bg-travel-orange hover:bg-travel-orange/90 text-white px-8 py-3 shadow-lg w-full sm:w-auto"

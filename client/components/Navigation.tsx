@@ -29,7 +29,7 @@ export default function Navigation() {
     }
   };
 
-      useEffect(() => {
+  useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
     };
@@ -58,7 +58,7 @@ export default function Navigation() {
     setIsMobileMenuOpen(false);
   }, [location.pathname]);
 
-    const handleNavClick = () => {
+  const handleNavClick = () => {
     setIsMobileMenuOpen(false);
   };
 
@@ -107,16 +107,18 @@ export default function Navigation() {
         </div>
       </div>
 
-                              {/* Main Navigation */}
+      {/* Main Navigation */}
       <nav
         className={`fixed w-full z-50 transition-all duration-300`}
-                        style={{
+        style={{
           top: isScrolled || isMobile ? "0" : "40px",
-          background: isScrolled || isMobileMenuOpen
-            ? "rgba(255, 255, 255, 0.98)"
-            : "transparent",
-          backdropFilter: isScrolled || isMobileMenuOpen ? "blur(16px)" : "none",
-          boxShadow: isScrolled ? "0 4px 6px -1px rgba(0, 0, 0, 0.1)" : "none"
+          background:
+            isScrolled || isMobileMenuOpen
+              ? "rgba(255, 255, 255, 0.98)"
+              : "transparent",
+          backdropFilter:
+            isScrolled || isMobileMenuOpen ? "blur(16px)" : "none",
+          boxShadow: isScrolled ? "0 4px 6px -1px rgba(0, 0, 0, 0.1)" : "none",
         }}
       >
         <div className="container mx-auto px-6">
@@ -131,16 +133,20 @@ export default function Navigation() {
                 />
               </div>
               <div>
-                                <h1
+                <h1
                   className={`text-xl font-bold ${
-                    isScrolled || isMobileMenuOpen ? "text-travel-navy" : "text-white"
+                    isScrolled || isMobileMenuOpen
+                      ? "text-travel-navy"
+                      : "text-white"
                   }`}
                 >
                   Rinku Tours & Travels
                 </h1>
-                                <p
+                <p
                   className={`text-xs ${
-                    isScrolled || isMobileMenuOpen ? "text-travel-navy/70" : "text-white/80"
+                    isScrolled || isMobileMenuOpen
+                      ? "text-travel-navy/70"
+                      : "text-white/80"
                   }`}
                 >
                   Enjoy The Travel Freedom
@@ -155,8 +161,10 @@ export default function Navigation() {
                   key={item.name}
                   to={item.href}
                   onClick={handleNavClick}
-                                    className={`font-medium transition-colors duration-200 hover:text-travel-orange relative ${
-                    isScrolled || isMobileMenuOpen ? "text-travel-navy" : "text-white"
+                  className={`font-medium transition-colors duration-200 hover:text-travel-orange relative ${
+                    isScrolled || isMobileMenuOpen
+                      ? "text-travel-navy"
+                      : "text-white"
                   } ${
                     isActivePage(item.href)
                       ? isScrolled
@@ -210,11 +218,13 @@ export default function Navigation() {
               </Button>
             </div>
 
-                        {/* Mobile Menu Button */}
+            {/* Mobile Menu Button */}
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               className={`md:hidden p-2 rounded-lg transition-colors relative z-50 ${
-                isScrolled || isMobileMenuOpen ? "text-travel-navy" : "text-white"
+                isScrolled || isMobileMenuOpen
+                  ? "text-travel-navy"
+                  : "text-white"
               }`}
               aria-label="Toggle mobile menu"
             >
@@ -227,41 +237,41 @@ export default function Navigation() {
           </div>
         </div>
 
-                        {/* Mobile Menu */}
+        {/* Mobile Menu */}
         <div
-                                                                                className={`md:hidden transition-all duration-300 ${
+          className={`md:hidden transition-all duration-300 ${
             isMobileMenuOpen
               ? "fixed left-0 right-0 top-20 bottom-0 z-40 opacity-100 overflow-y-auto"
               : "max-h-0 opacity-0 overflow-hidden"
           }`}
-                              style={{
+          style={{
             background: "rgba(255, 255, 255, 0.98)",
-            backdropFilter: "blur(16px)"
+            backdropFilter: "blur(16px)",
           }}
         >
-                                                  <div className="container mx-auto px-6 pt-6 pb-8">
-                        <div className="flex flex-col gap-2">
-                            {navItems.map((item) => (
+          <div className="container mx-auto px-6 pt-6 pb-8">
+            <div className="flex flex-col gap-2">
+              {navItems.map((item) => (
                 <Link
                   key={item.name}
                   to={item.href}
-                                    className={`font-medium py-3 px-4 hover:text-travel-orange transition-colors relative rounded-lg ${
+                  className={`font-medium py-3 px-4 hover:text-travel-orange transition-colors relative rounded-lg ${
                     isActivePage(item.href)
                       ? "text-travel-blue font-semibold bg-travel-blue/5"
                       : isScrolled
-                      ? "text-travel-navy"
-                      : "text-travel-navy"
+                        ? "text-travel-navy"
+                        : "text-travel-navy"
                   }`}
                   onClick={handleNavClick}
                 >
                   {item.name}
-                                    {isActivePage(item.href) && (
+                  {isActivePage(item.href) && (
                     <div className="absolute left-2 top-0 bottom-0 w-1 bg-travel-blue rounded-r" />
                   )}
                 </Link>
               ))}
-                                          <div className="flex flex-col gap-3 pt-6 pb-6 border-t">
-                                <Button
+              <div className="flex flex-col gap-3 pt-6 pb-6 border-t">
+                <Button
                   variant="outline"
                   onClick={() => {
                     const phoneNumber = "919825891999";
@@ -280,7 +290,7 @@ export default function Navigation() {
                     const phoneNumber = "919825891999";
                     const message =
                       "Hi! I'm interested in booking a tour. Can you help me?";
-                                        const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+                    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
                     window.open(whatsappUrl, "_blank");
                     setIsMobileMenuOpen(false);
                   }}
