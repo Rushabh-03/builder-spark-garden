@@ -284,7 +284,7 @@ export default function Navigation() {
                 >
                   Get Quote
                 </Button>
-                <Button
+                                <Button
                   onClick={() => {
                     const phoneNumber = "919825891999";
                     const message =
@@ -293,7 +293,7 @@ export default function Navigation() {
                     window.open(whatsappUrl, "_blank");
                     setIsMobileMenuOpen(false);
                   }}
-                  className="bg-travel-orange hover:bg-travel-orange/90 text-white w-full"
+                  className="bg-travel-blue hover:bg-travel-blue/90 text-white w-full"
                 >
                   Book Now
                 </Button>
