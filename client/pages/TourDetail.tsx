@@ -65,8 +65,8 @@ export default function TourDetail() {
   return (
     <div className="min-h-screen flex flex-col">
       <div className="flex-1">
-        {/* Hero Section */}
-        <div className="relative h-96 md:h-[500px] overflow-hidden">
+                {/* Hero Section */}
+        <div className="relative h-96 md:h-[500px] overflow-hidden pt-20 md:pt-28">
           <img
             src={tour.images[currentImageIndex]}
             alt={tour.title}
