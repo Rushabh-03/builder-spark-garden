@@ -347,7 +347,7 @@ export default function Destinations() {
                 From majestic mountains to pristine beaches, explore the world's
                 most breathtaking destinations with expert guidance.
               </p>
-                            <div className="flex flex-col sm:flex-row gap-4">
+                                          <div className="flex flex-col sm:flex-row gap-4 mb-4">
                 <Button
                   size="lg"
                   className="bg-travel-orange/90 hover:bg-travel-orange text-white px-8 py-3 shadow-lg w-full sm:w-auto"
