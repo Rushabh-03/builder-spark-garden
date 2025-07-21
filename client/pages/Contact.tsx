@@ -557,7 +557,7 @@ Can you help me plan this trip?`;
                 </p>
               </div>
 
-                            <div className="text-center group">
+              <div className="text-center group">
                 <div className="w-16 h-16 bg-travel-blue rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
                   <Globe className="w-8 h-8 text-white" />
                 </div>

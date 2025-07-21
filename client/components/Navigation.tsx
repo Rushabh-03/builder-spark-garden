@@ -218,7 +218,7 @@ export default function Navigation() {
               </Button>
             </div>
 
-                        {/* Mobile Menu Button */}
+            {/* Mobile Menu Button */}
             <button
               onClick={(e) => {
                 e.preventDefault();
@@ -242,12 +242,10 @@ export default function Navigation() {
           </div>
         </div>
 
-                                        {/* Mobile Menu */}
+        {/* Mobile Menu */}
         <div
           className={`md:hidden bg-white border-t transition-all duration-300 overflow-hidden ${
-            isMobileMenuOpen
-              ? "max-h-screen opacity-100"
-              : "max-h-0 opacity-0"
+            isMobileMenuOpen ? "max-h-screen opacity-100" : "max-h-0 opacity-0"
           }`}
         >
           <div className="px-6 py-6">
@@ -284,7 +282,7 @@ export default function Navigation() {
                 >
                   Get Quote
                 </Button>
-                                <Button
+                <Button
                   onClick={() => {
                     const phoneNumber = "919825891999";
                     const message =
