@@ -34,7 +34,7 @@ const visaServices: VisaService[] = [
     country: "United States",
     flag: "🇺🇸",
     processingTime: "15-20 days",
-    price: "₹18,000",
+        price: "₹25,000",
     validity: "10 years",
     visaType: "B1/B2 Tourist",
     requirements: [
@@ -70,7 +70,7 @@ const visaServices: VisaService[] = [
     country: "United Kingdom",
     flag: "🇬🇧",
     processingTime: "15-20 days",
-    price: "₹12,000",
+        price: "₹20,000",
     validity: "6 months",
     visaType: "Standard Visitor",
     requirements: [
@@ -88,7 +88,7 @@ const visaServices: VisaService[] = [
     country: "Canada",
     flag: "🇨🇦",
     processingTime: "20-30 days",
-    price: "₹9,500",
+        price: "₹21,000",
     validity: "10 years",
     visaType: "Visitor Visa",
     requirements: [
@@ -106,7 +106,7 @@ const visaServices: VisaService[] = [
     country: "Australia",
     flag: "🇦🇺",
     processingTime: "15-25 days",
-    price: "₹11,000",
+        price: "₹20,000",
     validity: "1 year",
     visaType: "eVisitor",
     requirements: [
@@ -124,7 +124,7 @@ const visaServices: VisaService[] = [
     country: "Dubai (UAE)",
     flag: "🇦🇪",
     processingTime: "3-5 days",
-    price: "₹4,500",
+        price: "₹6,800 (Variable)",
     validity: "30 days",
     visaType: "Tourist Visa",
     requirements: [
