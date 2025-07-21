@@ -259,7 +259,7 @@ export default function Navigation() {
                   )}
                 </Link>
               ))}
-              <div className="flex flex-col gap-3 pt-4 border-t">
+                            <div className="flex flex-col gap-3 pt-6 pb-4 border-t">
                                 <Button
                   variant="outline"
                   onClick={() => {
