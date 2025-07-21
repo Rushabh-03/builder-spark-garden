@@ -39,6 +39,11 @@
 
     --radius: 0.75rem;
 
+    /* Navigation heights */
+    --nav-top-bar-height: 40px;
+    --nav-main-height: 80px;
+    --nav-total-height: 120px;
+
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
     --sidebar-primary: 240 5.9% 10%;
@@ -170,6 +175,21 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     transform: translateZ(0);
+  }
+
+  /* Navigation spacing utilities */
+  .pt-nav {
+    padding-top: 80px; /* Standard navbar height */
+  }
+
+  .pt-nav-mobile {
+    padding-top: 72px; /* Mobile navbar height */
+  }
+
+  @media (min-width: 768px) {
+    .pt-nav {
+      padding-top: 120px; /* Desktop with contact bar */
+    }
   }
 }
 

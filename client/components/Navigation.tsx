@@ -15,6 +15,7 @@ import {
 export default function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
   const location = useLocation();
 
   const getEmailForPage = () => {
@@ -33,13 +34,32 @@ export default function Navigation() {
       setIsScrolled(window.scrollY > 50);
     };
 
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+      // Close mobile menu on resize to desktop
+      if (window.innerWidth >= 768) {
+        setIsMobileMenuOpen(false);
+      }
+    };
+
+    // Initial check
+    handleResize();
+
     window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("resize", handleResize);
+    };
   }, []);
+
+  // Close mobile menu on route change
+  useEffect(() => {
+    setIsMobileMenuOpen(false);
+  }, [location.pathname]);
 
   const handleNavClick = () => {
     setIsMobileMenuOpen(false);
-    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   const isActivePage = (path: string) => {
@@ -89,12 +109,17 @@ export default function Navigation() {
 
       {/* Main Navigation */}
       <nav
-        className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-          isScrolled
-            ? "bg-white/95 backdrop-blur-md shadow-lg"
-            : "bg-transparent"
-        }`}
-        style={{ top: isScrolled ? "0" : "40px" }}
+        className={`fixed w-full z-50 transition-all duration-300`}
+        style={{
+          top: isScrolled || isMobile ? "0" : "40px",
+          background:
+            isScrolled || isMobileMenuOpen
+              ? "rgba(255, 255, 255, 0.98)"
+              : "transparent",
+          backdropFilter:
+            isScrolled || isMobileMenuOpen ? "blur(16px)" : "none",
+          boxShadow: isScrolled ? "0 4px 6px -1px rgba(0, 0, 0, 0.1)" : "none",
+        }}
       >
         <div className="container mx-auto px-6">
           <div className="flex justify-between items-center py-4">
@@ -110,14 +135,18 @@ export default function Navigation() {
               <div>
                 <h1
                   className={`text-xl font-bold ${
-                    isScrolled ? "text-travel-navy" : "text-white"
+                    isScrolled || isMobileMenuOpen
+                      ? "text-travel-navy"
+                      : "text-white"
                   }`}
                 >
                   Rinku Tours & Travels
                 </h1>
                 <p
                   className={`text-xs ${
-                    isScrolled ? "text-travel-navy/70" : "text-white/80"
+                    isScrolled || isMobileMenuOpen
+                      ? "text-travel-navy/70"
+                      : "text-white/80"
                   }`}
                 >
                   Enjoy The Travel Freedom
@@ -133,7 +162,9 @@ export default function Navigation() {
                   to={item.href}
                   onClick={handleNavClick}
                   className={`font-medium transition-colors duration-200 hover:text-travel-orange relative ${
-                    isScrolled ? "text-travel-navy" : "text-white"
+                    isScrolled || isMobileMenuOpen
+                      ? "text-travel-navy"
+                      : "text-white"
                   } ${
                     isActivePage(item.href)
                       ? isScrolled
@@ -190,9 +221,12 @@ export default function Navigation() {
             {/* Mobile Menu Button */}
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className={`md:hidden p-2 rounded-lg transition-colors ${
-                isScrolled ? "text-travel-navy" : "text-white"
+              className={`md:hidden p-2 rounded-lg transition-colors relative z-50 ${
+                isScrolled || isMobileMenuOpen
+                  ? "text-travel-navy"
+                  : "text-white"
               }`}
+              aria-label="Toggle mobile menu"
             >
               {isMobileMenuOpen ? (
                 <X className="w-6 h-6" />
@@ -205,32 +239,38 @@ export default function Navigation() {
 
         {/* Mobile Menu */}
         <div
-          className={`md:hidden bg-white border-t transition-all duration-300 ${
+          className={`md:hidden transition-all duration-300 ${
             isMobileMenuOpen
-              ? "max-h-96 opacity-100"
+              ? "fixed left-0 right-0 top-20 bottom-0 z-40 opacity-100 overflow-y-auto"
               : "max-h-0 opacity-0 overflow-hidden"
           }`}
+          style={{
+            background: "rgba(255, 255, 255, 0.98)",
+            backdropFilter: "blur(16px)",
+          }}
         >
-          <div className="container mx-auto px-6 py-6">
-            <div className="flex flex-col gap-4">
+          <div className="container mx-auto px-6 pt-6 pb-8">
+            <div className="flex flex-col gap-2">
               {navItems.map((item) => (
                 <Link
                   key={item.name}
                   to={item.href}
-                  className={`font-medium py-2 hover:text-travel-orange transition-colors relative ${
+                  className={`font-medium py-3 px-4 hover:text-travel-orange transition-colors relative rounded-lg ${
                     isActivePage(item.href)
-                      ? "text-travel-blue font-semibold"
-                      : "text-travel-navy"
+                      ? "text-travel-blue font-semibold bg-travel-blue/5"
+                      : isScrolled
+                        ? "text-travel-navy"
+                        : "text-travel-navy"
                   }`}
                   onClick={handleNavClick}
                 >
                   {item.name}
                   {isActivePage(item.href) && (
-                    <div className="absolute left-0 top-0 bottom-0 w-1 bg-travel-blue rounded-r" />
+                    <div className="absolute left-2 top-0 bottom-0 w-1 bg-travel-blue rounded-r" />
                   )}
                 </Link>
               ))}
-              <div className="flex flex-col gap-3 pt-4 border-t">
+              <div className="flex flex-col gap-3 pt-6 pb-6 border-t">
                 <Button
                   variant="outline"
                   onClick={() => {
@@ -239,8 +279,9 @@ export default function Navigation() {
                       "Hi! I'm interested in getting a quote for a tour. Can you help me?";
                     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
                     window.open(whatsappUrl, "_blank");
+                    setIsMobileMenuOpen(false);
                   }}
-                  className="border-travel-blue text-travel-blue hover:bg-travel-blue hover:text-white"
+                  className="border-travel-blue text-travel-blue hover:bg-travel-blue hover:text-white w-full"
                 >
                   Get Quote
                 </Button>
@@ -251,8 +292,9 @@ export default function Navigation() {
                       "Hi! I'm interested in booking a tour. Can you help me?";
                     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
                     window.open(whatsappUrl, "_blank");
+                    setIsMobileMenuOpen(false);
                   }}
-                  className="bg-travel-blue hover:bg-travel-blue/90 text-white"
+                  className="bg-travel-blue hover:bg-travel-blue/90 text-white w-full"
                 >
                   Book Now
                 </Button>

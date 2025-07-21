@@ -207,7 +207,7 @@ export default function About() {
     <div className="min-h-screen flex flex-col">
       <div className="flex-1">
         {/* Hero Section */}
-        <div className="relative h-96 md:h-[500px] overflow-hidden">
+        <div className="relative min-h-[500px] md:h-[500px] overflow-hidden pt-20 md:pt-28 pb-8">
           <img
             src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80"
             alt="About Us"
@@ -252,11 +252,11 @@ export default function About() {
                   Born from a Passion for Exploration
                 </h2>
                 <p className="text-lg text-travel-navy/80 mb-6 leading-relaxed">
-                  Founded in 2009 by travel enthusiast Rinku Sharma, our company
-                  began with a simple belief: travel should be transformative,
-                  authentic, and accessible to everyone. What started as a small
-                  local tour operation has grown into a trusted travel partner
-                  for thousands of adventurers worldwide.
+                  Founded in 2009 by travel enthusiast Rinkesh Patel, our
+                  company began with a simple belief: travel should be
+                  transformative, authentic, and accessible to everyone. What
+                  started as a small local tour operation has grown into a
+                  trusted travel partner for thousands of adventurers worldwide.
                 </p>
                 <p className="text-lg text-travel-navy/80 mb-6 leading-relaxed">
                   Over the years, we've maintained our commitment to creating
@@ -271,7 +271,7 @@ export default function About() {
                   </div>
                   <div className="flex items-center gap-2 text-travel-orange">
                     <MapPin className="w-5 h-5" />
-                    <span className="font-semibold">Based in New Delhi</span>
+                    <span className="font-semibold">Based in Ahmedabad</span>
                   </div>
                 </div>
               </div>
@@ -610,17 +610,17 @@ export default function About() {
               Join thousands of satisfied travelers who have trusted us with
               their dream journeys.
             </p>
-            <div className="flex flex-wrap justify-center gap-4">
+            <div className="flex flex-col sm:flex-row justify-center gap-4">
               <Button
                 size="lg"
-                className="bg-travel-orange hover:bg-travel-orange/90 text-white px-8 py-3 shadow-lg"
+                className="bg-travel-orange hover:bg-travel-orange/90 text-white px-8 py-3 shadow-lg w-full sm:w-auto"
               >
                 Plan Your Trip
               </Button>
               <Button
                 size="lg"
                 variant="outline"
-                className="border-white/80 bg-white/10 backdrop-blur-sm text-white hover:bg-white hover:text-travel-navy px-8 py-3 shadow-lg"
+                className="border-white/80 bg-white/10 backdrop-blur-sm text-white hover:bg-white hover:text-travel-navy px-8 py-3 shadow-lg w-full sm:w-auto"
               >
                 Contact Our Team
               </Button>
