@@ -269,9 +269,9 @@ export default function About() {
                     <Calendar className="w-5 h-5" />
                     <span className="font-semibold">Established 2009</span>
                   </div>
-                  <div className="flex items-center gap-2 text-travel-orange">
+                                    <div className="flex items-center gap-2 text-travel-orange">
                     <MapPin className="w-5 h-5" />
-                    <span className="font-semibold">Based in New Delhi</span>
+                    <span className="font-semibold">Based in Ahmedabad</span>
                   </div>
                 </div>
               </div>
