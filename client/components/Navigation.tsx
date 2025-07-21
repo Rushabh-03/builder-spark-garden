@@ -99,7 +99,7 @@ export default function Navigation() {
         </div>
       </div>
 
-                  {/* Main Navigation */}
+                        {/* Main Navigation */}
       <nav
         className={`fixed w-full z-50 transition-all duration-300 ${
           isScrolled
