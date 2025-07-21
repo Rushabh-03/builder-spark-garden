@@ -131,16 +131,16 @@ export default function Navigation() {
                 />
               </div>
               <div>
-                <h1
+                                <h1
                   className={`text-xl font-bold ${
-                    isScrolled ? "text-travel-navy" : "text-white"
+                    isScrolled || isMobileMenuOpen ? "text-travel-navy" : "text-white"
                   }`}
                 >
                   Rinku Tours & Travels
                 </h1>
-                <p
+                                <p
                   className={`text-xs ${
-                    isScrolled ? "text-travel-navy/70" : "text-white/80"
+                    isScrolled || isMobileMenuOpen ? "text-travel-navy/70" : "text-white/80"
                   }`}
                 >
                   Enjoy The Travel Freedom
@@ -155,8 +155,8 @@ export default function Navigation() {
                   key={item.name}
                   to={item.href}
                   onClick={handleNavClick}
-                  className={`font-medium transition-colors duration-200 hover:text-travel-orange relative ${
-                    isScrolled ? "text-travel-navy" : "text-white"
+                                    className={`font-medium transition-colors duration-200 hover:text-travel-orange relative ${
+                    isScrolled || isMobileMenuOpen ? "text-travel-navy" : "text-white"
                   } ${
                     isActivePage(item.href)
                       ? isScrolled
@@ -213,8 +213,8 @@ export default function Navigation() {
             {/* Mobile Menu Button */}
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className={`md:hidden p-2 rounded-lg transition-colors ${
-                isScrolled ? "text-travel-navy" : "text-white"
+                            className={`md:hidden p-2 rounded-lg transition-colors ${
+                isScrolled || isMobileMenuOpen ? "text-travel-navy" : "text-white"
               }`}
             >
               {isMobileMenuOpen ? (
