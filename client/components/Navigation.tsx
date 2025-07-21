@@ -110,12 +110,12 @@ export default function Navigation() {
                               {/* Main Navigation */}
       <nav
         className={`fixed w-full z-50 transition-all duration-300`}
-                style={{
+                        style={{
           top: isScrolled || isMobile ? "0" : "40px",
-          background: isScrolled
+          background: isScrolled || isMobileMenuOpen
             ? "rgba(255, 255, 255, 0.98)"
             : "transparent",
-          backdropFilter: isScrolled ? "blur(16px)" : "none",
+          backdropFilter: isScrolled || isMobileMenuOpen ? "blur(16px)" : "none",
           boxShadow: isScrolled ? "0 4px 6px -1px rgba(0, 0, 0, 0.1)" : "none"
         }}
       >
