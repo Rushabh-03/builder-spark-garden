@@ -228,9 +228,9 @@ export default function Navigation() {
 
                         {/* Mobile Menu */}
         <div
-                              className={`md:hidden border-t transition-all duration-300 ${
+                                        className={`md:hidden border-t transition-all duration-300 ${
             isMobileMenuOpen
-              ? "max-h-[calc(100vh-80px)] opacity-100 overflow-y-auto"
+              ? "max-h-[calc(100vh-60px)] opacity-100 overflow-y-auto"
               : "max-h-0 opacity-0 overflow-hidden"
           }`}
                               style={{
@@ -238,15 +238,15 @@ export default function Navigation() {
             backdropFilter: "blur(16px)"
           }}
         >
-          <div className="container mx-auto px-6 py-6">
+                    <div className="container mx-auto px-6 py-8">
             <div className="flex flex-col gap-4">
                             {navItems.map((item) => (
                 <Link
                   key={item.name}
                   to={item.href}
-                  className={`font-medium py-2 hover:text-travel-orange transition-colors relative ${
+                                    className={`font-medium py-3 px-4 hover:text-travel-orange transition-colors relative rounded-lg ${
                     isActivePage(item.href)
-                      ? "text-travel-blue font-semibold"
+                      ? "text-travel-blue font-semibold bg-travel-blue/5"
                       : isScrolled
                       ? "text-travel-navy"
                       : "text-travel-navy"
@@ -254,8 +254,8 @@ export default function Navigation() {
                   onClick={handleNavClick}
                 >
                   {item.name}
-                  {isActivePage(item.href) && (
-                    <div className="absolute left-0 top-0 bottom-0 w-1 bg-travel-blue rounded-r" />
+                                    {isActivePage(item.href) && (
+                    <div className="absolute left-2 top-0 bottom-0 w-1 bg-travel-blue rounded-r" />
                   )}
                 </Link>
               ))}
