@@ -252,11 +252,11 @@ export default function About() {
                   Born from a Passion for Exploration
                 </h2>
                 <p className="text-lg text-travel-navy/80 mb-6 leading-relaxed">
-                  Founded in 2009 by travel enthusiast Rinkesh Patel, our company
-                  began with a simple belief: travel should be transformative,
-                  authentic, and accessible to everyone. What started as a small
-                  local tour operation has grown into a trusted travel partner
-                  for thousands of adventurers worldwide.
+                  Founded in 2009 by travel enthusiast Rinkesh Patel, our
+                  company began with a simple belief: travel should be
+                  transformative, authentic, and accessible to everyone. What
+                  started as a small local tour operation has grown into a
+                  trusted travel partner for thousands of adventurers worldwide.
                 </p>
                 <p className="text-lg text-travel-navy/80 mb-6 leading-relaxed">
                   Over the years, we've maintained our commitment to creating
@@ -269,7 +269,7 @@ export default function About() {
                     <Calendar className="w-5 h-5" />
                     <span className="font-semibold">Established 2009</span>
                   </div>
-                                    <div className="flex items-center gap-2 text-travel-orange">
+                  <div className="flex items-center gap-2 text-travel-orange">
                     <MapPin className="w-5 h-5" />
                     <span className="font-semibold">Based in Ahmedabad</span>
                   </div>

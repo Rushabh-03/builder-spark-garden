@@ -70,7 +70,7 @@ const contactInfo: ContactInfo[] = [
       "Gujarat, India",
     ],
   },
-    {
+  {
     icon: <Clock className="w-6 h-6" />,
     title: "Business Hours",
     details: [
@@ -451,13 +451,13 @@ Can you help me plan this trip?`;
               <h2 className="text-3xl md:text-4xl font-bold text-travel-navy mb-6">
                 Our Office Locations
               </h2>
-                            <p className="text-xl text-travel-navy/70 max-w-3xl mx-auto">
+              <p className="text-xl text-travel-navy/70 max-w-3xl mx-auto">
                 Visit us at our office in Ahmedabad for personalized travel
                 consultation.
               </p>
             </div>
 
-                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 gap-8 max-w-md mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 gap-8 max-w-md mx-auto">
               {offices.map((office, index) => (
                 <div
                   key={index}
