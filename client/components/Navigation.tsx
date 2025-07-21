@@ -228,9 +228,9 @@ export default function Navigation() {
 
                         {/* Mobile Menu */}
         <div
-                                                            className={`md:hidden transition-all duration-300 ${
+                                                                      className={`md:hidden transition-all duration-300 ${
             isMobileMenuOpen
-              ? "fixed inset-0 top-0 z-40 opacity-100 overflow-y-auto"
+              ? "fixed inset-0 top-16 z-40 opacity-100 overflow-y-auto"
               : "max-h-0 opacity-0 overflow-hidden"
           }`}
                               style={{
