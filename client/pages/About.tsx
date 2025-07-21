@@ -252,7 +252,7 @@ export default function About() {
                   Born from a Passion for Exploration
                 </h2>
                 <p className="text-lg text-travel-navy/80 mb-6 leading-relaxed">
-                  Founded in 2009 by travel enthusiast Rinku Sharma, our company
+                  Founded in 2009 by travel enthusiast Rinkesh Patel, our company
                   began with a simple belief: travel should be transformative,
                   authentic, and accessible to everyone. What started as a small
                   local tour operation has grown into a trusted travel partner
