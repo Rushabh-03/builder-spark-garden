@@ -338,7 +338,7 @@ export default function Destinations() {
               backgroundPosition: "center",
             }}
           />
-          <div className="relative z-10 container mx-auto px-6 h-full flex items-center">
+                    <div className="relative z-10 container mx-auto px-6 h-full flex items-center py-8">
             <div className="text-white max-w-4xl">
               <h1 className="text-4xl md:text-6xl font-bold mb-6">
                 Discover Amazing Destinations
