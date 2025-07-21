@@ -327,8 +327,8 @@ export default function Destinations() {
   return (
     <div className="min-h-screen flex flex-col">
       <div className="flex-1">
-        {/* Hero Section */}
-        <div className="relative h-96 bg-gradient-to-r from-travel-navy to-travel-blue overflow-hidden">
+                {/* Hero Section */}
+        <div className="relative h-96 bg-gradient-to-r from-travel-navy to-travel-blue overflow-hidden pt-20 md:pt-28">
           <div className="absolute inset-0 bg-black/20" />
           <div
             className="absolute inset-0 opacity-30"
