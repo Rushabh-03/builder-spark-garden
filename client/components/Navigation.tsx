@@ -127,7 +127,7 @@ export default function Navigation() {
             <Link to="/" className="flex items-center gap-3">
               <div className="w-12 h-12 flex-shrink-0">
                 <img
-                  src="/logo.png"
+                  src="/logo.webp"
                   alt="Rinku Tours & Travels"
                   className="w-full h-full object-contain rounded"
                 />
